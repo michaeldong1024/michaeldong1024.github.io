@@ -20,23 +20,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;michaeldong1024.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta property="og:type" content="website">
+<meta name="description" content="深浅拷贝 深浅拷贝原理 浅拷贝(copy)：拷贝父对象，不会拷贝对象的内部的子对象。 深拷贝(deepcopy)： copy 模块的 deepcopy 方法，完全拷贝了父对象及其子对象。  菜鸟教程 1、浅拷贝123456789101112131415161718192021l1 &#x3D; [111,222,[333,444]]l2 &#x3D; l1.copy()# l3 &#x3D; l1">
+<meta property="og:type" content="article">
 <meta property="og:title" content="TsukiBlog">
-<meta property="og:url" content="https://michaeldong1024.github.io/tags/%E5%AF%BC%E8%88%AA/index.html">
+<meta property="og:url" content="https://michaeldong1024.github.io/2021/04/19/day7/index.html">
 <meta property="og:site_name" content="TsukiBlog">
+<meta property="og:description" content="深浅拷贝 深浅拷贝原理 浅拷贝(copy)：拷贝父对象，不会拷贝对象的内部的子对象。 深拷贝(deepcopy)： copy 模块的 deepcopy 方法，完全拷贝了父对象及其子对象。  菜鸟教程 1、浅拷贝123456789101112131415161718192021l1 &#x3D; [111,222,[333,444]]l2 &#x3D; l1.copy()# l3 &#x3D; l1">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-19T09:30:50.862Z">
+<meta property="article:modified_time" content="2021-04-19T09:41:59.623Z">
 <meta property="article:author" content="Michaeldong">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://michaeldong1024.github.io/tags/%E5%AF%BC%E8%88%AA/">
+<link rel="canonical" href="https://michaeldong1024.github.io/2021/04/19/day7/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:false,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:&quot;&quot;,&quot;permalink&quot;:&quot;&quot;,&quot;path&quot;:&quot;tags&#x2F;导航&#x2F;index.html&quot;,&quot;title&quot;:&quot;&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;michaeldong1024.github.io&#x2F;2021&#x2F;04&#x2F;19&#x2F;day7&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;04&#x2F;19&#x2F;day7&#x2F;&quot;,&quot;title&quot;:&quot;&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>标签: 导航 | TsukiBlog</title><script src="/js/config.js"></script>
+<title> | TsukiBlog</title><script src="/js/config.js"></script>
   
 
 
@@ -128,7 +132,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -141,6 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">深浅拷贝原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="nav-number">2.</span> <span class="nav-text">1、浅拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E6%B5%85%E6%B7%B1copy"><span class="nav-number">3.</span> <span class="nav-text">2、浅深copy</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -202,70 +207,112 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">导航
-          <small>标签</small>
-        </h2>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/04/19/day7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Michaeldong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TsukiBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+
+      <time title="创建时间：2021-04-19 17:30:50 / 修改时间：17:41:59" itemprop="dateCreated datePublished" datetime="2021-04-19T17:30:50+08:00">2021-04-19</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>深浅拷贝</p>
+<h2 id="深浅拷贝原理"><a href="#深浅拷贝原理" class="headerlink" title="深浅拷贝原理"></a>深浅拷贝原理</h2><ul>
+<li><strong>浅拷贝(copy)：</strong>拷贝父对象，不会拷贝对象的内部的子对象。</li>
+<li><strong>深拷贝(deepcopy)：</strong> copy 模块的 deepcopy 方法，完全拷贝了父对象及其子对象。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/python-understanding-dict-copy-shallow-or-deep.html">菜鸟教程</a></p>
+<h2 id="1、浅拷贝"><a href="#1、浅拷贝" class="headerlink" title="1、浅拷贝"></a>1、浅拷贝</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">l1 &#x3D; [111,222,[333,444]]</span><br><span class="line">l2 &#x3D; l1.copy()</span><br><span class="line"># l3 &#x3D; l1[:]</span><br><span class="line"></span><br><span class="line">print(id(l1[0]),id(l1[1]),id(l1[2]))</span><br><span class="line">&gt;&gt;&gt;4363032704 4363036256 4366729856</span><br><span class="line">print(id(l2[0]),id(l2[1]),id(l2[2]))</span><br><span class="line">&gt;&gt;&gt;4363032704 4363036256 4366729856</span><br><span class="line"></span><br><span class="line">l1[2][0] &#x3D; 666</span><br><span class="line">print(l1)</span><br><span class="line">&gt;&gt;&gt;[111, 222, [666, 444]]</span><br><span class="line">print(l2)</span><br><span class="line">&gt;&gt;&gt;[111, 222, [666, 444]]</span><br><span class="line"></span><br><span class="line">l1[0] &#x3D; 777</span><br><span class="line">print(l1)</span><br><span class="line">&gt;&gt;&gt;[777, 222, [333, 444]]</span><br><span class="line">print(l2)</span><br><span class="line">&gt;&gt;&gt;[111, 222, [333, 444]]</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、浅深copy"><a href="#2、浅深copy" class="headerlink" title="2、浅深copy"></a>2、浅深copy</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">from copy import deepcopy</span><br><span class="line"></span><br><span class="line">l1 &#x3D; [111,222,[333,444]]</span><br><span class="line">l2 &#x3D; deepcopy(l1)</span><br><span class="line"></span><br><span class="line">print(id(l1[0]),id(l1[1]),id(l1[2]))</span><br><span class="line">&gt;&gt;&gt; 4462676096 4462679648 4466381888</span><br><span class="line">print(id(l2[0]),id(l2[1]),id(l2[2]))</span><br><span class="line">&gt;&gt;&gt; 4462676096 4462679648 4466382208</span><br><span class="line"></span><br><span class="line">l1[2][0] &#x3D; 666</span><br><span class="line">print(l1)</span><br><span class="line">&gt;&gt;&gt; [111, 222, [666, 444]]</span><br><span class="line">print(l2)</span><br><span class="line">&gt;&gt;&gt; [111, 222, [333, 444]]</span><br><span class="line"></span><br><span class="line">l1[0] &#x3D; 777</span><br><span class="line">print(l1)</span><br><span class="line">&gt;&gt;&gt; [777, 222, [333, 444]]</span><br><span class="line">print(l2)</span><br><span class="line">&gt;&gt;&gt; [111, 222, [333, 444]]</span><br></pre></td></tr></table></figure>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-04-17T12:05:14+08:00"
-              content="2021-04-17">
-          04-17
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpeg" alt="Michaeldong 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpeg" alt="Michaeldong 支付宝">
+        <span>支付宝</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/17/day22/" itemprop="url">
-            <span itemprop="name">day22</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2021-04-16T12:05:14+08:00"
-              content="2021-04-16">
-          04-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/16/day21/" itemprop="url">
-            <span itemprop="name">day21</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/04/19/day8/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/04/19/day6/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
 <script src="/js/comments.js"></script>
 </div>
   </main>
