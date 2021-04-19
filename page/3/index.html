@@ -82,7 +82,6 @@
 <nav class="site-nav">
   <ul class="main-menu menu">
         <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
@@ -243,7 +242,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-04-19 18:02:29" itemprop="dateModified" datetime="2021-04-19T18:02:29+08:00">2021-04-19</time>
+        <time title="修改时间：2021-04-19 18:12:27" itemprop="dateModified" datetime="2021-04-19T18:12:27+08:00">2021-04-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -265,47 +264,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<p>编程语言、基本数据类型</p>
-<h2 id="1、编程语言"><a href="#1、编程语言" class="headerlink" title="1、编程语言"></a>1、编程语言</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
-<li>低级语言<ul>
-<li>机器语言</li>
-<li>汇编</li>
-</ul>
-</li>
-<li>高级语言<ul>
-<li>编译型(go、c)</li>
-<li>解释型(python、shell)</li>
-</ul>
-</li>
-</ul>
-<p><strong>机器语言：</strong>直接使用二进制指令编写程序<br>优点：执行效率高<br>缺点：</p>
-<ul>
-<li>1、二进制指令非常难记，容易出错</li>
-<li>2、即便是要实现一个小功能，需要用到的二进制指令的条数也非常多</li>
-</ul>
-<p><strong>汇编语言：</strong>用英文标签取代二进制指令去编写程序</p>
-<p><strong>高级语言：</strong>用人类能理解的表达方式去编写程序,意味着计算机无法直接理解，必须经过翻译<br>eg:python<br><strong>python的三大特点</strong></p>
-<ul>
-<li><p>1、语法极简</p>
-</li>
-<li><p>2、第三方库丰富</p>
-</li>
-<li><p>3、封装程度高</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">机器语言</span><br><span class="line">#优点是最底层，执行速度最快</span><br><span class="line">#缺点是最复杂，开发效率最低</span><br><span class="line"></span><br><span class="line">汇编语言</span><br><span class="line">#优点是比较底层，执行速度最快</span><br><span class="line">#缺点是复杂，开发效率最低</span><br><span class="line"></span><br><span class="line">高级语言</span><br><span class="line">#编译型语言执行速度快，不依赖语言环境运行，跨平台差</span><br><span class="line">#解释型跨平台好，一份代码，到处使用，缺点是执行速度慢，依赖解释器运行</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="2、python解释器安装"><a href="#2、python解释器安装" class="headerlink" title="2、python解释器安装"></a>2、python解释器安装</h2><p>略</p>
-<h2 id="3、编写第一个python程序"><a href="#3、编写第一个python程序" class="headerlink" title="3、编写第一个python程序"></a>3、编写第一个python程序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&#39;hello world!&#39;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="4、一个python程序运行所经历的三个阶段（-）"><a href="#4、一个python程序运行所经历的三个阶段（-）" class="headerlink" title="4、一个python程序运行所经历的三个阶段（******）"></a>4、一个python程序运行所经历的三个阶段（******）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python3 1.py</span><br><span class="line">	</span><br><span class="line">1、先启动python解释器</span><br><span class="line">2、解释器会1.py的内容从硬盘读入内存</span><br><span class="line">3、解释器会解释执行刚刚读入内存的内容，开始识别python语法</span><br></pre></td></tr></table></figure>
-
-<h2 id="5、注释"><a href="#5、注释" class="headerlink" title="5、注释"></a>5、注释</h2><p>单行注释<br>#</p>
-<p>多行注释：```</p>
-<h2 id="6、变量"><a href="#6、变量" class="headerlink" title="6、变量"></a>6、变量</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/linhaifeng/articles/7133167.html#_label7">博客参考</a></p>
-<h2 id="7、基本数据类型"><a href="#7、基本数据类型" class="headerlink" title="7、基本数据类型"></a>7、基本数据类型</h2><p>数字（整形，长整形，浮点型，复数）<br>字符串<br>字节串：在介绍字符编码时介绍字节bytes类型<br>列表<br>元组<br>字典<br>集合</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/linhaifeng/articles/7133357.html">博客参考</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1189883314197168128">知乎参考</a></p>
-
+          <p>编程语言、基本数据类型</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/22/day2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -362,7 +329,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-04-19 18:02:53" itemprop="dateModified" datetime="2021-04-19T18:02:53+08:00">2021-04-19</time>
+        <time title="修改时间：2021-04-19 18:12:27" itemprop="dateModified" datetime="2021-04-19T18:12:27+08:00">2021-04-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -384,37 +351,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<h1 id="编程语言介绍与计算机基础"><a href="#编程语言介绍与计算机基础" class="headerlink" title="编程语言介绍与计算机基础"></a>编程语言介绍与计算机基础</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/linhaifeng/articles/7133167.html#_label1">参考博客</a></p>
-<h2 id="一-编程语言介绍"><a href="#一-编程语言介绍" class="headerlink" title="一 编程语言介绍"></a>一 编程语言介绍</h2><h3 id="1-什么是编程语言"><a href="#1-什么是编程语言" class="headerlink" title="1 什么是编程语言"></a>1 什么是编程语言</h3><p>能够被计算机所识别的表达方式即编程语言，语言是沟通的介质，而编程语言是程序员与计算机沟通的介质。在编程的世界里，计算机更像是人的奴隶，人类编程的目的就命令奴隶去工作</p>
-<h3 id="2-什么是编程（-）"><a href="#2-什么是编程（-）" class="headerlink" title="2 什么是编程（******）"></a>2 什么是编程（******）</h3><p>编程即程序员根据需求把自己的思想流程按照某种编程语言的语法风格编写下来，产出的结果就是包含一堆字符的文件。<br>强调：程序在未运行前跟普通文件无异，只有程序在运行时，文件内所写的字符才有特定的语法意义　　</p>
-<h3 id="3-什么是程序"><a href="#3-什么是程序" class="headerlink" title="3 什么是程序"></a>3 什么是程序</h3><p>程序就是代码文件，程序又称之为软件，软件是计算机硬件的灵魂</p>
-<h3 id="4、为何要编程"><a href="#4、为何要编程" class="headerlink" title="4、为何要编程"></a>4、为何要编程</h3><p>为了让计算机能够像人一样帮我们做事，从而把人解放出来<br>程序员———–》编程语言————-》计算机硬件</p>
-<h2 id="二-计算机基础"><a href="#二-计算机基础" class="headerlink" title="二 计算机基础"></a>二 计算机基础</h2><h3 id="5、计算机硬件基础"><a href="#5、计算机硬件基础" class="headerlink" title="5、计算机硬件基础"></a>5、计算机硬件基础</h3><p>与运行程序有关的三大核心硬件（******）</p>
-<ul>
-<li>cpu</li>
-<li>内存</li>
-<li>硬盘</li>
-</ul>
-<p>计算机硬件五大组成部分：</p>
-<ul>
-<li>1、控制器：是计算机的指挥系统，负责控制所有其他硬件的运行—–》人的大脑</li>
-<li>2、运算器：负责运算=》数学运算+逻辑运算———————–》人的大脑<br>控制器+运算器=》cpu————————————》人的大脑</li>
-<li>3、存储器：存取数据<br>内存/主存：——————————————–》人脑的记忆功能<br>存放的是电信号，断电数据则丢失<br>只能临时保存数据<br>读写速度快<br>外存：————————————————-》本子<br>存放的是磁信号，断电数据仍然存在，可以永久保存数据<br>读写速度慢</li>
-<li>4、输入设备input</li>
-<li>5、输出设备output</li>
-</ul>
-<p><strong>程序的运行经历两个阶段</strong></p>
-<ul>
-<li><p>1、加载阶段<br>程序最先放在硬盘中<br>程序的运行需要把程序的代码从硬盘加载到内存中</p>
-</li>
-<li><p>2、运行阶段</p>
-<p>然后cpu从内存中取代码执行</p>
-<h3 id="6、操作系统"><a href="#6、操作系统" class="headerlink" title="6、操作系统"></a>6、操作系统</h3></li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1189883314197168128">请点击！</a></p>
-<h3 id="7、画计算机完整体系结构图（-）"><a href="#7、画计算机完整体系结构图（-）" class="headerlink" title="7、画计算机完整体系结构图（******）"></a>7、画计算机完整体系结构图（******）</h3>
+          <p>编程语言介绍与计算机基础</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/21/day1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
