@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;michaeldong1024.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="闭包函数、装饰器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="day12">
+<meta property="og:url" content="https://michaeldong1024.github.io/2021/04/04/day12/index.html">
+<meta property="og:site_name" content="TsukiBlog">
+<meta property="og:description" content="闭包函数、装饰器">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-04T04:05:14.000Z">
+<meta property="article:modified_time" content="2021-04-19T10:12:27.697Z">
+<meta property="article:author" content="Michaeldong">
+<meta property="article:tag" content="导航">
+<meta property="article:tag" content="分享">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://michaeldong1024.github.io/2021/04/04/day12/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;michaeldong1024.github.io&#x2F;2021&#x2F;04&#x2F;04&#x2F;day12&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;04&#x2F;04&#x2F;day12&#x2F;&quot;,&quot;title&quot;:&quot;day12&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>day12 | TsukiBlog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">TsukiBlog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AD%E5%8C%85%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">闭包函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E5%87%BD%E6%95%B0%E4%BD%93%E4%BC%A0%E5%8F%82%E6%9C%89%E4%B8%A4%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.</span> <span class="nav-text">为函数体传参有两种解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">装饰器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、什么是装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E4%B8%BA%E4%BD%95%E8%A6%81%E7%94%A8%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、为何要用装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、如何实现装饰器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A%E6%94%B9%E5%8F%98%E8%A2%AB%E8%A3%85%E9%A5%B0%E8%80%85%E7%9A%84%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">方案一：改变被装饰者的源代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%9A%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E9%9C%80%E8%A6%81%E9%87%8D%E5%A4%8D%E7%BC%96%E5%86%99%EF%BC%8C%E4%BB%A3%E7%A0%81%E5%86%97%E4%BD%99"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">方案二：装饰器的功能需要重复编写，代码冗余</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%89%EF%BC%9A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%BA%8C%E7%9A%84%E4%BB%A3%E7%A0%81%E5%86%97%E4%BD%99%E9%97%AE%E9%A2%98-%E4%BD%86%E6%98%AF%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98-%E3%80%8B%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E5%86%99%E6%AD%BB%E4%BA%86%EF%BC%8C%E5%8F%AA%E8%83%BD%E8%A3%85%E9%A5%B0index%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">方案三：解决方案二的代码冗余问题,但是存在问题-》装饰器的功能写死了，只能装饰index函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E5%9B%9B%EF%BC%9A%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E5%86%99%E6%B4%BB"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">方案四：装饰器的功能写活</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%94%EF%BC%9A%E8%A3%85%E9%A5%B0%E5%99%A8%E7%9A%84%E5%8A%9F%E8%83%BD%E5%86%99%E6%B4%BB"><span class="nav-number">1.2.3.5.</span> <span class="nav-text">方案五：装饰器的功能写活</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E5%85%AD%E3%80%81%E8%A3%85%E9%A5%B0%E5%99%A8%E6%AD%A3%E7%A1%AE%E5%86%99%E6%B3%95"><span class="nav-number">1.2.3.6.</span> <span class="nav-text">方案六、装饰器正确写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.2.3.7.</span> <span class="nav-text">装饰器模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B"><span class="nav-number">1.2.3.8.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E8%A3%85%E9%A5%B0%E5%99%A8%E8%B0%83%E7%94%A8"><span class="nav-number">1.2.3.9.</span> <span class="nav-text">多装饰器调用</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Michaeldong"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Michaeldong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/michaeldong1024" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;michaeldong1024" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/michaeldong1024" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/04/04/day12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Michaeldong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TsukiBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          day12
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-04-04 12:05:14" itemprop="dateCreated datePublished" datetime="2021-04-04T12:05:14+08:00">2021-04-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-04-19 18:12:27" itemprop="dateModified" datetime="2021-04-19T18:12:27+08:00">2021-04-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>闭包函数、装饰器</p>
+<span id="more"></span>
+
+
+
+
+<h1 id="闭包函数"><a href="#闭包函数" class="headerlink" title="闭包函数"></a>闭包函数</h1><p><strong>闭函数：被封闭起来的函数=&gt;定义函数内部的函数，闭函数的特点是只能在函数内用</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def outter():</span><br><span class="line">    x &#x3D; 100</span><br><span class="line">    def wrapper():</span><br><span class="line">        print(x)</span><br></pre></td></tr></table></figure>
+
+<p><strong>包函数：该函数引用了一个名字，该名字是来自与e这一层的</strong><br><strong>总结：闭包函数指的是定义在函数内部的函数引用了一个来自于外层函数作用域中的名字</strong></p>
+<p><strong>闭包函数升级：结合函数对象</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def outter():</span><br><span class="line">    x &#x3D; 100</span><br><span class="line">    def wrapper():</span><br><span class="line">        print(x)</span><br><span class="line">    return wrapper  # 千万不要加括号</span><br><span class="line"></span><br><span class="line">f &#x3D; outter()</span><br><span class="line"></span><br><span class="line">print(f)</span><br><span class="line"></span><br><span class="line">def foo():</span><br><span class="line">    x &#x3D; 666</span><br><span class="line">    f()</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+
+<h2 id="为函数体传参有两种解决方案"><a href="#为函数体传参有两种解决方案" class="headerlink" title="为函数体传参有两种解决方案"></a>为函数体传参有两种解决方案</h2><ul>
+<li><p>方案一:直接以参数的形式传入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def wrapper(x):</span><br><span class="line">    print(x)</span><br><span class="line"></span><br><span class="line">wrapper(100)</span><br></pre></td></tr></table></figure></li>
+<li><p>方案二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def outter(x):</span><br><span class="line">    # x &#x3D; 100</span><br><span class="line">    def wrapper():</span><br><span class="line">        print(x)</span><br><span class="line">    return wrapper  # 千万不要加括号</span><br><span class="line"></span><br><span class="line">f &#x3D; outter(100)</span><br><span class="line">f()</span><br></pre></td></tr></table></figure>
+
+<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><h3 id="1、什么是装饰器"><a href="#1、什么是装饰器" class="headerlink" title="1、什么是装饰器"></a>1、什么是装饰器</h3><p>装饰器指的是装饰别人的工具，装饰指的则是为被装饰者添加新功能<br>但是实现装饰器必须遵循的原则是”开放封闭原则”<br>开放指的是对拓展新功能是开放的，封闭指的则是对修改源码以及调用方式是封闭的</p>
+</li>
+</ul>
+<p>综上装饰器指的是我们要创建一个工具，该工具可以在遵循原则1和2的前提下还能为被装饰对象添加新功能</p>
+<ul>
+<li><p>原则1、不修改被装饰对象源代码</p>
+</li>
+<li><p>原则2、不修改被装饰对象调用方式</p>
+<h3 id="2、为何要用装饰器"><a href="#2、为何要用装饰器" class="headerlink" title="2、为何要用装饰器"></a>2、为何要用装饰器</h3></li>
+</ul>
+<h3 id="3、如何实现装饰器"><a href="#3、如何实现装饰器" class="headerlink" title="3、如何实现装饰器"></a>3、如何实现装饰器</h3><p>装饰器-》函数<br>被装饰者-》函数</p>
+<p><strong>准备被装饰者</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def index():</span><br><span class="line">    print(&#39;from index&#39;)</span><br><span class="line">    time.sleep(3)</span><br><span class="line"></span><br><span class="line">index()</span><br></pre></td></tr></table></figure>
+
+<h4 id="方案一：改变被装饰者的源代码"><a href="#方案一：改变被装饰者的源代码" class="headerlink" title="方案一：改变被装饰者的源代码"></a>方案一：改变被装饰者的源代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def index():</span><br><span class="line">    start &#x3D; time.time()</span><br><span class="line">    print(&#39;from index&#39;)</span><br><span class="line">    time.sleep(1)</span><br><span class="line">    end &#x3D; time.time()</span><br><span class="line">    print(&#39;run time is %s&#39; %(end - start))</span><br><span class="line"></span><br><span class="line">index()</span><br></pre></td></tr></table></figure>
+
+<h4 id="方案二：装饰器的功能需要重复编写，代码冗余"><a href="#方案二：装饰器的功能需要重复编写，代码冗余" class="headerlink" title="方案二：装饰器的功能需要重复编写，代码冗余"></a>方案二：装饰器的功能需要重复编写，代码冗余</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def index():</span><br><span class="line">    print(&#39;from index&#39;)</span><br><span class="line">    time.sleep(1)</span><br><span class="line"></span><br><span class="line">start &#x3D; time.time()</span><br><span class="line">index()</span><br><span class="line">end &#x3D; time.time()</span><br><span class="line">print(&#39;run time is %s&#39; %(end - start))</span><br><span class="line"></span><br><span class="line">start &#x3D; time.time()</span><br><span class="line">index()</span><br><span class="line">end &#x3D; time.time()</span><br><span class="line">print(&#39;run time is %s&#39; %(end - start))</span><br></pre></td></tr></table></figure>
+
+<h4 id="方案三：解决方案二的代码冗余问题-但是存在问题-》装饰器的功能写死了，只能装饰index函数"><a href="#方案三：解决方案二的代码冗余问题-但是存在问题-》装饰器的功能写死了，只能装饰index函数" class="headerlink" title="方案三：解决方案二的代码冗余问题,但是存在问题-》装饰器的功能写死了，只能装饰index函数"></a>方案三：解决方案二的代码冗余问题,但是存在问题-》装饰器的功能写死了，只能装饰index函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def index():</span><br><span class="line">    print(&#39;from index&#39;)</span><br><span class="line">    time.sleep(1)</span><br><span class="line"></span><br><span class="line">def wrapper():</span><br><span class="line">    start &#x3D; time.time()</span><br><span class="line">    index()</span><br><span class="line">    end &#x3D; time.time()</span><br><span class="line">    print(&#39;run time is %s&#39; %(end - start))</span><br><span class="line"></span><br><span class="line">wrapper()</span><br><span class="line">wrapper()</span><br></pre></td></tr></table></figure>
+
+<h4 id="方案四：装饰器的功能写活"><a href="#方案四：装饰器的功能写活" class="headerlink" title="方案四：装饰器的功能写活"></a>方案四：装饰器的功能写活</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def index():</span><br><span class="line">    print(&#39;from index&#39;)</span><br><span class="line">    time.sleep(1)</span><br><span class="line"></span><br><span class="line">def outter(func):</span><br><span class="line">    # func &#x3D; index</span><br><span class="line">    def wrapper():</span><br><span class="line">        start &#x3D; time.time()</span><br><span class="line">        func()</span><br><span class="line">        end &#x3D; time.time()</span><br><span class="line">        print(&#39;run time is %s&#39; %(end - start))</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">index &#x3D; outter(index)  #  index &#x3D; wrapper的内存地址</span><br><span class="line"># print(index)</span><br><span class="line">index()</span><br></pre></td></tr></table></figure>
+
+<h4 id="方案五：装饰器的功能写活"><a href="#方案五：装饰器的功能写活" class="headerlink" title="方案五：装饰器的功能写活"></a>方案五：装饰器的功能写活</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def index():</span><br><span class="line">    print(&#39;from index&#39;)</span><br><span class="line">    time.sleep(1)</span><br><span class="line"></span><br><span class="line">def home(name):</span><br><span class="line">    print(&#39;welcome %s to home page&#39; % name)</span><br><span class="line">    time.sleep(0.5)</span><br><span class="line">    return 123</span><br><span class="line"></span><br><span class="line">def outter(func):</span><br><span class="line">    # func &#x3D; 最原始那个home的内存地址</span><br><span class="line">    def wrapper(*args,**kwargs):</span><br><span class="line">        start &#x3D; time.time()</span><br><span class="line">        res &#x3D; func(*args,**kwargs)  # 最原始那个home的内存地址()</span><br><span class="line">        end &#x3D; time.time()</span><br><span class="line">        print(&#39;run time is %s&#39; % (end - start))</span><br><span class="line">        return res</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">home &#x3D; outter(home)  # home &#x3D; wrapper的内存地址</span><br><span class="line">index &#x3D; outter(index)  # home &#x3D; wrapper的内存地址</span><br><span class="line"></span><br><span class="line">res &#x3D; home(&#39;egon&#39;)</span><br><span class="line">print(res)</span><br><span class="line"></span><br><span class="line"># res &#x3D; index()</span><br><span class="line"># print(res)</span><br></pre></td></tr></table></figure>
+
+<h4 id="方案六、装饰器正确写法"><a href="#方案六、装饰器正确写法" class="headerlink" title="方案六、装饰器正确写法"></a>方案六、装饰器正确写法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"></span><br><span class="line">def outter(func):</span><br><span class="line">    # func &#x3D; 最原始那个home的内存地址</span><br><span class="line">    def wrapper(*args, **kwargs):</span><br><span class="line">        start &#x3D; time.time()</span><br><span class="line">        res &#x3D; func(*args, **kwargs)  # 最原始那个home的内存地址()</span><br><span class="line">        end &#x3D; time.time()</span><br><span class="line">        print(&#39;run time is %s&#39; % (end - start))</span><br><span class="line">        return res</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">@outter  # index &#x3D; outter(index)</span><br><span class="line">def index():</span><br><span class="line">    print(&#39;from index&#39;)</span><br><span class="line">    time.sleep(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@outter  # home &#x3D; outter(home)</span><br><span class="line">def home(name):</span><br><span class="line">    print(&#39;welcome %s to home page&#39; % name)</span><br><span class="line">    time.sleep(0.5)</span><br><span class="line">    return 123</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">res &#x3D; home(&#39;egon&#39;)</span><br><span class="line">print(res)</span><br></pre></td></tr></table></figure>
+
+<h4 id="装饰器模板"><a href="#装饰器模板" class="headerlink" title="装饰器模板"></a>装饰器模板</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def deco(func):</span><br><span class="line">    def wrapper(*args,**kwargs):</span><br><span class="line">        res &#x3D; func(*args,**kwargs)</span><br><span class="line">        return res</span><br><span class="line">    return wrapper</span><br></pre></td></tr></table></figure>
+
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#统计时间的装饰器</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">def timmer(func):</span><br><span class="line">    def wrapper(*args,**kwargs):</span><br><span class="line">        start &#x3D; time.time()</span><br><span class="line">        res &#x3D; func(*args,**kwargs)</span><br><span class="line">        stop &#x3D; time.time()</span><br><span class="line">        print(stop - start)</span><br><span class="line">        return res</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">认证功能装饰器</span><br><span class="line">def auth(func):</span><br><span class="line">    def wrapper(*args,**kwargs):</span><br><span class="line">        inp_user &#x3D; input(&#39;Username: &#39;).strip()</span><br><span class="line">        inp_pwd &#x3D; input(&#39;Password: &#39;).strip()</span><br><span class="line">        if inp_user &#x3D;&#x3D; &#39;egon&#39; and inp_pwd &#x3D;&#x3D; &#39;123&#39;:</span><br><span class="line">            res &#x3D; func(*args,**kwargs)</span><br><span class="line">            return res</span><br><span class="line">        else:</span><br><span class="line">            print(&#39;登录失败&#39;)</span><br><span class="line">    return wrapper</span><br><span class="line"></span><br><span class="line">@auth  # index &#x3D; auth(index)</span><br><span class="line">def index():</span><br><span class="line">    print(&#39;from index&#39;)</span><br><span class="line"></span><br><span class="line">index()</span><br></pre></td></tr></table></figure>
+
+<h4 id="多装饰器调用"><a href="#多装饰器调用" class="headerlink" title="多装饰器调用"></a>多装饰器调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">def deco1(func1):  # func1 &#x3D; wrapper2的内存地址</span><br><span class="line">    def wrapper1(*args,**kwargs):</span><br><span class="line">        print(&#39;&#x3D;&#x3D;&#x3D;&gt;wrapper1&#39;)</span><br><span class="line">        res1 &#x3D; func1(*args,**kwargs)</span><br><span class="line">        print(&#39;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&gt;end wrapper1&#39;)</span><br><span class="line">        return res1</span><br><span class="line">    return wrapper1</span><br><span class="line"></span><br><span class="line">def deco2(func2):  # func2 &#x3D; wrapper3的内存地址</span><br><span class="line">    def wrapper2(*args,**kwargs):</span><br><span class="line">        print(&#39;&#x3D;&#x3D;&#x3D;&gt;wrapper2&#39;)</span><br><span class="line">        res2 &#x3D; func2(*args,**kwargs)</span><br><span class="line">        print(&#39;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&gt;end wrapper2&#39;)</span><br><span class="line">        return res2</span><br><span class="line">    return wrapper2</span><br><span class="line"></span><br><span class="line">def deco3(func3):  # func3 &#x3D; 最原始那个index的内存地址</span><br><span class="line">    def wrapper3(*args,**kwargs):</span><br><span class="line">        print(&#39;&#x3D;&#x3D;&#x3D;&gt;wrapper3&#39;)</span><br><span class="line">        res3 &#x3D; func3(*args,**kwargs)</span><br><span class="line">        print(&#39;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&gt;end wrapper3&#39;)</span><br><span class="line">        return res3</span><br><span class="line">    return wrapper3</span><br><span class="line"></span><br><span class="line">        # index &#x3D; wrapper1的内存地址</span><br><span class="line">@deco1  # deco1(wrapper2的内存地址)      ---&gt; wrapper1的内存地址  </span><br><span class="line">@deco2  # deco2(wrapper3的内存地址)      ---&gt; wrapper2的内存地址           </span><br><span class="line">@deco3  # deco3(最原始那个index的内存地址) ---&gt; wrapper3的内存地址           </span><br><span class="line">def index():                                                            </span><br><span class="line">    print(&#39;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&gt;index&#39;)                                              </span><br><span class="line">                                                                        </span><br><span class="line">index()</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpeg" alt="Michaeldong 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpeg" alt="Michaeldong 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%AF%BC%E8%88%AA/" rel="tag"># 导航</a>
+              <a href="/tags/%E5%88%86%E4%BA%AB/" rel="tag"># 分享</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/04/03/day11/" rel="prev" title="day11">
+                  <i class="fa fa-chevron-left"></i> day11
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/04/07/day13/" rel="next" title="day13">
+                  day13 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Michaeldong</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
