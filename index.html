@@ -679,7 +679,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-04-26 19:22:52" itemprop="dateModified" datetime="2021-04-26T19:22:52+08:00">2021-04-26</time>
+        <time title="修改时间：2021-04-26 19:28:09" itemprop="dateModified" datetime="2021-04-26T19:28:09+08:00">2021-04-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -701,18 +701,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-推荐的目录结构"><a href="#1-推荐的目录结构" class="headerlink" title="1 推荐的目录结构"></a>1 推荐的目录结构</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Foo&#x2F;</span><br><span class="line">|-- core&#x2F;</span><br><span class="line">|   |-- core.py</span><br><span class="line">|</span><br><span class="line">|-- api&#x2F;</span><br><span class="line">|   |-- api.py</span><br><span class="line">|</span><br><span class="line">|-- db&#x2F;</span><br><span class="line">|   |-- db_handle.py</span><br><span class="line">|</span><br><span class="line">|-- lib&#x2F;</span><br><span class="line">|   |-- common.py</span><br><span class="line">|</span><br><span class="line">|-- conf&#x2F;</span><br><span class="line">|   |-- settings.py</span><br><span class="line">|</span><br><span class="line">|-- run.py</span><br><span class="line">|-- setup.py</span><br><span class="line">|-- requirements.txt</span><br><span class="line">|-- README</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-目录作用介绍"><a href="#2-目录作用介绍" class="headerlink" title="2 目录作用介绍"></a>2 目录作用介绍</h1><p>   •   core/: 存放业务逻辑相关代码</p>
-<p>   •   api/: 存放接口文件，接口主要用于为业务逻辑提供数据操作。</p>
-<p>   •   db/: 存放操作数据库相关文件，主要用于与数据库交互</p>
-<p>   •   lib/: 存放程序中常用的自定义模块</p>
-<p>   •   conf/: 存放配置文件</p>
-<p>   •   run.py: 程序的启动文件，一般放在项目的根目录下，因为在运行时会默认将运行文件所在的文件夹作为sys.path的第一个路径，这样就省去了处理环境变量的步骤</p>
-<p>   •   setup.py: 安装、部署、打包的脚本。</p>
-<p>   •   requirements.txt: 存放软件依赖的外部Python包列表。</p>
-<p>   •   README: 项目说明文件。</p>
-
+          <h1 id="1-推荐的目录结构"><a href="#1-推荐的目录结构" class="headerlink" title="1 推荐的目录结构"></a>1 推荐的目录结构</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/04/12.%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9B%AE%E5%BD%95%E8%A7%84%E8%8C%83/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -769,7 +766,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-04-26 16:37:29" itemprop="dateModified" datetime="2021-04-26T16:37:29+08:00">2021-04-26</time>
+        <time title="修改时间：2021-04-26 19:28:21" itemprop="dateModified" datetime="2021-04-26T19:28:21+08:00">2021-04-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -792,39 +789,15 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>[TOC]</p>
-<h1 id="1-模块"><a href="#1-模块" class="headerlink" title="1 模块"></a>1 模块</h1><h2 id="1-1-模块致命三问"><a href="#1-1-模块致命三问" class="headerlink" title="1.1  模块致命三问"></a>1.1  模块致命三问</h2><h3 id="1-1-1-什么是模块"><a href="#1-1-1-什么是模块" class="headerlink" title="1.1.1 什么是模块"></a>1.1.1 什么是模块</h3><p>模块就是一系列功能的集合体<br><strong>模块分为四种类别：</strong></p>
-<ul>
-<li>1、一个py文件就可以是一个模块</li>
-<li>2、包：就是一个存放有__init__.py文件的文件夹</li>
-<li>3、使用C编写并链接到python解释器的内置模块</li>
-<li>4、已被编译为共享库或DLL的C或C++扩展</li>
-</ul>
-<p><strong>模块有三种来源</strong></p>
-<ul>
-<li>1、python解释器自带的（内置的、标准库）<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time  <span class="comment"># 内置库</span></span><br><span class="line"><span class="built_in">print</span>(time)</span><br><span class="line"><span class="keyword">import</span> os  <span class="comment"># 标准库</span></span><br><span class="line"><span class="built_in">print</span>(os)</span><br></pre></td></tr></table></figure></li>
-<li>2、第三方的库</li>
-<li>3、自定义的库<h3 id="1-1-2-为何要用模块"><a href="#1-1-2-为何要用模块" class="headerlink" title="1.1.2 为何要用模块"></a>1.1.2 为何要用模块</h3></li>
-<li>1、拿来主义，极大地提升开发效率</li>
-<li>2、解决代码冗余问题<h3 id="1-1-3-如何用模块"><a href="#1-1-3-如何用模块" class="headerlink" title="1.1.3 如何用模块"></a>1.1.3 如何用模块</h3><h2 id="1-2-import语句"><a href="#1-2-import语句" class="headerlink" title="1.2 import语句"></a>1.2 import语句</h2>有如下示范文件#文件名：foo.py<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get</span>():</span></span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change</span>():</span></span><br><span class="line">    <span class="keyword">global</span> x</span><br><span class="line">    x=<span class="number">0</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">self</span>):</span></span><br><span class="line">       <span class="built_in">print</span>(<span class="string">&#x27;from the func&#x27;</span>)</span><br></pre></td></tr></table></figure>
-要想在另外一个py文件中引用foo.py中的功能，需要使用import foo，</li>
-</ul>
-<p><strong>首次导入模块会做三件事：</strong></p>
-<ul>
-<li>1、执行源文件代码</li>
-<li>2、产生一个新的名称空间用于存放源文件执行过程中产生的名字</li>
-<li>3、在当前执行文件所在的名称空间中得到一个名字foo，该名字指向新创建的模块名称空间，若要引用模块名称空间中的名字，需要加上该前缀，如下<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> foo <span class="comment">#导入模块foo</span></span><br><span class="line">a=foo.x <span class="comment">#引用模块foo中变量x的值赋值给当前名称空间中的名字a</span></span><br><span class="line">foo.get() <span class="comment">#调用模块foo的get函数</span></span><br><span class="line">foo.change() <span class="comment">#调用模块foo中的change函数</span></span><br><span class="line">obj=foo.Foo() <span class="comment">#使用模块foo的类Foo来实例化，进一步可以执行obj.func()</span></span><br></pre></td></tr></table></figure>
-加上foo.作为前缀就相当于指名道姓地说明要引用foo名称空间中的名字，所以肯定不会与当前执行文件所在名称空间中的名字相冲突，并且若当前执行文件的名称空间中存在x，执行foo.get()或foo.change()操作的都是源文件中的全局变量x。<h2 id="1-3-from-import-语句"><a href="#1-3-from-import-语句" class="headerlink" title="1.3 from import 语句"></a>1.3 from import 语句</h2>from…import…与import语句基本一致，唯一不同的是：使用import foo导入模块后，引用模块中的名字都需要加上foo.作为前缀，而使用from foo import x,get,change,Foo则可以在当前执行文件中直接引用模块foo中的名字，如下<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> foo <span class="keyword">import</span> x,get,change <span class="comment">#将模块foo中的x和get导入到当前名称空间</span></span><br><span class="line">a=x <span class="comment">#直接使用模块foo中的x赋值给a</span></span><br><span class="line">get() <span class="comment">#直接执行foo中的get函数</span></span><br><span class="line">change() <span class="comment">#即便是当前有重名的x，修改的仍然是源文件中的x</span></span><br></pre></td></tr></table></figure>
-<img src="https://michaeldong1024.github.io/Users/dgt/Downloads/day14/Me/f_import.png" alt="avatar"><br>无需加前缀的好处是使得我们的代码更加简洁，坏处则是容易与当前名称空间中的名字冲突，如果当前名称空间存在相同的名字，则后定义的名字会覆盖之前定义的名字。</li>
-</ul>
-<h1 id="2-一个python文件的两种用途"><a href="#2-一个python文件的两种用途" class="headerlink" title="2 一个python文件的两种用途"></a>2 一个python文件的两种用途</h1><ul>
-<li>1、被当做程序运行</li>
-<li>2、被当做模块导入<br>每个python文件都会内置一个<code>__name__</code>变量#eg: 现在有一个foo.py文件</li>
-<li>1、当foo.py被运行时<code>__name__</code>的值为”<code>__main__</code>“</li>
-<li>2、当foo.py被当做模块导入时,</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__name__</span><br></pre></td></tr></table></figure>
-<p>的值为”foo”</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#因此我们在文件结尾可以这样写</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xxx</span>():</span></span><br><span class="line">		<span class="keyword">pass</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">		xxx()</span><br><span class="line"><span class="comment">#当py文件被直接运行时,执行xxx()</span></span><br><span class="line"><span class="comment">#当py问价被导入时，则不执行xxx()</span></span><br></pre></td></tr></table></figure>
+<h1 id="1-模块"><a href="#1-模块" class="headerlink" title="1 模块"></a>1 模块</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/04/03/11.%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
