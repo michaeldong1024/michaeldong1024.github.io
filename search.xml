@@ -71,16 +71,15 @@
     <url>/2021/03/22/2.python%E8%A7%A3%E9%87%8A%E5%99%A8%E5%92%8C%E5%8F%98%E9%87%8F/</url>
     <content><![CDATA[<h1 id="1-python解释器"><a href="#1-python解释器" class="headerlink" title="1 python解释器"></a>1 python解释器</h1><span id="more"></span>
 
-<h2 id="1-1-python解释器安装"><a href="#1-1-python解释器安装" class="headerlink" title="1.1 python解释器安装"></a>1.1 python解释器安装</h2><h2 id="1-、编写第一个python程序"><a href="#1-、编写第一个python程序" class="headerlink" title="1.、编写第一个python程序"></a>1.、编写第一个python程序</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print(&#39;hello world!&#39;)</span><br></pre></td></tr></table></figure>
+<h2 id="1-1-python解释器安装"><a href="#1-1-python解释器安装" class="headerlink" title="1.1 python解释器安装"></a>1.1 python解释器安装</h2><h2 id="2-编写第一个python程序"><a href="#2-编写第一个python程序" class="headerlink" title="2 编写第一个python程序"></a>2 编写第一个python程序</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello world!&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="4、一个python程序运行所经历的三个阶段（-）"><a href="#4、一个python程序运行所经历的三个阶段（-）" class="headerlink" title="4、一个python程序运行所经历的三个阶段（******）"></a>4、一个python程序运行所经历的三个阶段（******）</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python3 1.py</span><br><span class="line">	</span><br><span class="line">1、先启动python解释器</span><br><span class="line">2、解释器会1.py的内容从硬盘读入内存</span><br><span class="line">3、解释器会解释执行刚刚读入内存的内容，开始识别python语法</span><br></pre></td></tr></table></figure>
+<h2 id="3-一个python程序运行所经历的三个阶段（-）"><a href="#3-一个python程序运行所经历的三个阶段（-）" class="headerlink" title="3 一个python程序运行所经历的三个阶段（******）"></a>3 一个python程序运行所经历的三个阶段（******）</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python3 <span class="number">1.</span>py</span><br><span class="line">	</span><br><span class="line"><span class="number">1</span>、先启动python解释器</span><br><span class="line"><span class="number">2</span>、解释器会<span class="number">1.</span>py的内容从硬盘读入内存</span><br><span class="line"><span class="number">3</span>、解释器会解释执行刚刚读入内存的内容，开始识别python语法</span><br></pre></td></tr></table></figure>
 
-<h2 id="5、注释"><a href="#5、注释" class="headerlink" title="5、注释"></a>5、注释</h2><p>单行注释<br>#</p>
-<p>多行注释：```</p>
-<h2 id="6、变量"><a href="#6、变量" class="headerlink" title="6、变量"></a>6、变量</h2><h3 id="6-1-什么是变量"><a href="#6-1-什么是变量" class="headerlink" title="6.1 什么是变量"></a>6.1 什么是变量</h3><p>变量即变化的量，核心是“变”与“量”二字，变即变化，量即衡量状态。</p>
-<h3 id="6-2-为什么要有变量"><a href="#6-2-为什么要有变量" class="headerlink" title="6.2 为什么要有变量"></a>6.2 为什么要有变量</h3><p>程序执行的本质就是一系列状态的变化，变是程序执行的直接体现，所以我们需要有一种机制能够反映或者说是保存下来程序执行时状态以及状态的变化。</p>
+<h2 id="4-注释"><a href="#4-注释" class="headerlink" title="4 注释"></a>4 注释</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">单行注释: <span class="comment">#</span></span><br><span class="line"></span><br><span class="line">多行注释: ```</span><br></pre></td></tr></table></figure>
+<h2 id="5-变量"><a href="#5-变量" class="headerlink" title="5 变量"></a>5 变量</h2><h3 id="5-1-什么是变量"><a href="#5-1-什么是变量" class="headerlink" title="5.1 什么是变量"></a>5.1 什么是变量</h3><p>变量即变化的量，核心是“变”与“量”二字，变即变化，量即衡量状态。</p>
+<h3 id="5-2-为什么要有变量"><a href="#5-2-为什么要有变量" class="headerlink" title="5.2 为什么要有变量"></a>5.2 为什么要有变量</h3><p>程序执行的本质就是一系列状态的变化，变是程序执行的直接体现，所以我们需要有一种机制能够反映或者说是保存下来程序执行时状态以及状态的变化。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">比如：</span><br><span class="line">    英雄的等级为<span class="number">1</span>，打怪升级(变)为<span class="number">10</span></span><br><span class="line">    僵尸的存活状态<span class="literal">True</span>，被植物打死了，于是变为<span class="literal">False</span></span><br><span class="line">    人的名字为egon，也可以修改为Egon </span><br></pre></td></tr></table></figure>
-<h3 id="6-3-如何定义变量"><a href="#6-3-如何定义变量" class="headerlink" title="6.3 如何定义变量"></a>6.3 如何定义变量</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#变量名:(相当于门牌号，指向值所在的空间)，等号，变量值</span></span><br><span class="line">name=<span class="string">&#x27;Egon&#x27;</span></span><br><span class="line">sex=<span class="string">&#x27;male&#x27;</span></span><br><span class="line">age=<span class="number">18</span></span><br><span class="line">level=<span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-3-如何定义变量"><a href="#5-3-如何定义变量" class="headerlink" title="5.3 如何定义变量"></a>5.3 如何定义变量</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#变量名:(相当于门牌号，指向值所在的空间)，等号，变量值</span></span><br><span class="line">name=<span class="string">&#x27;Egon&#x27;</span></span><br><span class="line">sex=<span class="string">&#x27;male&#x27;</span></span><br><span class="line">age=<span class="number">18</span></span><br><span class="line">level=<span class="number">10</span></span><br></pre></td></tr></table></figure>
 <p>变量的定义规范</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#1. 变量名只能是 字母、数字或下划线的任意组合</span></span><br><span class="line"><span class="comment">#2. 变量名的第一个字符不能是数字</span></span><br><span class="line"><span class="comment">#3. 关键字不能声明为变量名[&#x27;and&#x27;, &#x27;as&#x27;, &#x27;assert&#x27;, &#x27;break&#x27;, &#x27;class&#x27;, &#x27;continue&#x27;, &#x27;def&#x27;, &#x27;del&#x27;, &#x27;elif&#x27;, &#x27;else&#x27;, &#x27;except&#x27;, &#x27;exec&#x27;, &#x27;finally&#x27;, &#x27;for&#x27;, &#x27;from&#x27;, &#x27;global&#x27;, &#x27;if&#x27;, &#x27;import&#x27;, &#x27;in&#x27;, &#x27;is&#x27;, &#x27;lambda&#x27;, &#x27;not&#x27;, &#x27;or&#x27;, &#x27;pass&#x27;, &#x27;print&#x27;, &#x27;raise&#x27;, &#x27;return&#x27;, &#x27;try&#x27;, &#x27;while&#x27;, &#x27;with&#x27;, &#x27;yield&#x27;]</span></span><br></pre></td></tr></table></figure>
 <p>定义方式：</p>
@@ -89,26 +88,21 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#1. 变量名为中文、拼音</span></span><br><span class="line"><span class="comment">#2. 变量名过长</span></span><br><span class="line"><span class="comment">#3. 变量名词不达意</span></span><br></pre></td></tr></table></figure>
 <p>定义变量会有：id，type，value</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#1 等号比较的是value，</span></span><br><span class="line"><span class="comment">#2 is比较的是id</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#强调：</span></span><br><span class="line"><span class="comment">#1. id相同，意味着type和value必定相同</span></span><br><span class="line"><span class="comment">#2. value相同type肯定相同，但id可能不同,如下</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x=<span class="string">&#x27;Info Egon:18&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y=<span class="string">&#x27;Info Egon:18&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(x)</span><br><span class="line"><span class="number">4376607152</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(y)</span><br><span class="line"><span class="number">4376607408</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x == y</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x <span class="keyword">is</span> y</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
-<p>#1、在交互式模式下<br>Python实现int的时候有个小整数池。为了避免因创建相同的值而重复申请内存空间所带来的效率问题， Python解释器会在启动时创建出小整数池，范围是[-5,256]，该范围内的小整数对象是全局解释器范围内被重复使用，永远不会被GC回收</p>
+<ul>
+<li>1、在交互式模式下<br>Python实现int的时候有个小整数池。为了避免因创建相同的值而重复申请内存空间所带来的效率问题， Python解释器会在启动时创建出小整数池，范围是[-5,256]，该范围内的小整数对象是全局解释器范围内被重复使用，永远不会被GC回收</li>
+</ul>
 <p>每创建一个-5到256之间的整数，都是直接从这个池里直接拿走一个值，例如</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>y=4<br>id(y)<br>4297641184</p>
-<p>x=3<br>x+=1<br>id(x)<br>4297641184</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>#在pycharm中<br>但在pycharm中运行python程序，pycharm出于对性能的考虑，会扩大小整数池的范围，其他的字符串等不可变类型也都包含在内一便采用相同的方式处理了，我们只需要记住这是一种优化机制，至于范围到底多大，无需细究</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>y=<span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(y)</span><br><span class="line"><span class="number">4297641184</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x=<span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x+=<span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">id</span>(x)</span><br><span class="line"><span class="number">4297641184</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在pycharm中<br>但在pycharm中运行python程序，pycharm出于对性能的考虑，会扩大小整数池的范围，其他的字符串等不可变类型也都包含在内一便采用相同的方式处理了，我们只需要记住这是一种优化机制，至于范围到底多大，无需细究</li>
+</ul>
 <p>  变量的修改与内存管理（引用计数与垃圾回收机制）</p>
 <p>  常量</p>
 <p>常量即指不变的量，如pai 3.141592653…, 或在程序运行过程中不会改变的量<br>举例，假如老男孩老师的年龄会变，那这就是个变量，但在一些情况下，他的年龄不会变了，那就是常量。在Python中没有一个专门的语法代表常量，程序员约定俗成用变量名全部大写代表常量<br>AGE_OF_OLDBOY = 56</p>
 <p>#ps:在c语言中有专门的常量定义语法，const int count = 60;一旦定义为常量，更改即会报错 </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">## 7、基本数据类型</span><br><span class="line"></span><br><span class="line">数字（整形，长整形，浮点型，复数）</span><br><span class="line">字符串</span><br><span class="line">字节串：在介绍字符编码时介绍字节bytes类型</span><br><span class="line">列表</span><br><span class="line">元组</span><br><span class="line">字典</span><br><span class="line">集合</span><br><span class="line"></span><br><span class="line">[博客参考](https:&#x2F;&#x2F;www.cnblogs.com&#x2F;linhaifeng&#x2F;articles&#x2F;7133357.html)</span><br><span class="line">[知乎参考](https:&#x2F;&#x2F;www.zhihu.com&#x2F;column&#x2F;c_1189883314197168128)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="6-基本数据类型"><a href="#6-基本数据类型" class="headerlink" title="6 基本数据类型"></a>6 基本数据类型</h2><p>数字（整形，长整形，浮点型，复数）<br>字符串<br>字节串：在介绍字符编码时介绍字节bytes类型<br>列表<br>元组<br>字典<br>集合</p>
+<p><a href="https://www.cnblogs.com/linhaifeng/articles/7133357.html">博客参考</a><br><a href="https://www.zhihu.com/column/c_1189883314197168128">知乎参考</a></p>
+]]></content>
       <categories>
         <category>Python之路</category>
       </categories>
@@ -175,8 +169,7 @@
 <li><p>（2）隐式的布尔值: 0、None、空的布尔值为False，其余均为真</p>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="number">0</span>:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;ok&#x27;</span>)</span><br></pre></td></tr></table></figure>
-]]></content>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="number">0</span>:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;ok&#x27;</span>)</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Python之路</category>
       </categories>
@@ -671,7 +664,7 @@
 <li><p>1、保证存不乱码<br>存内存不用管，因为内存固定使用unicode格式<br>存入硬盘的编码格式统一改改为utf-8</p>
 </li>
 <li><p>2、保证取不乱码<br>编码与解码用的是同一张字符编码表</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python3解释器默认读文件的编码格式是utf-8</span><br><span class="line">python2解释器默认读文件的编码格式是ascii</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">python3解释器默认读文件的编码格式是utf-<span class="number">8</span></span><br><span class="line">python2解释器默认读文件的编码格式是<span class="built_in">ascii</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
       <categories>
@@ -1199,9 +1192,6 @@
 <h2 id="6-4-asyncio"><a href="#6-4-asyncio" class="headerlink" title="6.4 asyncio"></a>6.4 asyncio</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 内置模块   python 3.4 推出这个模块，python作者主导的</span></span><br><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="comment"># 这个函数是协程函数</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">task</span>():</span></span><br><span class="line">    res=threading.current_thread().getName()</span><br><span class="line">    <span class="built_in">print</span>(res)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;xxx&#x27;</span>)</span><br><span class="line">    <span class="keyword">await</span> asyncio.sleep(<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;协程执行完成&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">def</span> <span class="title">task2</span>():</span></span><br><span class="line">    res=threading.current_thread().getName()</span><br><span class="line">    <span class="built_in">print</span>(res)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;2222&#x27;</span>)</span><br><span class="line">    <span class="keyword">await</span> asyncio.sleep(<span class="number">3</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;222协程执行完成&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ctime=time.time()</span><br><span class="line">loop=asyncio.get_event_loop()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">tasks=[task(),task2()]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">loop.run_until_complete(asyncio.wait(tasks))</span><br><span class="line">loop.close()</span><br><span class="line"><span class="built_in">print</span>(time.time()-ctime)</span><br></pre></td></tr></table></figure>
 <p><strong>作业</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span> 使用greenlet写两个task，一个计算从<span class="number">1</span>+1w，另一个计算从<span class="number">1</span>乘以到1w，统计一下，切换执行时间快还是不切换快</span><br><span class="line"><span class="number">2</span> 基于gevent协程，实现一个高并发的TCP服务端</span><br></pre></td></tr></table></figure>
-
-
-
 ]]></content>
       <categories>
         <category>Python之路</category>
