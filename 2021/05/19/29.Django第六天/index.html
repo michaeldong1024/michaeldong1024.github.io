@@ -28,7 +28,7 @@
 <meta property="og:description" content="[TOC]今日内容概要">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-19T13:13:25.444Z">
-<meta property="article:modified_time" content="2021-05-24T11:28:51.161Z">
+<meta property="article:modified_time" content="2021-05-25T03:47:24.333Z">
 <meta property="article:author" content="Michaeldong">
 <meta property="article:tag" content="导航">
 <meta property="article:tag" content="分享">
@@ -162,7 +162,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -250,7 +250,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-24 19:28:51" itemprop="dateModified" datetime="2021-05-24T19:28:51+08:00">2021-05-24</time>
+        <time title="修改时间：2021-05-25 11:47:24" itemprop="dateModified" datetime="2021-05-25T11:47:24+08:00">2021-05-25</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -276,11 +276,16 @@
 <span id="more"></span>
 
 <ul>
-<li>模板的继承(使用频率较高)</li>
-<li>模板的导入</li>
-<li>查询关键字<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MySQL</span><br><span class="line">	select</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">    where</span><br><span class="line">    group by</span><br><span class="line">    having</span><br><span class="line">    order by</span><br><span class="line">    distinct</span><br><span class="line">    limit</span><br><span class="line">    regexp</span><br><span class="line">    <span class="comment"># SQL语句内也支持写流程控制</span></span><br><span class="line">Django ORM</span><br></pre></td></tr></table></figure></li>
-<li>神奇的双下线查询</li>
-<li>多表查询<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MySQL</span><br><span class="line">	子查询</span><br><span class="line">    连表操作</span><br><span class="line">Django ORM</span><br><span class="line">	同上</span><br></pre></td></tr></table></figure></li>
+<li><p>模板的继承(使用频率较高)</p>
+</li>
+<li><p>模板的导入</p>
+</li>
+<li><p>查询关键字</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">MySQL</span><br><span class="line">	select</span><br><span class="line">    <span class="keyword">from</span> </span><br><span class="line">    where</span><br><span class="line">    group by</span><br><span class="line">    having</span><br><span class="line">    order by</span><br><span class="line">    distinct</span><br><span class="line">    limit</span><br><span class="line">    regexp</span><br><span class="line">    <span class="comment"># SQL语句内也支持写流程控制</span></span><br><span class="line">Django ORM</span><br></pre></td></tr></table></figure></li>
+<li><p>神奇的双下线查询</p>
+</li>
+<li><p>多表查询</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MySQL</span><br><span class="line">	子查询</span><br><span class="line">    连表操作</span><br><span class="line">Django ORM</span><br><span class="line">	同上</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h1 id="模板的继承-使用频率较高"><a href="#模板的继承-使用频率较高" class="headerlink" title="模板的继承(使用频率较高)"></a>模板的继承(使用频率较高)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">需求</span><br><span class="line">	页面主体不变 部分区域变化</span><br><span class="line"></span><br><span class="line">模板继承</span><br><span class="line">	<span class="number">1.</span>需要现在母版中使用block提前划定区域</span><br><span class="line">    	&#123;% block 区域名称 %&#125;</span><br><span class="line">        &#123;% endblock %&#125;</span><br><span class="line">    <span class="number">2.</span>在子版中先继承再局部替换</span><br><span class="line">    	&#123;% extends <span class="string">&#x27;母版.html&#x27;</span> %&#125;</span><br><span class="line">        &#123;% block 区域名称 %&#125;</span><br><span class="line">    		</span><br><span class="line">		&#123;% endblock %&#125;</span><br><span class="line"></span><br><span class="line">总结</span><br><span class="line">	母版一般情况下都应该至少含有三个区域</span><br><span class="line">    	css区域</span><br><span class="line">        content区域</span><br><span class="line">        js区域</span><br><span class="line">    </span><br><span class="line">补充</span><br><span class="line">	&#123;&#123; block.<span class="built_in">super</span> &#125;&#125;  调用母版内容</span><br></pre></td></tr></table></figure>
 
