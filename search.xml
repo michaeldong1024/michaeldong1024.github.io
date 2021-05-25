@@ -2126,6 +2126,7 @@
 <h3 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">1.整理web框架推导思路</span></span><br><span class="line"><span class="string">2.安装django并正常启动访问，测试三板斧</span></span><br><span class="line"><span class="string">选做题</span></span><br><span class="line"><span class="string">1.结合前端，django，MySQL，pymysql模块实现数据库数据动态展示到前端</span></span><br><span class="line"><span class="string">2.尝试着摸索django模版语法</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Python之路</category>
+        <category>Django</category>
       </categories>
       <tags>
         <tag>导航</tag>
@@ -2155,6 +2156,7 @@
 <h1 id="今日作业"><a href="#今日作业" class="headerlink" title="今日作业"></a>今日作业</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">今日作业</span><br><span class="line">必做题</span><br><span class="line"><span class="number">1.</span>整理今日考题，今日笔记，今日内容</span><br><span class="line"><span class="number">2.</span>熟练掌握django静态文件配置、数据库链接配置，注意事项</span><br><span class="line"><span class="number">3.</span>熟练掌握django orm大体功能</span><br><span class="line"><span class="number">4.</span>利用django在前端页面上完成注册登陆功能</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Python之路</category>
+        <category>Django</category>
       </categories>
       <tags>
         <tag>导航</tag>
@@ -2212,6 +2214,7 @@
 ]]></content>
       <categories>
         <category>Python之路</category>
+        <category>Django</category>
       </categories>
       <tags>
         <tag>导航</tag>
@@ -2241,6 +2244,7 @@
 ]]></content>
       <categories>
         <category>Python之路</category>
+        <category>Django</category>
       </categories>
       <tags>
         <tag>导航</tag>
@@ -2283,6 +2287,7 @@
 ]]></content>
       <categories>
         <category>Python之路</category>
+        <category>Django</category>
       </categories>
       <tags>
         <tag>导航</tag>
@@ -2328,6 +2333,7 @@
 ]]></content>
       <categories>
         <category>Python之路</category>
+        <category>Django</category>
       </categories>
       <tags>
         <tag>导航</tag>
@@ -2357,6 +2363,7 @@
 ]]></content>
       <categories>
         <category>Python之路</category>
+        <category>Django</category>
       </categories>
       <tags>
         <tag>导航</tag>
