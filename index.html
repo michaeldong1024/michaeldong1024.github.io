@@ -155,7 +155,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -211,6 +211,92 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/26/31.Django%E7%AC%AC%E5%85%AB%E5%A4%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Michaeldong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TsukiBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/05/26/31.Django%E7%AC%AC%E5%85%AB%E5%A4%A9/" class="post-title-link" itemprop="url">31 Django第八天</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-05-26 13:05:00 / 修改时间：20:10:12" itemprop="dateCreated datePublished" datetime="2021-05-26T13:05:00+08:00">2021-05-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>[TOC]</p>
+<h1 id="模型层字段及参数"><a href="#模型层字段及参数" class="headerlink" title="模型层字段及参数"></a>模型层字段及参数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">models.AutoField(primary_key=<span class="literal">True</span>)</span><br><span class="line">models.CharField(max_length=<span class="number">32</span>)			<span class="comment"># varchar(32)</span></span><br><span class="line">models.IntergeField()					<span class="comment"># int()</span></span><br><span class="line">models.DateField()						<span class="comment"># date</span></span><br><span class="line">models.DateTimeField()					<span class="comment"># datetime</span></span><br><span class="line">	auto_now</span><br><span class="line">    auto_now_add</span><br><span class="line">models.DecimalField()					<span class="comment"># float()</span></span><br><span class="line">models.BooleanField()</span><br><span class="line">	给这个字段传布尔值会自动转换成数字<span class="number">0</span>或<span class="number">1</span></span><br><span class="line">    一般用在状态二选一</span><br><span class="line">TextField()</span><br><span class="line">     存储大段文本(bbs项目会使用)</span><br><span class="line">EmailField()</span><br><span class="line">	存储邮箱格式数据</span><br><span class="line">FileField()</span><br><span class="line">	存储数据路径(bbs项目会使用)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;自定义字段&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Field</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyCharField</span>(<span class="params">Field</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self,max_length,*args,**kwargs</span>):</span></span><br><span class="line">        self.max_length = max_length</span><br><span class="line">        <span class="built_in">super</span>().__init__(max_length=max_length,*args,**kwargs)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">db_type</span>(<span class="params">self, connection</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;char(%s)&#x27;</span>%self.max_length</span><br></pre></td></tr></table></figure>
+
+<h1 id="常见参数"><a href="#常见参数" class="headerlink" title="常见参数"></a>常见参数</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">max_length</span><br><span class="line">varbose_name</span><br><span class="line">default</span><br><span class="line">null</span><br><span class="line">auto_now</span><br><span class="line">auto_now_add</span><br><span class="line">to</span><br><span class="line">unique</span><br><span class="line">db_index</span><br><span class="line">choices</span><br><span class="line"></span><br><span class="line"><span class="comment"># choices参数</span></span><br><span class="line">创建用户表</span><br><span class="line">	性别</span><br><span class="line">    	两到三种状态</span><br><span class="line">    学历</span><br><span class="line">    	也是有限个</span><br><span class="line">    在职状态</span><br><span class="line">    	也是有限个</span><br><span class="line">    婚姻</span><br><span class="line">    	也是有限个</span><br><span class="line">    ...</span><br><span class="line"><span class="string">&quot;&quot;&quot;针对某个字段可以列举完全的情况 一般都是使用choices参数&quot;&quot;&quot;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Server</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    host = models.CharField(max_length=<span class="number">32</span>)</span><br><span class="line"></span><br><span class="line">    status_choices = (</span><br><span class="line">        (<span class="number">1</span>,<span class="string">&#x27;在线&#x27;</span>),</span><br><span class="line">        (<span class="number">2</span>,<span class="string">&#x27;待上线&#x27;</span>),</span><br><span class="line">        (<span class="number">3</span>,<span class="string">&#x27;宕机&#x27;</span>),</span><br><span class="line">        (<span class="number">4</span>,<span class="string">&#x27;待上架&#x27;</span>)</span><br><span class="line">    )</span><br><span class="line">    status = models.IntegerField(choices=status_choices)</span><br><span class="line"></span><br><span class="line">    desc_choices = (</span><br><span class="line">        (<span class="string">&#x27;哈哈&#x27;</span>,<span class="string">&#x27;哈哈哈哈哈哈&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;呵呵&#x27;</span>,<span class="string">&#x27;呵呵呵呵呵呵&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;嘿嘿&#x27;</span>,<span class="string">&#x27;嘿嘿嘿嘿嘿嘿&#x27;</span>),</span><br><span class="line">        (<span class="string">&#x27;嘻嘻&#x27;</span>,<span class="string">&#x27;嘻嘻嘻嘻嘻嘻&#x27;</span>),</span><br><span class="line">    )</span><br><span class="line">    desc = models.CharField(max_length=<span class="number">32</span>,choices=desc_choices)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取对应关系</span></span><br><span class="line">.get_字段名_display()</span><br></pre></td></tr></table></figure>
+
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>测试环境</span><br><span class="line">	自己拷贝代码</span><br><span class="line"><span class="number">2.</span>测试环境</span><br><span class="line">	pycharm自带的</span><br><span class="line">    	python console</span><br><span class="line"><span class="number">3.</span>配置文件查看所有orm内部SQL语句</span><br><span class="line">	<span class="comment"># 直接拷贝到配置文件中即可</span></span><br><span class="line">	LOGGING = &#123;</span><br><span class="line">    <span class="string">&#x27;version&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;disable_existing_loggers&#x27;</span>: <span class="literal">False</span>,</span><br><span class="line">    <span class="string">&#x27;handlers&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;console&#x27;</span>:&#123;</span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>:<span class="string">&#x27;DEBUG&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;class&#x27;</span>:<span class="string">&#x27;logging.StreamHandler&#x27;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&#x27;loggers&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;django.db.backends&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;handlers&#x27;</span>: [<span class="string">&#x27;console&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;propagate&#x27;</span>: <span class="literal">True</span>,</span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>:<span class="string">&#x27;DEBUG&#x27;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="ORM查询优化"><a href="#ORM查询优化" class="headerlink" title="ORM查询优化"></a>ORM查询优化</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 惰性查询</span></span><br><span class="line">	用不到的数据即使写了orm语句也不会执行</span><br><span class="line"><span class="number">1.</span>only与defer</span><br><span class="line"><span class="number">2.</span>select_related与prefech_related</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1.only与defer</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># res = models.Book.objects.values(&#x27;title&#x27;)  # 列表套字典</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># res1 = models.Book.objects.only(&#x27;title&#x27;)  # 列表套对象</span></span><br><span class="line">    <span class="comment"># print(res1)</span></span><br><span class="line">    <span class="comment"># for i in res1:</span></span><br><span class="line">    <span class="comment">#     # print(i.title)</span></span><br><span class="line">    <span class="comment">#     print(i.price)</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    only括号内写什么字段</span></span><br><span class="line"><span class="string">        生成的对象就含有对应的属性 在查找该属性的时候不再走数据库查询</span></span><br><span class="line"><span class="string">        但是一旦查找括号内没有的字段属性 则每次都会走数据库查询</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># res1 = models.Book.objects.defer(&#x27;title&#x27;)</span></span><br><span class="line">    <span class="comment"># # print(res1)  # 列表套对象</span></span><br><span class="line">    <span class="comment"># for i in res1:</span></span><br><span class="line">    <span class="comment">#     # print(i.title)</span></span><br><span class="line">    <span class="comment">#     print(i.title)</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    defer与only刚好相反</span></span><br><span class="line"><span class="string">        生成的对象就不含有对应的属性 在查找该属性的时候需要每次走数据库查询</span></span><br><span class="line"><span class="string">        但是一旦查找括号内没有的字段属性 则不需要走数据库查询</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># res = models.Book.objects.filter(pk=3).first()</span></span><br><span class="line">    <span class="comment"># print(res.publish.title)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># res = models.Book.objects.select_related(&#x27;publish&#x27;)</span></span><br><span class="line">    <span class="comment"># for i in res:</span></span><br><span class="line">    <span class="comment">#     print(i.publish.title)</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    select_related相当于连表操作</span></span><br><span class="line"><span class="string">        先将models后面的表和括号内外键字段关联的表连接起来</span></span><br><span class="line"><span class="string">        之后一次性把所有的数据封装到数据对象中</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    res = models.Book.objects.prefetch_related(<span class="string">&#x27;publish&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> res:</span><br><span class="line">        <span class="built_in">print</span>(i.publish.title)</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    prefetch_related相当于子查询</span></span><br><span class="line"><span class="string">        先查询models后面的表的所有的数据</span></span><br><span class="line"><span class="string">        然后将括号内关联的表的数据全部查询出来</span></span><br><span class="line"><span class="string">        之后整合到一起</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="图书管理系统"><a href="#图书管理系统" class="headerlink" title="图书管理系统"></a>图书管理系统</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">首先考虑一般都是数据库表设计</span><br><span class="line"></span><br><span class="line">书籍表</span><br><span class="line">出版社表</span><br><span class="line">作者表</span><br><span class="line">作者详情表</span><br><span class="line"></span><br><span class="line">首页搭建</span><br><span class="line">图书列表搭建</span><br><span class="line">图书添加</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/25/30.Django%E7%AC%AC%E4%B8%83%E5%A4%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,10 +320,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-05-25 19:17:25 / 修改时间：19:30:44" itemprop="dateCreated datePublished" datetime="2021-05-25T19:17:25+08:00">2021-05-25</time>
+      <time title="创建时间：2021-05-25 13:05:00" itemprop="dateCreated datePublished" datetime="2021-05-25T13:05:00+08:00">2021-05-25</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-05-26 20:10:25" itemprop="dateModified" datetime="2021-05-26T20:10:25+08:00">2021-05-26</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -297,7 +389,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/19/27.Django%E7%AC%AC%E5%9B%9B%E5%A4%A9/">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/24/29.Django%E7%AC%AC%E5%85%AD%E5%A4%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -310,7 +402,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/19/27.Django%E7%AC%AC%E5%9B%9B%E5%A4%A9/" class="post-title-link" itemprop="url">27 Django第四天</a>
+          <a href="/2021/05/24/29.Django%E7%AC%AC%E5%85%AD%E5%A4%A9/" class="post-title-link" itemprop="url">29 Django第六天</a>
         </h2>
 
         <div class="post-meta-container">
@@ -321,14 +413,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-05-19 21:13:25" itemprop="dateCreated datePublished" datetime="2021-05-19T21:13:25+08:00">2021-05-19</time>
+      <time title="创建时间：2021-05-24 13:05:00" itemprop="dateCreated datePublished" datetime="2021-05-24T13:05:00+08:00">2021-05-24</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-25 19:30:50" itemprop="dateModified" datetime="2021-05-25T19:30:50+08:00">2021-05-25</time>
+        <time title="修改时间：2021-05-26 20:10:31" itemprop="dateModified" datetime="2021-05-26T20:10:31+08:00">2021-05-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -354,12 +446,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<ul>
-<li>无名有名反向解析
+          <p>[TOC]<br><strong>今日内容概要</strong></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/19/27.Django%E7%AC%AC%E5%9B%9B%E5%A4%A9/#more" rel="contents">
+              <a class="btn" href="/2021/05/24/29.Django%E7%AC%AC%E5%85%AD%E5%A4%A9/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -390,7 +480,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/19/28.Django%E7%AC%AC%E4%BA%94%E5%A4%A9/">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/21/28.Django%E7%AC%AC%E4%BA%94%E5%A4%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -403,7 +493,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/19/28.Django%E7%AC%AC%E4%BA%94%E5%A4%A9/" class="post-title-link" itemprop="url">28 Django第五天</a>
+          <a href="/2021/05/21/28.Django%E7%AC%AC%E4%BA%94%E5%A4%A9/" class="post-title-link" itemprop="url">28 Django第五天</a>
         </h2>
 
         <div class="post-meta-container">
@@ -414,14 +504,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-05-19 21:13:25" itemprop="dateCreated datePublished" datetime="2021-05-19T21:13:25+08:00">2021-05-19</time>
+      <time title="创建时间：2021-05-21 13:05:00" itemprop="dateCreated datePublished" datetime="2021-05-21T13:05:00+08:00">2021-05-21</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-25 19:30:48" itemprop="dateModified" datetime="2021-05-25T19:30:48+08:00">2021-05-25</time>
+        <time title="修改时间：2021-05-26 20:10:34" itemprop="dateModified" datetime="2021-05-26T20:10:34+08:00">2021-05-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -452,7 +542,7 @@
 <li>作业讲解
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/19/28.Django%E7%AC%AC%E4%BA%94%E5%A4%A9/#more" rel="contents">
+              <a class="btn" href="/2021/05/21/28.Django%E7%AC%AC%E4%BA%94%E5%A4%A9/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -483,7 +573,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/19/29.Django%E7%AC%AC%E5%85%AD%E5%A4%A9/">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/20/27.Django%E7%AC%AC%E5%9B%9B%E5%A4%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -496,7 +586,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/19/29.Django%E7%AC%AC%E5%85%AD%E5%A4%A9/" class="post-title-link" itemprop="url">29 Django第六天</a>
+          <a href="/2021/05/20/27.Django%E7%AC%AC%E5%9B%9B%E5%A4%A9/" class="post-title-link" itemprop="url">27 Django第四天</a>
         </h2>
 
         <div class="post-meta-container">
@@ -507,105 +597,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-05-19 21:13:25" itemprop="dateCreated datePublished" datetime="2021-05-19T21:13:25+08:00">2021-05-19</time>
+      <time title="创建时间：2021-05-20 13:05:00" itemprop="dateCreated datePublished" datetime="2021-05-20T13:05:00+08:00">2021-05-20</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-25 19:30:46" itemprop="dateModified" datetime="2021-05-25T19:30:46+08:00">2021-05-25</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]<br><strong>今日内容概要</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/19/29.Django%E7%AC%AC%E5%85%AD%E5%A4%A9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/19/25.Django%E7%AC%AC%E4%BA%8C%E5%A4%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/19/25.Django%E7%AC%AC%E4%BA%8C%E5%A4%A9/" class="post-title-link" itemprop="url">25 Django第二天</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-19 20:32:25" itemprop="dateCreated datePublished" datetime="2021-05-19T20:32:25+08:00">2021-05-19</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-25 19:30:53" itemprop="dateModified" datetime="2021-05-25T19:30:53+08:00">2021-05-25</time>
+        <time title="修改时间：2021-05-26 20:10:37" itemprop="dateModified" datetime="2021-05-26T20:10:37+08:00">2021-05-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -632,9 +631,11 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>[TOC]</p>
+<ul>
+<li>无名有名反向解析
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/19/25.Django%E7%AC%AC%E4%BA%8C%E5%A4%A9/#more" rel="contents">
+              <a class="btn" href="/2021/05/20/27.Django%E7%AC%AC%E5%9B%9B%E5%A4%A9/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -689,14 +690,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-05-19 19:44:33" itemprop="dateCreated datePublished" datetime="2021-05-19T19:44:33+08:00">2021-05-19</time>
+      <time title="创建时间：2021-05-19 13:05:00" itemprop="dateCreated datePublished" datetime="2021-05-19T13:05:00+08:00">2021-05-19</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-25 19:30:52" itemprop="dateModified" datetime="2021-05-25T19:30:52+08:00">2021-05-25</time>
+        <time title="修改时间：2021-05-26 20:10:41" itemprop="dateModified" datetime="2021-05-26T20:10:41+08:00">2021-05-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -757,7 +758,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/17/23.%E5%89%8D%E7%AB%AF%E4%B9%8BjQuery/">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/18/25.Django%E7%AC%AC%E4%BA%8C%E5%A4%A9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -770,7 +771,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/17/23.%E5%89%8D%E7%AB%AF%E4%B9%8BjQuery/" class="post-title-link" itemprop="url">24 Django框架</a>
+          <a href="/2021/05/18/25.Django%E7%AC%AC%E4%BA%8C%E5%A4%A9/" class="post-title-link" itemprop="url">25 Django第二天</a>
         </h2>
 
         <div class="post-meta-container">
@@ -780,10 +781,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-05-17 13:05:00 / 修改时间：10:49:22" itemprop="dateCreated datePublished" datetime="2021-05-17T13:05:00+08:00">2021-05-17</time>
+      <time title="创建时间：2021-05-18 13:05:00" itemprop="dateCreated datePublished" datetime="2021-05-18T13:05:00+08:00">2021-05-18</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-05-26 20:10:43" itemprop="dateModified" datetime="2021-05-26T20:10:43+08:00">2021-05-26</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -791,6 +798,10 @@
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
         </span>
     </span>
 
@@ -805,10 +816,9 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>[TOC]</p>
-<h1 id="jQuery介绍"><a href="#jQuery介绍" class="headerlink" title="jQuery介绍"></a>jQuery介绍</h1>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2021/05/17/23.%E5%89%8D%E7%AB%AF%E4%B9%8BjQuery/#more" rel="contents">
+              <a class="btn" href="/2021/05/18/25.Django%E7%AC%AC%E4%BA%8C%E5%A4%A9/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -863,14 +873,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-05-17 10:50:12" itemprop="dateCreated datePublished" datetime="2021-05-17T10:50:12+08:00">2021-05-17</time>
+      <time title="创建时间：2021-05-17 13:05:00" itemprop="dateCreated datePublished" datetime="2021-05-17T13:05:00+08:00">2021-05-17</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-25 19:30:56" itemprop="dateModified" datetime="2021-05-25T19:30:56+08:00">2021-05-25</time>
+        <time title="修改时间：2021-05-26 20:10:49" itemprop="dateModified" datetime="2021-05-26T20:10:49+08:00">2021-05-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -901,6 +911,94 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/05/17/24.Django%E7%AC%AC%E4%B8%80%E5%A4%A9/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/13/23.%E5%89%8D%E7%AB%AF%E4%B9%8BjQuery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Michaeldong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TsukiBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/05/13/23.%E5%89%8D%E7%AB%AF%E4%B9%8BjQuery/" class="post-title-link" itemprop="url">24 Django框架</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-05-13 11:25:01" itemprop="dateCreated datePublished" datetime="2021-05-13T11:25:01+08:00">2021-05-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-05-26 20:11:12" itemprop="dateModified" datetime="2021-05-26T20:11:12+08:00">2021-05-26</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>[TOC]</p>
+<h1 id="jQuery介绍"><a href="#jQuery介绍" class="headerlink" title="jQuery介绍"></a>jQuery介绍</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/13/23.%E5%89%8D%E7%AB%AF%E4%B9%8BjQuery/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1011,96 +1109,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/08/21.%E5%89%8D%E7%AB%AF%E4%B9%8BJavaScript/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/08/21.%E5%89%8D%E7%AB%AF%E4%B9%8BJavaScript/" class="post-title-link" itemprop="url">21 前端基础之JavaScript</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-08 13:05:00" itemprop="dateCreated datePublished" datetime="2021-05-08T13:05:00+08:00">2021-05-08</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-13 08:44:30" itemprop="dateModified" datetime="2021-05-13T08:44:30+08:00">2021-05-13</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h1 id="JavaScript概述"><a href="#JavaScript概述" class="headerlink" title="JavaScript概述"></a>JavaScript概述</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/08/21.%E5%89%8D%E7%AB%AF%E4%B9%8BJavaScript/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 <script src="/js/comments.js"></script>
 </div>
