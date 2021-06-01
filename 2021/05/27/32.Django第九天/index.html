@@ -20,16 +20,16 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;michaeldong1024.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta name="description" content="[TOC] 图书管理系统书籍编辑与删除功能编辑功能urls 1url(r&amp;#x27;^book&#x2F;edit&#x2F;(?P&lt;edit_id&gt;\d+)&amp;#x27;, views.book_edit, name&#x3D;&amp;#x27;book_edit&amp;#x27;),  前端book_edit.html 12345678910111213141516171819202122232425262728293031">
+<meta name="description" content="[TOC] 图书管理系统书籍编辑与删除功能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="32 Django第九天">
 <meta property="og:url" content="https://michaeldong1024.github.io/2021/05/27/32.Django%E7%AC%AC%E4%B9%9D%E5%A4%A9/index.html">
 <meta property="og:site_name" content="TsukiBlog">
-<meta property="og:description" content="[TOC] 图书管理系统书籍编辑与删除功能编辑功能urls 1url(r&amp;#x27;^book&#x2F;edit&#x2F;(?P&lt;edit_id&gt;\d+)&amp;#x27;, views.book_edit, name&#x3D;&amp;#x27;book_edit&amp;#x27;),  前端book_edit.html 12345678910111213141516171819202122232425262728293031">
+<meta property="og:description" content="[TOC] 图书管理系统书籍编辑与删除功能">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/1342004-20180627141602223-599696124.png">
 <meta property="article:published_time" content="2021-05-27T05:05:00.000Z">
-<meta property="article:modified_time" content="2021-05-28T12:56:59.710Z">
+<meta property="article:modified_time" content="2021-05-31T12:14:29.605Z">
 <meta property="article:author" content="Michaeldong">
 <meta property="article:tag" content="导航">
 <meta property="article:tag" content="分享">
@@ -252,7 +252,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-05-28 20:56:59" itemprop="dateModified" datetime="2021-05-28T20:56:59+08:00">2021-05-28</time>
+        <time title="修改时间：2021-05-31 20:14:29" itemprop="dateModified" datetime="2021-05-31T20:14:29+08:00">2021-05-31</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -279,7 +279,9 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>[TOC]</p>
-<h1 id="图书管理系统书籍编辑与删除功能"><a href="#图书管理系统书籍编辑与删除功能" class="headerlink" title="图书管理系统书籍编辑与删除功能"></a>图书管理系统书籍编辑与删除功能</h1><h2 id="编辑功能"><a href="#编辑功能" class="headerlink" title="编辑功能"></a>编辑功能</h2><p>urls</p>
+<h1 id="图书管理系统书籍编辑与删除功能"><a href="#图书管理系统书籍编辑与删除功能" class="headerlink" title="图书管理系统书籍编辑与删除功能"></a>图书管理系统书籍编辑与删除功能</h1><span id="more"></span>
+
+<h2 id="编辑功能"><a href="#编辑功能" class="headerlink" title="编辑功能"></a>编辑功能</h2><p>urls</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url(<span class="string">r&#x27;^book/edit/(?P&lt;edit_id&gt;\d+)&#x27;</span>, views.book_edit, name=<span class="string">&#x27;book_edit&#x27;</span>),</span><br></pre></td></tr></table></figure>
 
 <p>前端book_edit.html</p>
