@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;michaeldong1024.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="[TOC] 123456789101112131415161718192021qq，微信：306334678，建议加drfvue项目：路飞学成gitrediscelery上线爬虫期终架构flask框架redis高级esrabbitmq：消息队列go语言mongodb分布式锁分布式id。。。  1 Web开发模式12345671 前后端混合开发	-模板渲染在后端完成    var name&#x3D;&amp;quo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="44 DRF第一天">
+<meta property="og:url" content="https://michaeldong1024.github.io/2021/06/28/44.DRF%E7%AC%AC%E4%B8%80%E5%A4%A9/index.html">
+<meta property="og:site_name" content="TsukiBlog">
+<meta property="og:description" content="[TOC] 123456789101112131415161718192021qq，微信：306334678，建议加drfvue项目：路飞学成gitrediscelery上线爬虫期终架构flask框架redis高级esrabbitmq：消息队列go语言mongodb分布式锁分布式id。。。  1 Web开发模式12345671 前后端混合开发	-模板渲染在后端完成    var name&#x3D;&amp;quo">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-28T05:05:00.000Z">
+<meta property="article:modified_time" content="2021-06-28T10:43:31.244Z">
+<meta property="article:author" content="Michaeldong">
+<meta property="article:tag" content="导航">
+<meta property="article:tag" content="分享">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://michaeldong1024.github.io/2021/06/28/44.DRF%E7%AC%AC%E4%B8%80%E5%A4%A9/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;michaeldong1024.github.io&#x2F;2021&#x2F;06&#x2F;28&#x2F;44.DRF%E7%AC%AC%E4%B8%80%E5%A4%A9&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;06&#x2F;28&#x2F;44.DRF第一天&#x2F;&quot;,&quot;title&quot;:&quot;44 DRF第一天&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>44 DRF第一天 | TsukiBlog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">TsukiBlog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Web%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F"><span class="nav-text">1 Web开发模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-API%E6%8E%A5%E5%8F%A3"><span class="nav-text">2 API接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7"><span class="nav-text">3 接口测试工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-restful%E8%A7%84%E8%8C%83"><span class="nav-text">4 restful规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-text">5 序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-drf%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%AE%89%E8%A3%85"><span class="nav-text">6 drf介绍和安装</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Michaeldong"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Michaeldong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/michaeldong1024" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;michaeldong1024" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/michaeldong1024" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/06/28/44.DRF%E7%AC%AC%E4%B8%80%E5%A4%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Michaeldong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TsukiBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          44 DRF第一天
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-06-28 13:05:00 / 修改时间：18:43:31" itemprop="dateCreated datePublished" datetime="2021-06-28T13:05:00+08:00">2021-06-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/DRF/" itemprop="url" rel="index"><span itemprop="name">DRF</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>[TOC]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">qq，微信：<span class="number">306334678</span>，建议加</span><br><span class="line">drf</span><br><span class="line">vue</span><br><span class="line">项目：路飞学成</span><br><span class="line">git</span><br><span class="line">redis</span><br><span class="line">celery</span><br><span class="line">上线</span><br><span class="line"></span><br><span class="line">爬虫</span><br><span class="line">期终架构</span><br><span class="line">flask框架</span><br><span class="line">redis高级</span><br><span class="line">es</span><br><span class="line">rabbitmq：消息队列</span><br><span class="line">go语言</span><br><span class="line">mongodb</span><br><span class="line">分布式锁</span><br><span class="line">分布式<span class="built_in">id</span></span><br><span class="line">。。。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-Web开发模式"><a href="#1-Web开发模式" class="headerlink" title="1 Web开发模式"></a>1 Web开发模式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> 前后端混合开发</span><br><span class="line">	-模板渲染在后端完成</span><br><span class="line">    var name=<span class="string">&quot;&#123;&#123;dic&#125;&#125;&quot;</span></span><br><span class="line"><span class="number">2</span> 前后端分离（主流）</span><br><span class="line">	-后端只负责写接口，前端来调用，通信使用json格式</span><br><span class="line">    -多端（web，app）都可以使用同一个接口</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<h2 id="2-API接口"><a href="#2-API接口" class="headerlink" title="2 API接口"></a>2 API接口</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">为了在团队内部形成共识、防止个人习惯差异引起的混乱，我们需要找到一种大家都觉得很好的接口实现规范，而且这种规范能够让后端写的接口，用途一目了然，减少双方之间的合作成本。</span><br><span class="line"></span><br><span class="line">通过网络，规定了前后台信息交互规则的url链接，也就是前后台信息交互的媒介</span><br><span class="line"></span><br><span class="line"><span class="comment"># 详细可以查看微博开放平台</span></span><br><span class="line">https://<span class="built_in">open</span>.weibo.com/wiki/<span class="number">2</span>/users/show</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-接口测试工具"><a href="#3-接口测试工具" class="headerlink" title="3 接口测试工具"></a>3 接口测试工具</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> 很多 postman，浏览器插件，接口压力测试工具Jmeter</span><br><span class="line"><span class="number">2</span> 本质就是模拟发送http请求</span><br><span class="line"><span class="number">3</span> 安装postman---》双击即可</span><br><span class="line"><span class="number">4</span> 详见http://www.liuqingzheng.top/python/Django-rest-framework%E6%A1%<span class="number">86</span>%E6%9E%B6/<span class="number">1</span>-drf-drf%E5%<span class="number">85</span>%A5%E9%<span class="number">97</span>%A8%E8%A7%<span class="number">84</span>%E8%8C%<span class="number">83</span>/</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-restful规范"><a href="#4-restful规范" class="headerlink" title="4 restful规范"></a>4 restful规范</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> 写接口的规范，大部分的接口，都会按照这个规范去写（Web API接口的设计风格）<span class="number">2000</span>年Roy Fielding的博士论文中</span><br><span class="line"><span class="number">2</span> 总共<span class="number">10</span>点</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1 使用https协议进行传输数据（保证数据安全）</span></span><br><span class="line"><span class="comment"># 2 url中带关键字api</span></span><br><span class="line">    https://api.baidu.com</span><br><span class="line">    https://www.baidu.com/api</span><br><span class="line">        </span><br><span class="line"><span class="comment"># 3 url中带版本信息</span></span><br><span class="line">	https://api.baidu.com/v1</span><br><span class="line">	https://api.baidu.com/v2</span><br><span class="line"><span class="comment"># 4 数据即是资源，均使用名词</span></span><br><span class="line">    https://api.baidu.com/users</span><br><span class="line">    https://api.baidu.com/books</span><br><span class="line">    https://api.baidu.com/book</span><br><span class="line">        </span><br><span class="line"><span class="comment"># 5 资源操作由请求方式决定</span></span><br><span class="line">	-查询操作---get</span><br><span class="line">    -新增操作----post</span><br><span class="line">    -修改操作----put,patch</span><br><span class="line">    -删除操作----delete</span><br><span class="line">    https://api.baidu.com/books - get请求：获取所有书</span><br><span class="line">    https://api.baidu.com/books/<span class="number">1</span> - get请求：获取主键为<span class="number">1</span>的书</span><br><span class="line">    https://api.baidu.com/books - post请求：新增一本书书</span><br><span class="line">    https://api.baidu.com/books/<span class="number">1</span> - put请求：整体修改主键为<span class="number">1</span>的书</span><br><span class="line">    https://api.baidu.com/books/<span class="number">1</span> - patch请求：局部修改主键为<span class="number">1</span>的书</span><br><span class="line">    https://api.baidu.com/books/<span class="number">1</span> - delete请求：删除主键为<span class="number">1</span>的书</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 6 请求url中带搜索筛选条件</span></span><br><span class="line">	https://api.example.com/v1/zoos?limit=10：指定返回记录的数量</span><br><span class="line">	https://api.example.com/v1/zoos?offset=10：指定返回记录的开始位置、</span><br><span class="line">    https://api.example.com/v1/zoos?animal_type_id=1：指定筛选条件</span><br><span class="line">        </span><br><span class="line"><span class="comment"># 7 响应中要带状态码（自己定义，http响应状态码）</span></span><br><span class="line">	&#123;</span><br><span class="line">    status:<span class="number">200</span></span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line"> <span class="comment"># 8 响应返回错误信息</span></span><br><span class="line">    &#123;</span><br><span class="line">        status:<span class="number">200</span></span><br><span class="line">        msg: <span class="string">&quot;无权限操作&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"> <span class="comment"># 9 返回结果，遵循如下规范（大概率都没有遵循）</span></span><br><span class="line">    GET /collection：返回资源对象的列表（数组）</span><br><span class="line">    GET /collection/resource：返回单个资源对象</span><br><span class="line">    POST /collection：返回新生成的资源对象</span><br><span class="line">    PUT /collection/resource：返回完整的资源对象</span><br><span class="line">    PATCH /collection/resource：返回完整的资源对象</span><br><span class="line">    DELETE /collection/resource：返回一个空文档</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment"># 10 返回数据中带链接地址</span></span><br><span class="line">	&#123;</span><br><span class="line">  	<span class="string">&quot;status&quot;</span>: <span class="number">0</span>,</span><br><span class="line">  	<span class="string">&quot;msg&quot;</span>: <span class="string">&quot;ok&quot;</span>,</span><br><span class="line">  	<span class="string">&quot;results&quot;</span>:[</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;name&quot;</span>:<span class="string">&quot;肯德基(罗餐厅)&quot;</span>,</span><br><span class="line">            <span class="string">&quot;img&quot;</span>: <span class="string">&quot;https://image.baidu.com/kfc/001.png&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">		]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-序列化"><a href="#5-序列化" class="headerlink" title="5 序列化"></a>5 序列化</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">序列化： 把我们识别的数据转换成指定的格式提供给别人</span><br><span class="line">反序列化：把别人提供的数据转换/还原成我们需要的格式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">例如：前端js提供过来的json数据，对于python而言就是字符串，我们需要进行反序列化换成模型类对象，这样我们才能把数据保存到数据库中。</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-drf介绍和安装"><a href="#6-drf介绍和安装" class="headerlink" title="6 drf介绍和安装"></a>6 drf介绍和安装</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Django Rest_Framework:是django的一个app，可以借助它快速在django框架开发出符合restful规范的接口</span></span><br><span class="line"><span class="comment"># 提供了：REST framework还提供了认证、权限、限流、过滤、分页、接口文档等功能支持</span></span><br><span class="line"><span class="comment"># 官方文档：https://www.django-rest-framework.org/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># python  django的版本支持情况</span></span><br><span class="line">Python（<span class="number">3.5</span>、<span class="number">3.6</span>、<span class="number">3.7</span>、<span class="number">3.8</span>、<span class="number">3.9</span>）</span><br><span class="line">Django (<span class="number">2.2</span>, <span class="number">3.0</span>, <span class="number">3.1</span>)   <span class="number">2.</span>x用的多，<span class="number">1.</span>x老项目</span><br><span class="line"></span><br><span class="line">django：<span class="number">1.</span>x跟<span class="number">2.</span>x没有大的区别</span><br><span class="line">	<span class="number">3.</span>x：支持异步，并不好，有人用<span class="number">3.</span>x还是在写同步代码</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment">#安装</span></span><br><span class="line">	pip3 install djangorestframework</span><br><span class="line">    <span class="comment"># 注意：跟django版本对应好，django 2.2.2  drf最新</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xxx.jsp  ---&gt;java</span><br><span class="line"></span><br><span class="line">xxx.php ----&gt;php</span><br><span class="line"></span><br><span class="line">xx.aspx ----&gt;.net</span><br><span class="line"></span><br><span class="line">xx.html ---&gt;不好说，go，java，python</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpeg" alt="Michaeldong 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpeg" alt="Michaeldong 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%AF%BC%E8%88%AA/" rel="tag"># 导航</a>
+              <a href="/tags/%E5%88%86%E4%BA%AB/" rel="tag"># 分享</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/06/18/43.docker%E9%83%A8%E7%BD%B2nginx+uwsgi+django/" rel="prev" title="43 使用docker-compose+nginx+django部署项目">
+                  <i class="fa fa-chevron-left"></i> 43 使用docker-compose+nginx+django部署项目
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Michaeldong</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

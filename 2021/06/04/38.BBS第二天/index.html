@@ -28,7 +28,7 @@
 <meta property="og:description" content="[TOC] 表关系创建">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-06-04T05:05:00.000Z">
-<meta property="article:modified_time" content="2021-06-19T08:38:02.943Z">
+<meta property="article:modified_time" content="2021-06-23T02:17:30.892Z">
 <meta property="article:author" content="Michaeldong">
 <meta property="article:tag" content="导航">
 <meta property="article:tag" content="分享">
@@ -162,14 +162,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -250,7 +250,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-19 16:38:02" itemprop="dateModified" datetime="2021-06-19T16:38:02+08:00">2021-06-19</time>
+        <time title="修改时间：2021-06-23 10:17:30" itemprop="dateModified" datetime="2021-06-23T10:17:30+08:00">2021-06-23</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -295,7 +295,7 @@
 
 
 
-<h2 id="settings相关配置"><a href="#settings相关配置" class="headerlink" title="settings相关配置"></a>settings相关配置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">django内部支持多个国家的语言环境</span><br><span class="line">默认是英文 可以通过配置文件指定切换</span><br><span class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> global_settings</span><br><span class="line"></span><br><span class="line">LANGUAGE_CODE = <span class="string">&#x27;zh-hans&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 静态文件目录配置</span></span><br><span class="line">STATICFILES_DIRS = [</span><br><span class="line">    os.path.join(BASE_DIR,<span class="string">&#x27;static&#x27;</span>),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用户上传的静态文件位置</span></span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR,<span class="string">&#x27;media&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义django的用户管理模型表，设置为我们自定义的Userinfo表</span></span><br><span class="line">AUTH_USER_MODEL = <span class="string">&#x27;app01.Userinfo&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># #login_required全局配置</span></span><br><span class="line">LOGIN_URL = <span class="string">&#x27;/login/&#x27;</span>  </span><br></pre></td></tr></table></figure>
+<h2 id="settings相关配置"><a href="#settings相关配置" class="headerlink" title="settings相关配置"></a>settings相关配置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">django内部支持多个国家的语言环境</span><br><span class="line">默认是英文 可以通过配置文件指定切换</span><br><span class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> global_settings</span><br><span class="line"></span><br><span class="line">LANGUAGE_CODE = <span class="string">&#x27;zh-hans&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 静态文件目录配置</span></span><br><span class="line">STATICFILES_DIRS = [</span><br><span class="line">    os.path.join(BASE_DIR,<span class="string">&#x27;bootstrap&amp;jquery&#x27;</span>),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用户上传的静态文件位置</span></span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR,<span class="string">&#x27;media&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义django的用户管理模型表，设置为我们自定义的Userinfo表</span></span><br><span class="line">AUTH_USER_MODEL = <span class="string">&#x27;app01.Userinfo&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># #login_required全局配置</span></span><br><span class="line">LOGIN_URL = <span class="string">&#x27;/login/&#x27;</span>  </span><br></pre></td></tr></table></figure>
 
 
 
