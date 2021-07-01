@@ -2965,7 +2965,9 @@
     <title>46 drf序列化组件</title>
     <url>/2021/07/01/46.drf%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/</url>
     <content><![CDATA[<p>[TOC]</p>
-<h1 id="一-请求与响应"><a href="#一-请求与响应" class="headerlink" title="一 请求与响应"></a>一 请求与响应</h1><h2 id="1-1-Request"><a href="#1-1-Request" class="headerlink" title="1.1 Request"></a>1.1 Request</h2><p>REST framework 传入视图的request对象不再是Django默认的HttpRequest对象，而是REST framework提供的扩展了HttpRequest类的<strong>Request</strong>类的对象。</p>
+<h1 id="一-请求与响应"><a href="#一-请求与响应" class="headerlink" title="一 请求与响应"></a>一 请求与响应</h1><span id="more"></span>
+
+<h2 id="1-1-Request"><a href="#1-1-Request" class="headerlink" title="1.1 Request"></a>1.1 Request</h2><p>REST framework 传入视图的request对象不再是Django默认的HttpRequest对象，而是REST framework提供的扩展了HttpRequest类的<strong>Request</strong>类的对象。</p>
 <p>REST framework 提供了<strong>Parser</strong>解析器，在接收到请求后会自动根据Content-Type指明的请求数据类型（如JSON、表单等）将请求数据进行parse解析，解析为类字典[QueryDict]对象保存到<strong>Request</strong>对象中。</p>
 <p><strong>Request对象的数据是自动根据前端发送数据的格式进行解析之后的结果。</strong></p>
 <p>无论前端发送的哪种格式的数据，我们都可以以统一的方式读取数据。</p>
