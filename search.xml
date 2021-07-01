@@ -3026,8 +3026,6 @@
     <title>44 drf入门规范</title>
     <url>/2021/06/28/44.drf%E5%85%A5%E9%97%A8%E8%A7%84%E8%8C%83/</url>
     <content><![CDATA[<p>[TOC]</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">qq，微信：<span class="number">306334678</span>，建议加</span><br><span class="line">drf</span><br><span class="line">vue</span><br><span class="line">项目：路飞学成</span><br><span class="line">git</span><br><span class="line">redis</span><br><span class="line">celery</span><br><span class="line">上线</span><br><span class="line"></span><br><span class="line">爬虫</span><br><span class="line">期终架构</span><br><span class="line">flask框架</span><br><span class="line">redis高级</span><br><span class="line">es</span><br><span class="line">rabbitmq：消息队列</span><br><span class="line">go语言</span><br><span class="line">mongodb</span><br><span class="line">分布式锁</span><br><span class="line">分布式<span class="built_in">id</span></span><br><span class="line">。。。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h2 id="一-Web应用模式"><a href="#一-Web应用模式" class="headerlink" title="一 Web应用模式"></a>一 Web应用模式</h2><span id="more"></span>
 
 <p>在开发Web应用中，有两种应用模式：</p>
