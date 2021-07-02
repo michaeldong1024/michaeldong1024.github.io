@@ -20,23 +20,32 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;michaeldong1024.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="TsukiBlog">
-<meta property="og:url" content="https://michaeldong1024.github.io/index.html">
+<meta name="description" content="[TOC] 一 视图Django REST framwork 提供的视图的主要作用：  控制序列化器的执行（检验、保存、转换数据） 控制数据库查询的执行  1.1 视图继承关系 视图的方法与属性：  1.2 视图REST framework 提供了众多的通用视图基类与扩展类，以简化视图的编写。 1.2.1 2个视图基类1.2.1.1 APIView1rest_framework.views.API">
+<meta property="og:type" content="article">
+<meta property="og:title" content="47 drf视图组件">
+<meta property="og:url" content="https://michaeldong1024.github.io/2021/07/02/47.drf%E8%A7%86%E5%9B%BE%E7%BB%84%E4%BB%B6/index.html">
 <meta property="og:site_name" content="TsukiBlog">
+<meta property="og:description" content="[TOC] 一 视图Django REST framwork 提供的视图的主要作用：  控制序列化器的执行（检验、保存、转换数据） 控制数据库查询的执行  1.1 视图继承关系 视图的方法与属性：  1.2 视图REST framework 提供了众多的通用视图基类与扩展类，以简化视图的编写。 1.2.1 2个视图基类1.2.1.1 APIView1rest_framework.views.API">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggipvctuxcj31wc0goq89.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggipulq6d5j30xu0u07mf.jpg">
+<meta property="article:published_time" content="2021-07-02T05:05:00.000Z">
+<meta property="article:modified_time" content="2021-07-02T07:11:24.482Z">
 <meta property="article:author" content="Michaeldong">
+<meta property="article:tag" content="导航">
+<meta property="article:tag" content="分享">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggipvctuxcj31wc0goq89.jpg">
 
 
-<link rel="canonical" href="https://michaeldong1024.github.io/">
+<link rel="canonical" href="https://michaeldong1024.github.io/2021/07/02/47.drf%E8%A7%86%E5%9B%BE%E7%BB%84%E4%BB%B6/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:true,&quot;isPost&quot;:false,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:&quot;&quot;,&quot;permalink&quot;:&quot;&quot;,&quot;path&quot;:&quot;index.html&quot;,&quot;title&quot;:&quot;&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;michaeldong1024.github.io&#x2F;2021&#x2F;07&#x2F;02&#x2F;47.drf%E8%A7%86%E5%9B%BE%E7%BB%84%E4%BB%B6&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;07&#x2F;02&#x2F;47.drf视图组件&#x2F;&quot;,&quot;title&quot;:&quot;47 drf视图组件&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>TsukiBlog</title><script src="/js/config.js"></script>
+<title>47 drf视图组件 | TsukiBlog</title><script src="/js/config.js"></script>
   
 
 
@@ -127,7 +136,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -140,6 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E8%A7%86%E5%9B%BE"><span class="nav-text">一 视图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E8%A7%86%E5%9B%BE%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB"><span class="nav-text">1.1 视图继承关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E8%A7%86%E5%9B%BE"><span class="nav-text">1.2 视图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-2%E4%B8%AA%E8%A7%86%E5%9B%BE%E5%9F%BA%E7%B1%BB"><span class="nav-text">1.2.1 2个视图基类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-1-APIView"><span class="nav-text">1.2.1.1 APIView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-2-GenericAPIView-%E9%80%9A%E7%94%A8%E8%A7%86%E5%9B%BE%E7%B1%BB"><span class="nav-text">2.2.1.2 GenericAPIView[通用视图类]</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#get-serializer-self-args-kwargs"><span class="nav-text">get_serializer(self, *args, **kwargs)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-5%E4%B8%AA%E8%A7%86%E5%9B%BE%E6%89%A9%E5%B1%95%E7%B1%BB"><span class="nav-text">1.2.2 5个视图扩展类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%EF%BC%89ListModelMixin"><span class="nav-text">1）ListModelMixin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%EF%BC%89CreateModelMixin"><span class="nav-text">2）CreateModelMixin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%EF%BC%89RetrieveModelMixin"><span class="nav-text">3）RetrieveModelMixin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%EF%BC%89UpdateModelMixin"><span class="nav-text">4）UpdateModelMixin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%EF%BC%89DestroyModelMixin"><span class="nav-text">5）DestroyModelMixin</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-GenericAPIView%E7%9A%84%E8%A7%86%E5%9B%BE%E5%AD%90%E7%B1%BB"><span class="nav-text">1.2.3 GenericAPIView的视图子类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%EF%BC%89CreateAPIView"><span class="nav-text">1）CreateAPIView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%EF%BC%89ListAPIView"><span class="nav-text">2）ListAPIView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%EF%BC%89RetrieveAPIView"><span class="nav-text">3）RetrieveAPIView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%EF%BC%89DestoryAPIView"><span class="nav-text">4）DestoryAPIView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%EF%BC%89UpdateAPIView"><span class="nav-text">5）UpdateAPIView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6%EF%BC%89ListCreateAPIView"><span class="nav-text">6）ListCreateAPIView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7%EF%BC%89RetrieveUpdateAPIView"><span class="nav-text">7）RetrieveUpdateAPIView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8%EF%BC%89RetrieveDestroyAPIView"><span class="nav-text">8）RetrieveDestroyAPIView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9%EF%BC%89RetrieveUpdateDestoryAPIView"><span class="nav-text">9）RetrieveUpdateDestoryAPIView</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E8%A7%86%E5%9B%BE%E9%9B%86ViewSet"><span class="nav-text">1.3 视图集ViewSet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-%E5%B8%B8%E7%94%A8%E8%A7%86%E5%9B%BE%E9%9B%86%E7%88%B6%E7%B1%BB"><span class="nav-text">1.3.1 常用视图集父类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%EF%BC%89-ViewSet"><span class="nav-text">1） ViewSet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%EF%BC%89GenericViewSet"><span class="nav-text">2）GenericViewSet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%EF%BC%89ModelViewSet"><span class="nav-text">3）ModelViewSet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%EF%BC%89ReadOnlyModelViewSet"><span class="nav-text">4）ReadOnlyModelViewSet</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%B8%AD%E5%AE%9A%E4%B9%89%E9%99%84%E5%8A%A0action%E5%8A%A8%E4%BD%9C"><span class="nav-text">1.3.2 视图集中定义附加action动作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-action%E5%B1%9E%E6%80%A7"><span class="nav-text">1.3.3 action属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E6%80%BB%E7%BB%93"><span class="nav-text">1.4 总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Django%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%8C%96%EF%BC%88%E5%9B%BD%E9%99%85%E5%8C%96%EF%BC%89%E9%85%8D%E7%BD%AE"><span class="nav-text">Django的本地化（国际化）配置</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -201,16 +211,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/02/47.drf%E8%A7%86%E5%9B%BE%E7%BB%84%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,9 +234,9 @@
       <meta itemprop="name" content="TsukiBlog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/02/47.drf%E8%A7%86%E5%9B%BE%E7%BB%84%E4%BB%B6/" class="post-title-link" itemprop="url">47 drf视图组件</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          47 drf视图组件
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -266,7 +277,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
+        <p>[TOC]</p>
 <h1 id="一-视图"><a href="#一-视图" class="headerlink" title="一 视图"></a>一 视图</h1><p>Django REST framwork 提供的视图的主要作用：</p>
 <ul>
 <li>控制序列化器的执行（检验、保存、转换数据）</li>
@@ -593,7 +604,6 @@
 
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><h3 id="Django的本地化（国际化）配置"><a href="#Django的本地化（国际化）配置" class="headerlink" title="Django的本地化（国际化）配置"></a>Django的本地化（国际化）配置</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">&#x27;zh-hans&#x27;</span></span><br><span class="line"><span class="comment"># S 必须大写（windows平台可以小写）</span></span><br><span class="line">TIME_ZONE = <span class="string">&#x27;Asia/Shanghai&#x27;</span></span><br><span class="line">USE_I18N = <span class="literal">True</span></span><br><span class="line">USE_L10N = <span class="literal">True</span></span><br><span class="line">USE_TZ = <span class="literal">False</span> <span class="comment"># 不适用默认的UTC时间，使用TIME_ZONE指定的上海UTC时间</span></span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
@@ -601,290 +611,40 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpeg" alt="Michaeldong 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpeg" alt="Michaeldong 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/%E5%AF%BC%E8%88%AA/" rel="tag"># 导航</a>
+              <a href="/tags/%E5%88%86%E4%BA%AB/" rel="tag"># 分享</a>
+          </div>
 
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/01/46.drf%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/01/46.drf%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/" class="post-title-link" itemprop="url">46 drf序列化组件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-07-01 13:05:00 / 修改时间：19:34:56" itemprop="dateCreated datePublished" datetime="2021-07-01T13:05:00+08:00">2021-07-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/DRF/" itemprop="url" rel="index"><span itemprop="name">DRF</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h1 id="一-请求与响应"><a href="#一-请求与响应" class="headerlink" title="一 请求与响应"></a>一 请求与响应</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/01/46.drf%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/06/29/45.drf%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%84%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/29/45.drf%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%84%E4%BB%B6/" class="post-title-link" itemprop="url">45 drf序列化组件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-06-29 13:05:00" itemprop="dateCreated datePublished" datetime="2021-06-29T13:05:00+08:00">2021-06-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-01 19:44:54" itemprop="dateModified" datetime="2021-07-01T19:44:54+08:00">2021-07-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/DRF/" itemprop="url" rel="index"><span itemprop="name">DRF</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h1 id="一-序列化器-Serializer"><a href="#一-序列化器-Serializer" class="headerlink" title="一 序列化器-Serializer"></a>一 序列化器-Serializer</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/29/45.drf%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%84%E4%BB%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/01/46.drf%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/" rel="prev" title="46 drf序列化组件">
+                  <i class="fa fa-chevron-left"></i> 46 drf序列化组件
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/06/28/44.drf%E5%85%A5%E9%97%A8%E8%A7%84%E8%8C%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/28/44.drf%E5%85%A5%E9%97%A8%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">44 drf入门规范</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-06-28 13:05:00" itemprop="dateCreated datePublished" datetime="2021-06-28T13:05:00+08:00">2021-06-28</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-01 18:43:00" itemprop="dateModified" datetime="2021-07-01T18:43:00+08:00">2021-07-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/DRF/" itemprop="url" rel="index"><span itemprop="name">DRF</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h2 id="一-Web应用模式"><a href="#一-Web应用模式" class="headerlink" title="一 Web应用模式"></a>一 Web应用模式</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/28/44.drf%E5%85%A5%E9%97%A8%E8%A7%84%E8%8C%83/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+            <div class="post-nav-item">
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          </div>
     </footer>
   </article>
 </div>
@@ -892,561 +652,7 @@
 
 
 
-    
 
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/06/18/43.docker%E9%83%A8%E7%BD%B2nginx+uwsgi+django/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/18/43.docker%E9%83%A8%E7%BD%B2nginx+uwsgi+django/" class="post-title-link" itemprop="url">43 使用docker-compose+nginx+django部署项目</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-06-18 13:05:00" itemprop="dateCreated datePublished" datetime="2021-06-18T13:05:00+08:00">2021-06-18</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-23 10:17:34" itemprop="dateModified" datetime="2021-06-23T10:17:34+08:00">2021-06-23</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h2 id="使用docker-compose-nginx-django部署项目"><a href="#使用docker-compose-nginx-django部署项目" class="headerlink" title="使用docker-compose+nginx+django部署项目"></a>使用docker-compose+nginx+django部署项目</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/18/43.docker%E9%83%A8%E7%BD%B2nginx+uwsgi+django/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/06/10/42.BBS%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/10/42.BBS%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">42 BBS总结</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-06-10 13:05:00" itemprop="dateCreated datePublished" datetime="2021-06-10T13:05:00+08:00">2021-06-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-28 18:29:05" itemprop="dateModified" datetime="2021-06-28T18:29:05+08:00">2021-06-28</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="1-表关系设计"><a href="#1-表关系设计" class="headerlink" title="1.表关系设计"></a>1.表关系设计</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/10/42.BBS%E6%80%BB%E7%BB%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/06/09/41.BBS%E7%AC%AC%E4%BA%94%E5%A4%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/09/41.BBS%E7%AC%AC%E4%BA%94%E5%A4%A9/" class="post-title-link" itemprop="url">41 BBS第五天</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-06-09 13:05:00" itemprop="dateCreated datePublished" datetime="2021-06-09T13:05:00+08:00">2021-06-09</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-23 10:17:36" itemprop="dateModified" datetime="2021-06-23T10:17:36+08:00">2021-06-23</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h2 id="点赞点踩"><a href="#点赞点踩" class="headerlink" title="点赞点踩"></a>点赞点踩</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/09/41.BBS%E7%AC%AC%E4%BA%94%E5%A4%A9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/06/08/40.BBS%E7%AC%AC%E5%9B%9B%E5%A4%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/08/40.BBS%E7%AC%AC%E5%9B%9B%E5%A4%A9/" class="post-title-link" itemprop="url">40 BBS第四天</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-06-08 13:05:00" itemprop="dateCreated datePublished" datetime="2021-06-08T13:05:00+08:00">2021-06-08</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-11 10:12:29" itemprop="dateModified" datetime="2021-06-11T10:12:29+08:00">2021-06-11</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h2 id="头像展示"><a href="#头像展示" class="headerlink" title="头像展示"></a>头像展示</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/08/40.BBS%E7%AC%AC%E5%9B%9B%E5%A4%A9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/06/07/39.BBS%E7%AC%AC%E4%B8%89%E5%A4%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/07/39.BBS%E7%AC%AC%E4%B8%89%E5%A4%A9/" class="post-title-link" itemprop="url">39 BBS第三天</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-06-07 13:05:00" itemprop="dateCreated datePublished" datetime="2021-06-07T13:05:00+08:00">2021-06-07</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-11 10:12:25" itemprop="dateModified" datetime="2021-06-11T10:12:25+08:00">2021-06-11</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h2 id="登录页面搭建"><a href="#登录页面搭建" class="headerlink" title="登录页面搭建"></a>登录页面搭建</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/07/39.BBS%E7%AC%AC%E4%B8%89%E5%A4%A9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/06/04/38.BBS%E7%AC%AC%E4%BA%8C%E5%A4%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/06/04/38.BBS%E7%AC%AC%E4%BA%8C%E5%A4%A9/" class="post-title-link" itemprop="url">38 BBS第二天</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-06-04 13:05:00" itemprop="dateCreated datePublished" datetime="2021-06-04T13:05:00+08:00">2021-06-04</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-23 10:17:30" itemprop="dateModified" datetime="2021-06-23T10:17:30+08:00">2021-06-23</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h2 id="表关系创建"><a href="#表关系创建" class="headerlink" title="表关系创建"></a>表关系创建</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/04/38.BBS%E7%AC%AC%E4%BA%8C%E5%A4%A9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 <script src="/js/comments.js"></script>
 </div>
   </main>
