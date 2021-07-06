@@ -3699,7 +3699,9 @@
     <title>47 drf视图组件</title>
     <url>/2021/07/02/47.drf%E8%A7%86%E5%9B%BE%E7%BB%84%E4%BB%B6/</url>
     <content><![CDATA[<p>[TOC]</p>
-<h1 id="一-视图"><a href="#一-视图" class="headerlink" title="一 视图"></a>一 视图</h1><p>Django REST framwork 提供的视图的主要作用：</p>
+<h1 id="一-视图"><a href="#一-视图" class="headerlink" title="一 视图"></a>一 视图</h1><span id="more"></span>
+
+<p>Django REST framwork 提供的视图的主要作用：</p>
 <ul>
 <li>控制序列化器的执行（检验、保存、转换数据）</li>
 <li>控制数据库查询的执行</li>
@@ -3707,6 +3709,7 @@
 <h2 id="1-1-视图继承关系"><a href="#1-1-视图继承关系" class="headerlink" title="1.1 视图继承关系"></a>1.1 视图继承关系</h2><p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggipvctuxcj31wc0goq89.jpg" alt="image-20200707211311713"></p>
 <p>视图的方法与属性：</p>
 <p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggipulq6d5j30xu0u07mf.jpg" alt="通用视图的继承关系_含方法和属性"></p>
+<p><img src="https://gitee.com/gtdong/images/raw/master/blog/drf%E8%A7%86%E5%9B%BE%E7%B1%BB%E5%85%B3%E7%B3%BB%E5%9B%BE-20210706204443584.png"></p>
 <h2 id="1-2-视图"><a href="#1-2-视图" class="headerlink" title="1.2 视图"></a>1.2 视图</h2><p>REST framework 提供了众多的通用视图基类与扩展类，以简化视图的编写。</p>
 <h3 id="1-2-1-2个视图基类"><a href="#1-2-1-2个视图基类" class="headerlink" title="1.2.1 2个视图基类"></a>1.2.1 2个视图基类</h3><h4 id="1-2-1-1-APIView"><a href="#1-2-1-1-APIView" class="headerlink" title="1.2.1.1 APIView"></a>1.2.1.1 APIView</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rest_framework.views.APIView</span><br></pre></td></tr></table></figure>
 

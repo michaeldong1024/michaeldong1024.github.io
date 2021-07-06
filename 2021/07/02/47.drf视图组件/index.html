@@ -20,17 +20,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;michaeldong1024.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta name="description" content="[TOC] 一 视图Django REST framwork 提供的视图的主要作用：  控制序列化器的执行（检验、保存、转换数据） 控制数据库查询的执行  1.1 视图继承关系 视图的方法与属性：  1.2 视图REST framework 提供了众多的通用视图基类与扩展类，以简化视图的编写。 1.2.1 2个视图基类1.2.1.1 APIView1rest_framework.views.API">
+<meta name="description" content="[TOC] 一 视图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="47 drf视图组件">
 <meta property="og:url" content="https://michaeldong1024.github.io/2021/07/02/47.drf%E8%A7%86%E5%9B%BE%E7%BB%84%E4%BB%B6/index.html">
 <meta property="og:site_name" content="TsukiBlog">
-<meta property="og:description" content="[TOC] 一 视图Django REST framwork 提供的视图的主要作用：  控制序列化器的执行（检验、保存、转换数据） 控制数据库查询的执行  1.1 视图继承关系 视图的方法与属性：  1.2 视图REST framework 提供了众多的通用视图基类与扩展类，以简化视图的编写。 1.2.1 2个视图基类1.2.1.1 APIView1rest_framework.views.API">
+<meta property="og:description" content="[TOC] 一 视图">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggipvctuxcj31wc0goq89.jpg">
 <meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggipulq6d5j30xu0u07mf.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/drf%E8%A7%86%E5%9B%BE%E7%B1%BB%E5%85%B3%E7%B3%BB%E5%9B%BE-20210706204443584.png">
 <meta property="article:published_time" content="2021-07-02T05:05:00.000Z">
-<meta property="article:modified_time" content="2021-07-05T17:11:05.041Z">
+<meta property="article:modified_time" content="2021-07-06T12:45:19.979Z">
 <meta property="article:author" content="Michaeldong">
 <meta property="article:tag" content="导航">
 <meta property="article:tag" content="分享">
@@ -253,7 +254,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-06 01:11:05" itemprop="dateModified" datetime="2021-07-06T01:11:05+08:00">2021-07-06</time>
+        <time title="修改时间：2021-07-06 20:45:19" itemprop="dateModified" datetime="2021-07-06T20:45:19+08:00">2021-07-06</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -284,7 +285,9 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>[TOC]</p>
-<h1 id="一-视图"><a href="#一-视图" class="headerlink" title="一 视图"></a>一 视图</h1><p>Django REST framwork 提供的视图的主要作用：</p>
+<h1 id="一-视图"><a href="#一-视图" class="headerlink" title="一 视图"></a>一 视图</h1><span id="more"></span>
+
+<p>Django REST framwork 提供的视图的主要作用：</p>
 <ul>
 <li>控制序列化器的执行（检验、保存、转换数据）</li>
 <li>控制数据库查询的执行</li>
@@ -292,6 +295,7 @@
 <h2 id="1-1-视图继承关系"><a href="#1-1-视图继承关系" class="headerlink" title="1.1 视图继承关系"></a>1.1 视图继承关系</h2><p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggipvctuxcj31wc0goq89.jpg" alt="image-20200707211311713"></p>
 <p>视图的方法与属性：</p>
 <p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggipulq6d5j30xu0u07mf.jpg" alt="通用视图的继承关系_含方法和属性"></p>
+<p><img src="https://gitee.com/gtdong/images/raw/master/blog/drf%E8%A7%86%E5%9B%BE%E7%B1%BB%E5%85%B3%E7%B3%BB%E5%9B%BE-20210706204443584.png"></p>
 <h2 id="1-2-视图"><a href="#1-2-视图" class="headerlink" title="1.2 视图"></a>1.2 视图</h2><p>REST framework 提供了众多的通用视图基类与扩展类，以简化视图的编写。</p>
 <h3 id="1-2-1-2个视图基类"><a href="#1-2-1-2个视图基类" class="headerlink" title="1.2.1 2个视图基类"></a>1.2.1 2个视图基类</h3><h4 id="1-2-1-1-APIView"><a href="#1-2-1-1-APIView" class="headerlink" title="1.2.1.1 APIView"></a>1.2.1.1 APIView</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rest_framework.views.APIView</span><br></pre></td></tr></table></figure>
 
