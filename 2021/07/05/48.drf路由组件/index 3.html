@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;michaeldong1024.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="[TOC] 一 路由Routers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="48 drf路由组件">
+<meta property="og:url" content="https://michaeldong1024.github.io/2021/07/05/48.drf%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6/index.html">
+<meta property="og:site_name" content="TsukiBlog">
+<meta property="og:description" content="[TOC] 一 路由Routers">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggjybu91d2j30zq054gmj.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggghbmrvbij31940gwdj7.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggjy4td5wlj30oy03gt94.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggghbqkmx1j318y0j4wii.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggjy44i1y3j30v607otaa.jpg">
+<meta property="article:published_time" content="2021-07-05T05:05:00.000Z">
+<meta property="article:modified_time" content="2021-07-06T11:48:57.816Z">
+<meta property="article:author" content="Michaeldong">
+<meta property="article:tag" content="导航">
+<meta property="article:tag" content="分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggjybu91d2j30zq054gmj.jpg">
+
+
+<link rel="canonical" href="https://michaeldong1024.github.io/2021/07/05/48.drf%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;michaeldong1024.github.io&#x2F;2021&#x2F;07&#x2F;05&#x2F;48.drf%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;07&#x2F;05&#x2F;48.drf路由组件&#x2F;&quot;,&quot;title&quot;:&quot;48 drf路由组件&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>48 drf路由组件 | TsukiBlog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">TsukiBlog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80-%E8%B7%AF%E7%94%B1Routers"><span class="nav-text">一 路由Routers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">1.1 使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="nav-text">1.2 代码演示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E8%A7%86%E5%9B%BE%E9%9B%86%E4%B8%AD%E9%99%84%E5%8A%A0action%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">1.2 视图集中附加action的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E8%B7%AF%E7%94%B1router%E5%BD%A2%E6%88%90URL%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-text">1.3 路由router形成URL的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-text">扩展</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Michaeldong"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Michaeldong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/michaeldong1024" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;michaeldong1024" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/michaeldong1024" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/05/48.drf%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Michaeldong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TsukiBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          48 drf路由组件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-05 13:05:00" itemprop="dateCreated datePublished" datetime="2021-07-05T13:05:00+08:00">2021-07-05</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-06 19:48:57" itemprop="dateModified" datetime="2021-07-06T19:48:57+08:00">2021-07-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/DRF/" itemprop="url" rel="index"><span itemprop="name">DRF</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>[TOC]</p>
+<h1 id="一-路由Routers"><a href="#一-路由Routers" class="headerlink" title="一 路由Routers"></a>一 路由Routers</h1><span id="more"></span>
+
+<p>对于视图集ViewSet，我们除了可以自己手动指明请求方式与动作action之间的对应关系外，还可以使用Routers来帮助我们快速实现路由信息。</p>
+<p>REST framework提供了两个router</p>
+<ul>
+<li><strong>SimpleRouter</strong></li>
+<li><strong>DefaultRouter</strong></li>
+</ul>
+<h2 id="1-1-使用方法"><a href="#1-1-使用方法" class="headerlink" title="1.1 使用方法"></a>1.1 使用方法</h2><p>1） 创建router对象，并注册视图集，例如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> routers</span><br><span class="line"></span><br><span class="line">router = routers.SimpleRouter()</span><br><span class="line">router.register(<span class="string">r&#x27;router_stu&#x27;</span>, StudentModelViewSet, base_name=<span class="string">&#x27;student&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>register(prefix, viewset, base_name)</p>
+<ul>
+<li>prefix 该视图集的路由前缀</li>
+<li>viewset 视图集</li>
+<li>base_name 路由别名的前缀</li>
+</ul>
+<p>如上述代码会形成的路由如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">^books/$    name: book-<span class="built_in">list</span></span><br><span class="line">^books/&#123;pk&#125;/$   name: book-detail</span><br></pre></td></tr></table></figure>
+
+<p>2）添加路由数据</p>
+<p>可以有两种方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    ...</span><br><span class="line">]</span><br><span class="line">urlpatterns += router.urls</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    ...</span><br><span class="line">    url(<span class="string">r&#x27;^&#x27;</span>, include(router.urls))</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-代码演示"><a href="#1-2-代码演示" class="headerlink" title="1.2 代码演示"></a>1.2 代码演示</h2><p>使用路由类给视图集生成了路由地址</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 必须是继承ModelViewSet的视图类才能自动生成路由</span></span><br><span class="line"><span class="keyword">from</span> rest_framework.viewsets <span class="keyword">import</span> ModelViewSet,ReadOnlyModelViewSet</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentModelViewSet</span>(<span class="params">ModelViewSet</span>):</span></span><br><span class="line">    queryset = Student.objects.<span class="built_in">all</span>()</span><br><span class="line">    serializer_class = StudentModelSerializer</span><br><span class="line">		<span class="comment"># 这种方法不会自动生成，需要用action配置</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">login</span>(<span class="params">self,request</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;学生登录功能&quot;&quot;&quot;</span></span><br><span class="line">        <span class="built_in">print</span>(self.action)</span><br><span class="line">        <span class="keyword">return</span> Response(&#123;<span class="string">&quot;message&quot;</span>:<span class="string">&quot;登录成功&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>路由代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, re_path</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views</span><br><span class="line">urlpatterns = [</span><br><span class="line">    ...</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;使用drf提供路由类router给视图集生成路由列表&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 实例化路由类</span></span><br><span class="line"><span class="comment"># drf提供一共提供了两个路由类给我们使用,他们用法一致,功能几乎一样</span></span><br><span class="line"><span class="keyword">from</span> rest_framework.routers <span class="keyword">import</span> DefaultRouter</span><br><span class="line">router = DefaultRouter()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注册视图集</span></span><br><span class="line"><span class="comment"># router.register(&quot;路由前缀&quot;,视图集类)</span></span><br><span class="line">router.register(<span class="string">&quot;router_stu&quot;</span>,views.StudentModelViewSet)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把生成的路由列表追加到urlpatterns</span></span><br><span class="line"><span class="built_in">print</span>( router.urls )</span><br><span class="line">urlpatterns += router.urls</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码就成功生成了路由地址[增/删/改/查一条/查多条的功能]，但是不会自动我们在视图集自定义方法的路由。</p>
+<p>所以我们如果也要给自定义方法生成路由，则需要进行action动作的声明。</p>
+<h2 id="1-2-视图集中附加action的声明"><a href="#1-2-视图集中附加action的声明" class="headerlink" title="1.2 视图集中附加action的声明"></a>1.2 视图集中附加action的声明</h2><p>在视图集中，如果想要让Router自动帮助我们为自定义的动作生成路由信息，需要使用<code>rest_framework.decorators.action</code>装饰器。</p>
+<p>以action装饰器装饰的方法名会作为action动作名，与list、retrieve等同。</p>
+<p>action装饰器可以接收两个参数：</p>
+<ul>
+<li><p><strong>methods</strong>: 声明该action对应的请求方式，列表传递</p>
+</li>
+<li><p>detail</p>
+<p>: 声明该action的路径是否与单一资源对应，及是否是</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xxx/&lt;pk&gt;<span class="regexp">/action方法名/</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>True 表示路径格式是<code>xxx/&lt;pk&gt;/action方法名/</code></li>
+<li>False 表示路径格式是<code>xxx/action方法名/</code></li>
+</ul>
+</li>
+</ul>
+<p>举例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.viewsets <span class="keyword">import</span> ModelViewSet</span><br><span class="line"><span class="keyword">from</span> rest_framework.decorators <span class="keyword">import</span> action</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentModelViewSet</span>(<span class="params">ModelViewSet</span>):</span></span><br><span class="line">    queryset = Student.objects.<span class="built_in">all</span>()</span><br><span class="line">    serializer_class = StudentModelSerializer</span><br><span class="line"></span><br><span class="line">    <span class="comment"># methods 设置当前方法允许哪些http请求访问当前视图方法</span></span><br><span class="line">    <span class="comment"># detail 设置当前视图方法是否是操作一个数据</span></span><br><span class="line">    <span class="comment"># detail为True，表示路径名格式应该为 router_stu/&#123;pk&#125;/login/</span></span><br><span class="line"><span class="meta">    @action(<span class="params">methods=[<span class="string">&#x27;get&#x27;</span>], detail=<span class="literal">False</span></span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">login</span>(<span class="params">self, request</span>):</span></span><br><span class="line">        <span class="keyword">return</span> Response(&#123;<span class="string">&#x27;msg&#x27;</span>:<span class="string">&#x27;登陆成功&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @action(<span class="params">methods=[<span class="string">&#x27;put&#x27;</span>], detail=<span class="literal">True</span></span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_new_5</span>(<span class="params">self, request,pk</span>):</span></span><br><span class="line">        <span class="keyword">return</span> Response(&#123;<span class="string">&#x27;msg&#x27;</span>:<span class="string">&#x27;获取5条数据成功&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>由路由器自动为此视图集自定义action方法形成的路由会是如下内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">^router_stu/get_new_5/$    name: router_stu-get_new_5</span><br><span class="line">^router_stu/&#123;pk&#125;/login/$   name: router_stu-login</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggjybu91d2j30zq054gmj.jpg" alt="image-20200708225123044"></p>
+<h2 id="1-3-路由router形成URL的方式"><a href="#1-3-路由router形成URL的方式" class="headerlink" title="1.3 路由router形成URL的方式"></a>1.3 路由router形成URL的方式</h2><p>1） SimpleRouter</p>
+<p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggghbmrvbij31940gwdj7.jpg" alt="SimpleRouter"></p>
+<p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggjy4td5wlj30oy03gt94.jpg" alt="image-20200708224438048"></p>
+<p>2）DefaultRouter</p>
+<p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggghbqkmx1j318y0j4wii.jpg" alt="DefaultRouter"></p>
+<p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggjy44i1y3j30v607otaa.jpg" alt="image-20200708224355882"></p>
+<p>DefaultRouter与SimpleRouter的区别是，DefaultRouter会多附带一个默认的API根视图，返回一个包含所有列表视图的超链接响应数据。</p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> books和publish5个接口，自动生成路由</span><br><span class="line"><span class="number">1</span> 写登录功能，使用action映射</span><br><span class="line"><span class="number">2</span> 写一个认证类，保证books的所有接口，必须认证通过才能访问</span><br><span class="line">	-访问时，token不放在请求地址中，放在请求头中</span><br><span class="line"><span class="number">3</span> 写一个权限类，publish的所有接口，必须超级用户才能访问</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 部分人</span></span><br><span class="line"><span class="number">4</span> 权限user_type使用choice，返回的提示信息，自定制</span><br><span class="line"><span class="number">5</span> 把认证类源码过一遍</span><br><span class="line"><span class="number">6</span> 权限类源码看一看</span><br></pre></td></tr></table></figure>
+
+
+
+<p>0.books和publish5个接口，自动生成路由</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># models.py</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Book</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    name=models.CharField(max_length=<span class="number">32</span>)</span><br><span class="line">    price=models.IntegerField()</span><br><span class="line">    publish=models.ForeignKey(to=<span class="string">&#x27;Publish&#x27;</span>,on_delete=models.CASCADE)</span><br><span class="line">    authors=models.ManyToManyField(to=<span class="string">&#x27;Author&#x27;</span>,null=<span class="literal">True</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">publish_name</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.publish.name</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Publish</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    name=models.CharField(max_length=<span class="number">32</span>)</span><br><span class="line">    addr=models.CharField(max_length=<span class="number">32</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line"> </span><br><span class="line"><span class="comment"># sers.py</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BookSerializer</span>(<span class="params">ModelSerializer</span>):</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model=Book</span><br><span class="line">        fields=<span class="string">&#x27;__all__&#x27;</span></span><br><span class="line">        extra_kwargs = &#123;<span class="string">&quot;publish&quot;</span>: &#123;<span class="string">&#x27;write_only&#x27;</span>: <span class="literal">True</span>&#125;,<span class="string">&quot;authors&quot;</span>: &#123;<span class="string">&#x27;write_only&#x27;</span>: <span class="literal">True</span>&#125;&#125;</span><br><span class="line">    publish_name=serializers.CharField(source=<span class="string">&#x27;publish&#x27;</span>,read_only=<span class="literal">True</span>)</span><br><span class="line">    authors_name=SerializerMethodField(source=<span class="string">&#x27;authors&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_authors_name</span>(<span class="params">self,obj</span>):</span></span><br><span class="line">        tmp = []</span><br><span class="line">        <span class="keyword">for</span> author <span class="keyword">in</span> obj.authors.<span class="built_in">all</span>():</span><br><span class="line">            tmp.append(author.name)</span><br><span class="line">        <span class="keyword">return</span> tmp</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PublishSerializer</span>(<span class="params">ModelSerializer</span>):</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model=Publish</span><br><span class="line">        fields=<span class="string">&#x27;__all__&#x27;</span></span><br><span class="line">        </span><br><span class="line"><span class="comment"># views.py</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BookView</span>(<span class="params">ModelViewSet</span>):</span></span><br><span class="line">    queryset = models.Book.objects.<span class="built_in">all</span>()</span><br><span class="line">    serializer_class = BookSerializer</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PublishView</span>(<span class="params">ModelViewSet</span>):</span></span><br><span class="line">    queryset = models.Publish.objects.<span class="built_in">all</span>()</span><br><span class="line">    serializer_class = PublishSerializer</span><br><span class="line">    </span><br><span class="line"><span class="comment"># urls.py</span></span><br><span class="line">router.register(<span class="string">&#x27;books&#x27;</span>,views.BookView,<span class="string">&#x27;books&#x27;</span>)</span><br><span class="line">router.register(<span class="string">&#x27;publish&#x27;</span>,views.PublishView,<span class="string">&#x27;publish&#x27;</span>)</span><br><span class="line"></span><br><span class="line">path(<span class="string">&#x27;&#x27;</span>,include(router.urls)),</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<p>1 写登录功能，使用action映射</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># urls.py</span></span><br><span class="line">router.register(<span class="string">&#x27;&#x27;</span>,views.LoginView,<span class="string">&#x27;login&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># views.py</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoginView</span>(<span class="params">ViewSet</span>):</span></span><br><span class="line"><span class="meta">    @action(<span class="params">methods=[<span class="string">&#x27;POST&#x27;</span>], detail=<span class="literal">False</span></span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">login</span>(<span class="params">self, request, *args, **kwargs</span>):</span></span><br><span class="line">        username = request.data.get(<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">        password = request.data.get(<span class="string">&#x27;password&#x27;</span>)</span><br><span class="line">        user = models.User.objects.<span class="built_in">filter</span>(username=username, password=password).first()</span><br><span class="line">        <span class="keyword">if</span> user:</span><br><span class="line">            token = <span class="built_in">str</span>(uuid.uuid4())</span><br><span class="line">            models.UserToken.objects.update_or_create(defaults=&#123;<span class="string">&#x27;token&#x27;</span>: token&#125;, user=user)</span><br><span class="line">            <span class="keyword">return</span> APIResponse(msg=<span class="string">&#x27;登录成功&#x27;</span>, token=token)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> APIResponse(msg=<span class="string">&#x27;用户名或者密码错误&#x27;</span>, code=<span class="number">101</span>)</span><br></pre></td></tr></table></figure>
+
+<p>2.写一个认证类，保证books的所有接口，必须认证通过才能访问<br>    -访问时，token不放在请求地址中，放在请求头中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 认证类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoginAuth</span>(<span class="params">BaseAuthentication</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">authenticate</span>(<span class="params">self, request</span>):</span></span><br><span class="line">        token = request.META.get(<span class="string">&#x27;HTTP_TOKEN&#x27;</span>)</span><br><span class="line">        user_token = models.UserToken.objects.<span class="built_in">filter</span>(token=token).first()</span><br><span class="line">        <span class="keyword">if</span> user_token:</span><br><span class="line">            user = user_token.user</span><br><span class="line">            <span class="keyword">return</span> user, user_token</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> AuthenticationFailed(<span class="string">&#x27;您没有登录，认证失败&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> rest_framework.permissions <span class="keyword">import</span> BasePermission</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 视图类中配置</span></span><br><span class="line">authentication_classes = [LoginAuth,]</span><br></pre></td></tr></table></figure>
+
+<p>3 写一个权限类，publish的所有接口，必须超级用户才能访问</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 权限类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserPermission</span>(<span class="params">BasePermission</span>):</span></span><br><span class="line">    message = <span class="string">&#x27;您没有管理员权限&#x27;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_permission</span>(<span class="params">self, request, view</span>):</span></span><br><span class="line">        <span class="keyword">if</span> request.user.get_user_type_display() == <span class="string">&#x27;超级用户&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">          </span><br><span class="line"><span class="comment"># 视图类中配置</span></span><br><span class="line">permission_classes = [UserPermission,]</span><br></pre></td></tr></table></figure>
+
+<p>4 权限user_type使用choice，返回的提示信息，自定制</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># models.py</span></span><br><span class="line">user_type=models.IntegerField(choices=((<span class="number">0</span>,<span class="string">&#x27;超级用户&#x27;</span>),(<span class="number">1</span>,<span class="string">&#x27;普通用户&#x27;</span>)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 权限类自定制信息配置</span></span><br><span class="line"><span class="comment"># 只要在权限类中定义message即可</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserPermission</span>(<span class="params">BasePermission</span>):</span></span><br><span class="line">    message = <span class="string">&#x27;您没有管理员权限&#x27;</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">has_permission</span>(<span class="params">self, request, view</span>):</span></span><br><span class="line">        <span class="keyword">if</span> request.user.get_user_type_display() == <span class="string">&#x27;超级用户&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpeg" alt="Michaeldong 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpeg" alt="Michaeldong 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%AF%BC%E8%88%AA/" rel="tag"># 导航</a>
+              <a href="/tags/%E5%88%86%E4%BA%AB/" rel="tag"># 分享</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/02/47.drf%E8%A7%86%E5%9B%BE%E7%BB%84%E4%BB%B6/" rel="prev" title="47 drf视图组件">
+                  <i class="fa fa-chevron-left"></i> 47 drf视图组件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/07/06/49.drf%E8%AE%A4%E8%AF%81%E6%9D%83%E9%99%90%E9%A2%91%E7%8E%87/" rel="next" title="49 drf认证权限频率">
+                  49 drf认证权限频率 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Michaeldong</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

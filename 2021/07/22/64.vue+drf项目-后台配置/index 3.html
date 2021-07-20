@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;michaeldong1024.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="[TOC] 3.后台：Django项目创建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="64 vue+drf项目-后台配置">
+<meta property="og:url" content="https://michaeldong1024.github.io/2021/07/22/64.vue+drf%E9%A1%B9%E7%9B%AE-%E5%90%8E%E5%8F%B0%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="TsukiBlog">
+<meta property="og:description" content="[TOC] 3.后台：Django项目创建">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvp5d4egj31b90u07fi.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvpjods4j30vh0epacd.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvq71pgbj310o0foq53.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvqiznu3j310i0fmgnw.jpg">
+<meta property="article:published_time" content="2021-07-22T05:05:00.000Z">
+<meta property="article:modified_time" content="2021-07-20T07:04:30.679Z">
+<meta property="article:author" content="Michaeldong">
+<meta property="article:tag" content="导航">
+<meta property="article:tag" content="分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvp5d4egj31b90u07fi.jpg">
+
+
+<link rel="canonical" href="https://michaeldong1024.github.io/2021/07/22/64.vue+drf%E9%A1%B9%E7%9B%AE-%E5%90%8E%E5%8F%B0%E9%85%8D%E7%BD%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;michaeldong1024.github.io&#x2F;2021&#x2F;07&#x2F;22&#x2F;64.vue+drf%E9%A1%B9%E7%9B%AE-%E5%90%8E%E5%8F%B0%E9%85%8D%E7%BD%AE&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;07&#x2F;22&#x2F;64.vue+drf项目-后台配置&#x2F;&quot;,&quot;title&quot;:&quot;64 vue+drf项目-后台配置&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>64 vue+drf项目-后台配置 | TsukiBlog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">TsukiBlog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%90%8E%E5%8F%B0%EF%BC%9ADjango%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA"><span class="nav-text">3.后台：Django项目创建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95"><span class="nav-text">重构项目目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">配置开发环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5"><span class="nav-text">项目模块导入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%90%8E%E5%8F%B0%E9%85%8D%E7%BD%AE"><span class="nav-text">4.后台配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dev-py"><span class="nav-text">dev.py</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E5%86%99%E9%A1%B9%E7%9B%AE%E7%9B%B4%E6%8E%A5%E5%AF%BC%E5%85%A5utils%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B9%9F%E4%B8%8D%E2%80%99%E2%80%99%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA%E2%80%99%E2%80%99"><span class="nav-text">在写项目直接导入utils文件夹也不’’错误提示’’</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E8%A3%85logger"><span class="nav-text">封装logger</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dev-py-1"><span class="nav-text">dev.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#utils-logging-py"><span class="nav-text">utils&#x2F;logging.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E9%A1%B9%E7%9B%AE%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-text">封装项目异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#utils-exception-py"><span class="nav-text">utils&#x2F;exception.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#settings-py"><span class="nav-text">settings.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E5%B0%81%E8%A3%85Response%E6%A8%A1%E5%9D%97"><span class="nav-text">二次封装Response模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#utils-response-py"><span class="nav-text">utils&#x2F;response.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="nav-text">路由组件配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#utils-router-py"><span class="nav-text">utils&#x2F;router.py</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE"><span class="nav-text">5.数据库配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E6%8C%87%E5%AE%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE%E6%8C%87%E5%AE%9A%E8%B4%A6%E6%88%B7"><span class="nav-text">为指定数据库配置指定账户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="nav-text">配置文件配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Django-2-x-%E4%B8%80%E4%BA%9B%E7%89%88%E6%9C%ACpymysql%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98"><span class="nav-text">Django 2.x 一些版本pymysql兼容问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#user%E6%A8%A1%E5%9D%97User%E8%A1%A8"><span class="nav-text">user模块User表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAuser%E6%A8%A1%E5%9D%97"><span class="nav-text">创建user模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAUser%E8%A1%A8%E5%AF%B9%E5%BA%94%E7%9A%84model%EF%BC%9Auser-models-py"><span class="nav-text">创建User表对应的model：user&#x2F;models.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8Cuser%E6%A8%A1%E5%9D%97%EF%BC%8C%E9%85%8D%E7%BD%AEUser%E8%A1%A8%EF%BC%9Adev-py"><span class="nav-text">注册user模块，配置User表：dev.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEmedia"><span class="nav-text">配置media</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#media%E9%85%8D%E7%BD%AE%EF%BC%9Adev-py"><span class="nav-text">media配置：dev.py</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#media%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE"><span class="nav-text">media目录配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%B7%AF%E7%94%B1%EF%BC%9Aluffyapi-urls-py"><span class="nav-text">主路由：luffyapi&#x2F;urls.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E8%B7%AF%E7%94%B1%EF%BC%9Auser-urls-py"><span class="nav-text">子路由：user&#x2F;urls.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%81%E7%A7%BB"><span class="nav-text">数据库迁移</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Michaeldong"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Michaeldong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/michaeldong1024" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;michaeldong1024" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/michaeldong1024" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/22/64.vue+drf%E9%A1%B9%E7%9B%AE-%E5%90%8E%E5%8F%B0%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Michaeldong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TsukiBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          64 vue+drf项目-后台配置
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-22 13:05:00" itemprop="dateCreated datePublished" datetime="2021-07-22T13:05:00+08:00">2021-07-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-07-20 15:04:30" itemprop="dateModified" datetime="2021-07-20T15:04:30+08:00">2021-07-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">项目实战</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>[TOC]</p>
+<h1 id="3-后台：Django项目创建"><a href="#3-后台：Django项目创建" class="headerlink" title="3.后台：Django项目创建"></a>3.后台：Django项目创建</h1><span id="more"></span>
+
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1.为luffy项目创建一个虚拟环境</span></span><br><span class="line">&gt;: mkvirtualenv luffy</span><br><span class="line"></span><br><span class="line"><span class="comment">#2.按照基础环境依赖</span></span><br><span class="line">&gt;: pip install django==<span class="number">2.0</span><span class="number">.7</span></span><br><span class="line">&gt;: pip install djangorestframework</span><br><span class="line">&gt;: pip install pymysql</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 前提：在目标目录新建luffy文件夹</span></span><br><span class="line">&gt;: cd 建立的luffy文件夹</span><br><span class="line">&gt;: django-admin startproject luffyapi</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开发：用pycharm打开项目，并选择提前备好的虚拟环境</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="重构项目目录"><a href="#重构项目目录" class="headerlink" title="重构项目目录"></a>重构项目目录</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">├── luffyapi</span></span><br><span class="line"><span class="string">	├── logs/				# 项目运行时/开发时日志目录 - 包</span></span><br><span class="line"><span class="string">    ├── manage.py			# 脚本文件</span></span><br><span class="line"><span class="string">    ├── luffyapi/      		# 项目主应用，开发时的代码保存 - 包</span></span><br><span class="line"><span class="string">     	├── apps/      		# 开发者的代码保存目录，以模块[子应用]为目录保存 - 包</span></span><br><span class="line"><span class="string">        ├── libs/      		# 第三方类库的保存目录[第三方组件、模块] - 包</span></span><br><span class="line"><span class="string">    	├── settings/  		# 配置目录 - 包</span></span><br><span class="line"><span class="string">			├── dev.py   	# 项目开发时的本地配置</span></span><br><span class="line"><span class="string">			└── prod.py  	# 项目上线时的运行配置</span></span><br><span class="line"><span class="string">		├── urls.py    		# 总路由</span></span><br><span class="line"><span class="string">		└── utils/     		# 多个模块[子应用]的公共函数类库[自己开发的组件]</span></span><br><span class="line"><span class="string">    └── scripts/       		# 保存项目运营时的脚本文件 - 文件夹</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置开发环境"><a href="#配置开发环境" class="headerlink" title="配置开发环境"></a>配置开发环境</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1.</span>修改 wsgi.py 与 manage.py 两个文件：</span><br><span class="line"><span class="comment"># manage.py</span></span><br><span class="line">os.environ.setdefault(<span class="string">&#x27;DJANGO_SETTINGS_MODULE&#x27;</span>, <span class="string">&#x27;luffyapi.settings.dev&#x27;</span>)</span><br><span class="line"><span class="comment"># wsgi.py</span></span><br><span class="line">os.environ.setdefault(<span class="string">&#x27;DJANGO_SETTINGS_MODULE&#x27;</span>, <span class="string">&#x27;luffyapi.settings.prod&#x27;</span>)</span><br><span class="line"><span class="comment"># manage_prod.py</span></span><br><span class="line">os.environ.setdefault(<span class="string">&#x27;DJANGO_SETTINGS_MODULE&#x27;</span>, <span class="string">&#x27;luffyapi.settings.prod&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>将settings.py删除或改名，内容拷贝到settings/dev.py中</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>修改dev.py文件内容</span><br><span class="line">LANGUAGE_CODE = <span class="string">&#x27;zh-hans&#x27;</span></span><br><span class="line">TIME_ZONE = <span class="string">&#x27;Asia/Shanghai&#x27;</span></span><br><span class="line">USE_TZ = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>修改启动配置：见插图</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>在任何一个__init__.py文件中测试默认配置文件是否是dev.py文件</span><br><span class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</span><br><span class="line"><span class="built_in">print</span>(settings)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvp5d4egj31b90u07fi.jpg" alt="img"></p>
+<h2 id="项目模块导入"><a href="#项目模块导入" class="headerlink" title="项目模块导入"></a>项目模块导入</h2><ul>
+<li>1.模块能不能找到，取决于路径是否在环境变量中</li>
+<li>2.如果是在包内部，推荐相对导入</li>
+<li>3.如果py文件以脚本形式运行，必须使用绝对导入</li>
+</ul>
+<h1 id="4-后台配置"><a href="#4-后台配置" class="headerlink" title="4.后台配置"></a>4.后台配置</h1><h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><h3 id="dev-py"><a href="#dev-py" class="headerlink" title="dev.py"></a>dev.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 环境变量操作：小luffyapiBASE_DIR与apps文件夹都要添加到环境变量</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.insert(<span class="number">0</span>, BASE_DIR)</span><br><span class="line">APPS_DIR = os.path.join(BASE_DIR, <span class="string">&#x27;apps&#x27;</span>)</span><br><span class="line">sys.path.insert(<span class="number">1</span>, APPS_DIR)</span><br></pre></td></tr></table></figure>
+
+<h4 id="在写项目直接导入utils文件夹也不’’错误提示’’"><a href="#在写项目直接导入utils文件夹也不’’错误提示’’" class="headerlink" title="在写项目直接导入utils文件夹也不’’错误提示’’"></a>在写项目直接导入utils文件夹也不’’错误提示’’</h4><p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvpjods4j30vh0epacd.jpg" alt="img"></p>
+<h2 id="封装logger"><a href="#封装logger" class="headerlink" title="封装logger"></a>封装logger</h2><h3 id="dev-py-1"><a href="#dev-py-1" class="headerlink" title="dev.py"></a>dev.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 真实项目上线后，日志文件打印级别不能过低，因为一次日志记录就是一次文件io操作</span></span><br><span class="line">LOGGING = &#123;</span><br><span class="line">    <span class="string">&#x27;version&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;disable_existing_loggers&#x27;</span>: <span class="literal">False</span>,</span><br><span class="line">    <span class="string">&#x27;formatters&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;verbose&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;format&#x27;</span>: <span class="string">&#x27;%(levelname)s %(asctime)s %(module)s %(lineno)d %(message)s&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">&#x27;simple&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;format&#x27;</span>: <span class="string">&#x27;%(levelname)s %(module)s %(lineno)d %(message)s&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&#x27;filters&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;require_debug_true&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;()&#x27;</span>: <span class="string">&#x27;django.utils.log.RequireDebugTrue&#x27;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&#x27;handlers&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;console&#x27;</span>: &#123;</span><br><span class="line">            <span class="comment"># 实际开发建议使用WARNING</span></span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>: <span class="string">&#x27;DEBUG&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;filters&#x27;</span>: [<span class="string">&#x27;require_debug_true&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;class&#x27;</span>: <span class="string">&#x27;logging.StreamHandler&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;formatter&#x27;</span>: <span class="string">&#x27;simple&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">&#x27;file&#x27;</span>: &#123;</span><br><span class="line">            <span class="comment"># 实际开发建议使用ERROR</span></span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>: <span class="string">&#x27;INFO&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;class&#x27;</span>: <span class="string">&#x27;logging.handlers.RotatingFileHandler&#x27;</span>,</span><br><span class="line">            <span class="comment"># 日志位置,日志文件名,日志保存目录必须手动创建，注：这里的文件路径要注意BASE_DIR代表的是小luffyapi</span></span><br><span class="line">            <span class="string">&#x27;filename&#x27;</span>: os.path.join(os.path.dirname(BASE_DIR), <span class="string">&quot;logs&quot;</span>, <span class="string">&quot;luffy.log&quot;</span>),</span><br><span class="line">            <span class="comment"># 日志文件的最大值,这里我们设置300M</span></span><br><span class="line">            <span class="string">&#x27;maxBytes&#x27;</span>: <span class="number">300</span> * <span class="number">1024</span> * <span class="number">1024</span>,</span><br><span class="line">            <span class="comment"># 日志文件的数量,设置最大日志数量为10</span></span><br><span class="line">            <span class="string">&#x27;backupCount&#x27;</span>: <span class="number">10</span>,</span><br><span class="line">            <span class="comment"># 日志格式:详细格式</span></span><br><span class="line">            <span class="string">&#x27;formatter&#x27;</span>: <span class="string">&#x27;verbose&#x27;</span>,</span><br><span class="line">            <span class="comment"># 文件内容编码</span></span><br><span class="line">            <span class="string">&#x27;encoding&#x27;</span>: <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment"># 日志对象</span></span><br><span class="line">    <span class="string">&#x27;loggers&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;django&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;handlers&#x27;</span>: [<span class="string">&#x27;console&#x27;</span>, <span class="string">&#x27;file&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;propagate&#x27;</span>: <span class="literal">True</span>, <span class="comment"># 是否让日志信息继续冒泡给其他的日志处理系统</span></span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="utils-logging-py"><a href="#utils-logging-py" class="headerlink" title="utils/logging.py"></a>utils/logging.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logger = logging.getLogger(<span class="string">&#x27;django&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="封装项目异常处理"><a href="#封装项目异常处理" class="headerlink" title="封装项目异常处理"></a>封装项目异常处理</h2><h3 id="utils-exception-py"><a href="#utils-exception-py" class="headerlink" title="utils/exception.py"></a>utils/exception.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.views <span class="keyword">import</span> exception_handler <span class="keyword">as</span> drf_exception_handler</span><br><span class="line"><span class="keyword">from</span> rest_framework.views <span class="keyword">import</span> Response</span><br><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> status</span><br><span class="line"><span class="keyword">from</span> utils.logging <span class="keyword">import</span> logger</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line">logging.getLogger(<span class="string">&#x27;django&#x27;</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exception_handler</span>(<span class="params">exc, context</span>):</span></span><br><span class="line">  	 <span class="comment"># 记录服务器异常</span></span><br><span class="line">    logger.critical(<span class="string">&#x27;%s&#x27;</span> % exc)</span><br><span class="line">    response = drf_exception_handler(exc, context)</span><br><span class="line">    <span class="keyword">if</span> response: <span class="comment"># 如果是drf的异常返回的信息</span></span><br><span class="line">      	<span class="keyword">return</span> Response(&#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">999</span>,<span class="string">&#x27;msg&#x27;</span>:response.data.get(<span class="string">&#x27;detail&#x27;</span>,<span class="string">&#x27;服务器异常，请联系管理员&#x27;</span>)&#125;)</span><br><span class="line">    <span class="keyword">else</span>: <span class="comment"># 如果是其他的异常返回的信息</span></span><br><span class="line">      	<span class="keyword">return</span> Response(&#123;<span class="string">&#x27;code&#x27;</span>:<span class="number">999</span>,<span class="string">&#x27;msg&#x27;</span>: <span class="string">&#x27;服务器异常，请联系管理员&#x27;</span>&#125;)</span><br><span class="line">    		<span class="comment">#return Response(&#123;&#x27;code&#x27;:999,&#x27;msg&#x27;: str(exc)&#125;)  # 返回详细异常信息</span></span><br><span class="line">      	</span><br></pre></td></tr></table></figure>
+
+<h3 id="settings-py"><a href="#settings-py" class="headerlink" title="settings.py"></a>settings.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># restframework出现异常会出发EXCEPTION_HANDLER的执行</span></span><br><span class="line">REST_FRAMEWORK = &#123;</span><br><span class="line">    <span class="string">&#x27;EXCEPTION_HANDLER&#x27;</span>: <span class="string">&#x27;utils.exception.exception_handler&#x27;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二次封装Response模块"><a href="#二次封装Response模块" class="headerlink" title="二次封装Response模块"></a>二次封装Response模块</h2><h3 id="utils-response-py"><a href="#utils-response-py" class="headerlink" title="utils/response.py"></a>utils/response.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.response <span class="keyword">import</span> Response</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">APIResponse</span>(<span class="params">Response</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, status=<span class="number">0</span>, msg=<span class="string">&#x27;ok&#x27;</span>, http_status=<span class="literal">None</span>, headers=<span class="literal">None</span>, exception=<span class="literal">False</span>, **kwargs</span>):</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;status&#x27;</span>: status,</span><br><span class="line">            <span class="string">&#x27;msg&#x27;</span>: msg,</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> kwargs:</span><br><span class="line">            data.update(kwargs)</span><br><span class="line">        <span class="built_in">super</span>().__init__(data=data, status=http_status, headers=headers, exception=exception)</span><br></pre></td></tr></table></figure>
+
+<h2 id="路由组件配置"><a href="#路由组件配置" class="headerlink" title="路由组件配置"></a>路由组件配置</h2><h3 id="utils-router-py"><a href="#utils-router-py" class="headerlink" title="utils/router.py"></a>utils/router.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework.routers <span class="keyword">import</span> Route, DynamicRoute, SimpleRouter <span class="keyword">as</span> DRFSimpleRouter</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SimpleRouter</span>(<span class="params">DRFSimpleRouter</span>):</span></span><br><span class="line">    routes = [</span><br><span class="line">        <span class="comment"># List route.  /资源s/</span></span><br><span class="line">        Route(</span><br><span class="line">            url=<span class="string">r&#x27;^&#123;prefix&#125;&#123;trailing_slash&#125;$&#x27;</span>,</span><br><span class="line">            mapping=&#123;</span><br><span class="line">                <span class="string">&#x27;get&#x27;</span>: <span class="string">&#x27;list&#x27;</span>,  <span class="comment"># 群查</span></span><br><span class="line">                <span class="string">&#x27;post&#x27;</span>: <span class="string">&#x27;create&#x27;</span>,  <span class="comment"># 单增、群增</span></span><br><span class="line">                <span class="string">&#x27;put&#x27;</span>: <span class="string">&#x27;multiple_update&#x27;</span>,  <span class="comment"># 群整改</span></span><br><span class="line">                <span class="string">&#x27;patch&#x27;</span>: <span class="string">&#x27;multiple_partial_update&#x27;</span>,  <span class="comment"># 群局改</span></span><br><span class="line">                <span class="string">&#x27;delete&#x27;</span>: <span class="string">&#x27;multiple_destroy&#x27;</span>,  <span class="comment"># 群删</span></span><br><span class="line">            &#125;,</span><br><span class="line">            name=<span class="string">&#x27;&#123;basename&#125;-list&#x27;</span>,</span><br><span class="line">            detail=<span class="literal">False</span>,</span><br><span class="line">            initkwargs=&#123;<span class="string">&#x27;suffix&#x27;</span>: <span class="string">&#x27;List&#x27;</span>&#125;</span><br><span class="line">        ),</span><br><span class="line">        <span class="comment"># Dynamically generated list routes. Generated using</span></span><br><span class="line">        <span class="comment"># @action(detail=False) decorator on methods of the viewset.</span></span><br><span class="line">        DynamicRoute(</span><br><span class="line">            url=<span class="string">r&#x27;^&#123;prefix&#125;/&#123;url_path&#125;&#123;trailing_slash&#125;$&#x27;</span>,</span><br><span class="line">            name=<span class="string">&#x27;&#123;basename&#125;-&#123;url_name&#125;&#x27;</span>,</span><br><span class="line">            detail=<span class="literal">False</span>,</span><br><span class="line">            initkwargs=&#123;&#125;</span><br><span class="line">        ),</span><br><span class="line">        <span class="comment"># Detail route.  /资源s/(pk)/</span></span><br><span class="line">        Route(</span><br><span class="line">            url=<span class="string">r&#x27;^&#123;prefix&#125;/&#123;lookup&#125;&#123;trailing_slash&#125;$&#x27;</span>,</span><br><span class="line">            mapping=&#123;</span><br><span class="line">                <span class="string">&#x27;get&#x27;</span>: <span class="string">&#x27;retrieve&#x27;</span>,  <span class="comment"># 单查</span></span><br><span class="line">                <span class="string">&#x27;put&#x27;</span>: <span class="string">&#x27;update&#x27;</span>,  <span class="comment"># 单整改</span></span><br><span class="line">                <span class="string">&#x27;patch&#x27;</span>: <span class="string">&#x27;partial_update&#x27;</span>,  <span class="comment"># 单局改</span></span><br><span class="line">                <span class="string">&#x27;delete&#x27;</span>: <span class="string">&#x27;destroy&#x27;</span>  <span class="comment"># 单删</span></span><br><span class="line">            &#125;,</span><br><span class="line">            name=<span class="string">&#x27;&#123;basename&#125;-detail&#x27;</span>,</span><br><span class="line">            detail=<span class="literal">True</span>,</span><br><span class="line">            initkwargs=&#123;<span class="string">&#x27;suffix&#x27;</span>: <span class="string">&#x27;Instance&#x27;</span>&#125;</span><br><span class="line">        ),</span><br><span class="line">        <span class="comment"># Dynamically generated detail routes. Generated using</span></span><br><span class="line">        <span class="comment"># @action(detail=True) decorator on methods of the viewset.</span></span><br><span class="line">        DynamicRoute(</span><br><span class="line">            url=<span class="string">r&#x27;^&#123;prefix&#125;/&#123;lookup&#125;/&#123;url_path&#125;&#123;trailing_slash&#125;$&#x27;</span>,</span><br><span class="line">            name=<span class="string">&#x27;&#123;basename&#125;-&#123;url_name&#125;&#x27;</span>,</span><br><span class="line">            detail=<span class="literal">True</span>,</span><br><span class="line">            initkwargs=&#123;&#125;</span><br><span class="line">        ),</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对外提供十大接口的router对象</span></span><br><span class="line">router = SimpleRouter()</span><br><span class="line"><span class="comment"># eg: router.register(&#x27;users&#x27;, UserModelViewSet, basename=&#x27;user&#x27;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">/users/</span></span><br><span class="line"><span class="string">&#x27;get&#x27;: &#x27;list&#x27;,  # 群查</span></span><br><span class="line"><span class="string">&#x27;post&#x27;: &#x27;create&#x27;,  # 单增、群增</span></span><br><span class="line"><span class="string">&#x27;put&#x27;: &#x27;multiple_update&#x27;,  # 群整改</span></span><br><span class="line"><span class="string">&#x27;patch&#x27;: &#x27;multiple_partial_update&#x27;,  # 群局改</span></span><br><span class="line"><span class="string">&#x27;delete&#x27;: &#x27;multiple_destroy&#x27;,  # 群删</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">/users/(pk)/</span></span><br><span class="line"><span class="string">&#x27;get&#x27;: &#x27;retrieve&#x27;,  # 单查</span></span><br><span class="line"><span class="string">&#x27;put&#x27;: &#x27;update&#x27;,  # 单整改</span></span><br><span class="line"><span class="string">&#x27;patch&#x27;: &#x27;partial_update&#x27;,  # 单局改</span></span><br><span class="line"><span class="string">&#x27;delete&#x27;: &#x27;destroy&#x27;  # 单删</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="5-数据库配置"><a href="#5-数据库配置" class="headerlink" title="5.数据库配置"></a>5.数据库配置</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">1.管理员连接数据库</span><br><span class="line">&gt;: mysql -uroot -proot</span><br><span class="line"></span><br><span class="line">2.创建数据库</span><br><span class="line">&gt;: <span class="keyword">create</span> <span class="keyword">database</span> luffy default charset=utf8;</span><br><span class="line"></span><br><span class="line">3.查看用户</span><br><span class="line">&gt;: <span class="keyword">select</span> <span class="keyword">user</span>,host,<span class="keyword">password</span> <span class="keyword">from</span> mysql.<span class="keyword">user</span>;</span><br><span class="line"></span><br><span class="line"># 5.7往后的版本</span><br><span class="line">&gt;: <span class="keyword">select</span> <span class="keyword">user</span>,host,authentication_string <span class="keyword">from</span> mysql.<span class="keyword">user</span>;</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="为指定数据库配置指定账户"><a href="#为指定数据库配置指定账户" class="headerlink" title="为指定数据库配置指定账户"></a>为指定数据库配置指定账户</h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">设置权限账号密码</span><br><span class="line"># 授权账号命令：grant 权限(<span class="keyword">create</span>, <span class="keyword">update</span>) <span class="keyword">on</span> 库.表 <span class="keyword">to</span> <span class="string">&#x27;账号&#x27;</span>@<span class="string">&#x27;host&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;密码&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>配置任意ip都可以连入数据库的账户</span><br><span class="line">&gt;: <span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> luffy.* <span class="keyword">to</span> <span class="string">&#x27;luffy&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;Luffy123?&#x27;</span>;</span><br><span class="line"></span><br><span class="line">2.由于数据库版本的问题，可能本地还连接不上，就给本地用户单独配置</span><br><span class="line">&gt;: grant all privileges on luffy.* to &#x27;luffy&#x27;@&#x27;localhost&#x27; identified by &#x27;Luffy123?&#x27;;</span><br><span class="line"></span><br><span class="line">3.刷新一下权限</span><br><span class="line">&gt;: flush privileges;</span><br><span class="line"></span><br><span class="line">只能操作luffy数据库的账户</span><br><span class="line">账号：luffy</span><br><span class="line">密码：Luffy123?</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置文件配置"><a href="#配置文件配置" class="headerlink" title="配置文件配置"></a>配置文件配置</h2><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">&#x27;default&#x27;</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;ENGINE&#x27;</span>: <span class="string">&#x27;django.db.backends.mysql&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;NAME&#x27;</span>: <span class="string">&#x27;luffy&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;USER&#x27;</span>: <span class="string">&#x27;luffy&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;PASSWORD&#x27;</span>: <span class="string">&#x27;Luffy123?&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;HOST&#x27;</span>: <span class="string">&#x27;localhost&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;PORT&#x27;</span>: <span class="number">3306</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta"><span class="meta-keyword">import</span> pymysql</span></span><br><span class="line"><span class="meta">pymysql.install_as_MySQLdb()</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Django-2-x-一些版本pymysql兼容问题"><a href="#Django-2-x-一些版本pymysql兼容问题" class="headerlink" title="Django 2.x 一些版本pymysql兼容问题"></a>Django 2.x 一些版本pymysql兼容问题</h2><p>Django不采用2.0.7版本很可能出现以下问题，需要修改源代码</p>
+<p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvq71pgbj310o0foq53.jpg" alt="img"></p>
+<p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvqiznu3j310i0fmgnw.jpg" alt="img"></p>
+<h2 id="user模块User表"><a href="#user模块User表" class="headerlink" title="user模块User表"></a>user模块User表</h2><h3 id="创建user模块"><a href="#创建user模块" class="headerlink" title="创建user模块"></a>创建user模块</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">前提：在 luffy 虚拟环境下</span><br><span class="line"></span><br><span class="line">1.终端从项目根目录进入apps目录</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">: <span class="built_in">cd</span> luffyapi &amp; <span class="built_in">cd</span> apps</span></span><br><span class="line"></span><br><span class="line">2.创建app</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">: python ../../manage.py startapp user</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="创建User表对应的model：user-models-py"><a href="#创建User表对应的model：user-models-py" class="headerlink" title="创建User表对应的model：user/models.py"></a>创建User表对应的model：user/models.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> django.contrib.auth.models <span class="keyword">import</span> AbstractUser</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span>(<span class="params">AbstractUser</span>):</span></span><br><span class="line">    mobile = models.CharField(max_length=<span class="number">11</span>, unique=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># 需要pillow包的支持</span></span><br><span class="line">    icon = models.ImageField(upload_to=<span class="string">&#x27;icon&#x27;</span>, default=<span class="string">&#x27;icon/default.png&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        db_table = <span class="string">&#x27;luffy_user&#x27;</span></span><br><span class="line">        verbose_name = <span class="string">&#x27;用户表&#x27;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.username</span><br></pre></td></tr></table></figure>
+
+<h3 id="注册user模块，配置User表：dev-py"><a href="#注册user模块，配置User表：dev-py" class="headerlink" title="注册user模块，配置User表：dev.py"></a>注册user模块，配置User表：dev.py</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">INSTALLED_APPS</span> = [</span><br><span class="line">    <span class="comment"># ...</span></span><br><span class="line">    <span class="string">&#x27;user&#x27;</span>,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义User表</span></span><br><span class="line"><span class="attr">AUTH_USER_MODEL</span> = <span class="string">&#x27;user.User&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="配置media"><a href="#配置media" class="headerlink" title="配置media"></a>配置media</h3><h4 id="media配置：dev-py"><a href="#media配置：dev-py" class="headerlink" title="media配置：dev.py"></a>media配置：dev.py</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">MEDIA_URL</span> = <span class="string">&#x27;/media/&#x27;</span></span><br><span class="line"><span class="attr">MEDIA_ROOT</span> = os.path.join(BASE_DIR, <span class="string">&#x27;media&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="media目录配置"><a href="#media目录配置" class="headerlink" title="media目录配置"></a>media目录配置</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">├── luffyapi</span></span><br><span class="line"><span class="string">    └──	luffyapi/</span></span><br><span class="line"><span class="string">       	└──	media/  	</span></span><br><span class="line"><span class="string">			└──	icon </span></span><br><span class="line"><span class="string">				└── default.png</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="主路由：luffyapi-urls-py"><a href="#主路由：luffyapi-urls-py" class="headerlink" title="主路由：luffyapi/urls.py"></a>主路由：luffyapi/urls.py</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> <span class="keyword">admin</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> <span class="type">path</span>, re_path, <span class="keyword">include</span></span><br><span class="line"><span class="keyword">from</span> django.views.static <span class="keyword">import</span> serve</span><br><span class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, <span class="keyword">admin</span>.site.urls),</span><br><span class="line"></span><br><span class="line">    path(<span class="string">&#x27;user/&#x27;</span>, <span class="keyword">include</span>(<span class="string">&#x27;user.urls&#x27;</span>)),</span><br><span class="line"></span><br><span class="line">    re_path(<span class="string">&#x27;^media/(?P&lt;path&gt;.*)&#x27;</span>, serve, &#123;<span class="string">&#x27;document_root&#x27;</span>: settings.MEDIA_ROOT&#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="子路由：user-urls-py"><a href="#子路由：user-urls-py" class="headerlink" title="子路由：user/urls.py"></a>子路由：user/urls.py</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> <span class="type">path</span>, <span class="keyword">include</span></span><br><span class="line"><span class="keyword">from</span> utils.router <span class="keyword">import</span> router</span><br><span class="line"></span><br><span class="line"># 注册ViewSet的路由</span><br><span class="line"># router.register()</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;&#x27;</span>, <span class="keyword">include</span>(router.urls)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库迁移"><a href="#数据库迁移" class="headerlink" title="数据库迁移"></a>数据库迁移</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">1）去向大luffyapi所在目录的终端</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2）安装pillow模块</span></span><br><span class="line"><span class="string">pip install pillow</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3）数据库迁移</span></span><br><span class="line"><span class="string">python manage.py makemigrations</span></span><br><span class="line"><span class="string">python manage.py migrate</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpeg" alt="Michaeldong 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpeg" alt="Michaeldong 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%AF%BC%E8%88%AA/" rel="tag"># 导航</a>
+              <a href="/tags/%E5%88%86%E4%BA%AB/" rel="tag"># 分享</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/21/63.vue+drf%E9%A1%B9%E7%9B%AE-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="prev" title="63 vue+drf项目-基础环境配置">
+                  <i class="fa fa-chevron-left"></i> 63 vue+drf项目-基础环境配置
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/07/23/65.vue+drf%E9%A1%B9%E7%9B%AE-%E5%89%8D%E5%8F%B0%E9%85%8D%E7%BD%AE/" rel="next" title="65 vue+drf项目-前台配置">
+                  65 vue+drf项目-前台配置 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Michaeldong</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

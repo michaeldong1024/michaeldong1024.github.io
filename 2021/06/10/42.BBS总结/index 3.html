@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;michaeldong1024.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
+<meta name="description" content="[TOC] 目录1.表关系设计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="42 BBS总结">
+<meta property="og:url" content="https://michaeldong1024.github.io/2021/06/10/42.BBS%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="TsukiBlog">
+<meta property="og:description" content="[TOC] 目录1.表关系设计">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-06-10T05:05:00.000Z">
+<meta property="article:modified_time" content="2021-06-28T10:29:05.614Z">
+<meta property="article:author" content="Michaeldong">
+<meta property="article:tag" content="导航">
+<meta property="article:tag" content="分享">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://michaeldong1024.github.io/2021/06/10/42.BBS%E6%80%BB%E7%BB%93/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;michaeldong1024.github.io&#x2F;2021&#x2F;06&#x2F;10&#x2F;42.BBS%E6%80%BB%E7%BB%93&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;06&#x2F;10&#x2F;42.BBS总结&#x2F;&quot;,&quot;title&quot;:&quot;42 BBS总结&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>42 BBS总结 | TsukiBlog</title><script src="/js/config.js"></script>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">TsukiBlog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-text">目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%A1%A8%E5%85%B3%E7%B3%BB%E8%AE%BE%E8%AE%A1"><span class="nav-text">1.表关系设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-settings%E9%85%8D%E7%BD%AE"><span class="nav-text">2.settings配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-forms%E7%BB%84%E4%BB%B6-%E6%B3%A8%E5%86%8C%E6%A0%A1%E9%AA%8C"><span class="nav-text">3.forms组件(注册校验)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF"><span class="nav-text">4.注册功能前端后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E7%99%BB%E5%BD%95%E5%8A%9F%E8%83%BD%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF"><span class="nav-text">5.登录功能前端后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-admin%E5%90%8E%E5%8F%B0%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-text">6.admin后台添加数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E6%A8%A1%E6%9D%BFbase-html%E5%88%9B%E5%BB%BA"><span class="nav-text">7.模板base.html创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-home%E4%B8%BB%E9%A1%B5%E5%89%8D%E5%90%8E%E7%AB%AF"><span class="nav-text">8.home主页前后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E4%B8%AA%E4%BA%BA%E7%AB%99%E7%82%B9%E5%89%8D%E5%90%8E%E7%AB%AF"><span class="nav-text">9.个人站点前后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10%E6%96%87%E7%AB%A0%E8%AF%A6%E6%83%85%E9%A1%B5%E9%9D%A2%E5%89%8D%E5%90%8E%E7%AB%AF"><span class="nav-text">10文章详情页面前后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E7%82%B9%E8%B5%9E%E7%82%B9%E8%B8%A9%E5%89%8D%E5%90%8E%E7%AB%AF"><span class="nav-text">11.点赞点踩前后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E8%AF%84%E8%AE%BA%E5%9B%9E%E5%A4%8D%E5%8A%9F%E8%83%BD%E5%89%8D%E5%90%8E%E7%AB%AF"><span class="nav-text">12.评论回复功能前后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E5%89%8D%E5%90%8E%E7%AB%AF"><span class="nav-text">13.后台管理前后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%89%8D%E5%90%8E%E7%AB%AF"><span class="nav-text">14.修改密码前后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-%E4%BF%AE%E6%94%B9%E5%A4%B4%E5%83%8F%E5%89%8D%E5%90%8E%E7%AB%AF"><span class="nav-text">15.修改头像前后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E5%89%8D%E5%90%8E%E7%AB%AF"><span class="nav-text">16.添加文章前后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-%E7%BC%96%E8%BE%91%E6%96%87%E7%AB%A0%E5%89%8D%E5%90%8E%E7%AB%AF"><span class="nav-text">17.编辑文章前后端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0%E5%89%8D%E5%90%8E%E7%AB%AF"><span class="nav-text">18.删除文章前后端</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Michaeldong"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Michaeldong</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/michaeldong1024" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;michaeldong1024" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/michaeldong1024" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/06/10/42.BBS%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Michaeldong">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TsukiBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          42 BBS总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-06-10 13:05:00" itemprop="dateCreated datePublished" datetime="2021-06-10T13:05:00+08:00">2021-06-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-06-28 18:29:05" itemprop="dateModified" datetime="2021-06-28T18:29:05+08:00">2021-06-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>[TOC]</p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="1-表关系设计"><a href="#1-表关系设计" class="headerlink" title="1.表关系设计"></a>1.表关系设计</h2><span id="more"></span>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>用户表</span><br><span class="line"><span class="number">2.</span>个人站点表</span><br><span class="line"><span class="number">3.</span>文章表</span><br><span class="line"><span class="number">4.</span>文章分类表</span><br><span class="line"><span class="number">5.</span>文章标签表</span><br><span class="line"><span class="number">6.</span>文章点赞点踩表</span><br><span class="line"><span class="number">7.</span>文章评论表</span><br><span class="line"><span class="number">8.</span>文章和标签关联表</span><br><span class="line"></span><br><span class="line"><span class="comment">####注意</span></span><br><span class="line"><span class="comment">#首先要在settings中配置以下内容</span></span><br><span class="line"> AUTH_USER_MODEL = <span class="string">&#x27;app01.Userinfo&#x27;</span><span class="comment">#指定后台管理user表</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> django.contrib.auth.models <span class="keyword">import</span> AbstractUser</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Userinfo</span>(<span class="params">AbstractUser</span>):</span></span><br><span class="line">    phone = models.BigIntegerField(<span class="string">&#x27;手机号&#x27;</span>,null=<span class="literal">True</span>)</span><br><span class="line">    avatar = models.FileField(<span class="string">&#x27;头像&#x27;</span>, upload_to=<span class="string">&#x27;avatar/&#x27;</span>, default=<span class="string">&#x27;avatar/default.jpg&#x27;</span>)</span><br><span class="line">    create_time = models.DateField(<span class="string">&#x27;注册时间&#x27;</span>, auto_now_add=<span class="literal">True</span>)</span><br><span class="line">    blog = models.OneToOneField(to=<span class="string">&#x27;Site&#x27;</span>, null=<span class="literal">True</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Site</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    site_title = models.CharField(<span class="string">&#x27;站点标题&#x27;</span>, max_length=<span class="number">32</span>)</span><br><span class="line">    site_name = models.CharField(<span class="string">&#x27;站点名称&#x27;</span>, max_length=<span class="number">32</span>)</span><br><span class="line">    site_theme = models.CharField(<span class="string">&#x27;站点样式&#x27;</span>, max_length=<span class="number">32</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Article</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    title = models.CharField(<span class="string">&#x27;文章标题&#x27;</span>, max_length=<span class="number">32</span>)</span><br><span class="line">    desc = models.CharField(<span class="string">&#x27;文章简介&#x27;</span>, max_length=<span class="number">32</span>)</span><br><span class="line">    content = models.TextField(<span class="string">&#x27;文章内容&#x27;</span>)  <span class="comment"># 存储大段文本</span></span><br><span class="line">    create_time = models.DateField(<span class="string">&#x27;创建日期&#x27;</span>,auto_now_add=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># 评论数 点赞数 点踩数  字段优化 避免频繁跨表浪费资源</span></span><br><span class="line">    comment_num = models.IntegerField(<span class="string">&#x27;评论数&#x27;</span>, default=<span class="number">0</span>)</span><br><span class="line">    up_num = models.IntegerField(<span class="string">&#x27;点赞数&#x27;</span>, default=<span class="number">0</span>)</span><br><span class="line">    down_num = models.IntegerField(<span class="string">&#x27;点踩数&#x27;</span>, default=<span class="number">0</span>)</span><br><span class="line">    blog = models.ForeignKey(to=<span class="string">&#x27;Site&#x27;</span>, null=<span class="literal">True</span>) <span class="comment">#与个人站点的外键关联</span></span><br><span class="line">    category = models.ForeignKey(to=<span class="string">&#x27;Category&#x27;</span>, null=<span class="literal">True</span>)</span><br><span class="line">    tag = models.ManyToManyField(to=<span class="string">&#x27;Tag&#x27;</span>, through=<span class="string">&#x27;ArticleToTag&#x27;</span>, through_fields=			(<span class="string">&#x27;article&#x27;</span>, <span class="string">&#x27;tag&#x27;</span>))</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tag</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    name = models.CharField(<span class="string">&#x27;文章标签&#x27;</span>, max_length=<span class="number">32</span>)</span><br><span class="line">    blog = models.ForeignKey(to=<span class="string">&#x27;Site&#x27;</span>, null=<span class="literal">True</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArticleToTag</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    article = models.ForeignKey(to=<span class="string">&#x27;Article&#x27;</span>)</span><br><span class="line">    tag = models.ForeignKey(to=<span class="string">&#x27;Tag&#x27;</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Category</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    name = models.CharField(<span class="string">&#x27;文章分类&#x27;</span>, max_length=<span class="number">32</span>)</span><br><span class="line">    blog = models.ForeignKey(to=<span class="string">&#x27;Site&#x27;</span>, null=<span class="literal">True</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UpAndDown</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    user = models.ForeignKey(to=<span class="string">&#x27;Userinfo&#x27;</span>)</span><br><span class="line">    article = models.ForeignKey(to=<span class="string">&#x27;Article&#x27;</span>)</span><br><span class="line">    is_up = models.BooleanField(<span class="string">&#x27;点赞点踩&#x27;</span>)  <span class="comment"># True/False  1/0</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Comment</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    user = models.ForeignKey(to=<span class="string">&#x27;Userinfo&#x27;</span>)</span><br><span class="line">    article = models.ForeignKey(to=<span class="string">&#x27;Article&#x27;</span>)</span><br><span class="line">    content = models.CharField(<span class="string">&#x27;评论内容&#x27;</span>, max_length=<span class="number">255</span>)</span><br><span class="line">    comment_time = models.DateTimeField(<span class="string">&#x27;评论日期&#x27;</span>,auto_now_add=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># 自关联</span></span><br><span class="line">    parent = models.ForeignKey(to=<span class="string">&#x27;self&#x27;</span>, null=<span class="literal">True</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-settings配置"><a href="#2-settings配置" class="headerlink" title="2.settings配置"></a>2.settings配置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#数据库配置</span></span><br><span class="line">DATABASES = &#123;</span><br><span class="line">  <span class="string">&#x27;default&#x27;</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;ENGINE&#x27;</span>: <span class="string">&#x27;django.db.backends.mysql&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;NAME&#x27;</span>: <span class="string">&#x27;bbs&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;HOST&#x27;</span>: <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;PORT&#x27;</span>: <span class="number">3306</span>,</span><br><span class="line">      <span class="string">&#x27;USER&#x27;</span>: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;PASSWORD&#x27;</span>: <span class="string">&#x27;xxxx&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">STATICFILES_DIRS = [</span><br><span class="line">  os.path.join(BASE_DIR,<span class="string">&#x27;bootstrap&amp;jquery&#x27;</span>),</span><br><span class="line">] <span class="comment"># 静态资源目录配置</span></span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR,<span class="string">&#x27;media&#x27;</span>) <span class="comment">#用户上传的静态资源目录</span></span><br><span class="line">AUTH_USER_MODEL = <span class="string">&#x27;app01.Userinfo&#x27;</span><span class="comment">#指定后台管理user表</span></span><br><span class="line">LOGIN_URL = <span class="string">&#x27;/login/&#x27;</span>  <span class="comment">#login_required全局配置</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-forms组件-注册校验"><a href="#3-forms组件-注册校验" class="headerlink" title="3.forms组件(注册校验)"></a>3.forms组件(注册校验)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* 校验字段：</span><br><span class="line">	username、password、confirm_password、email</span><br><span class="line">* 钩子函数：</span><br><span class="line">  clean_username(校验用户名是否存在)</span><br><span class="line">  clean(校验两次输入的密码是否一致)</span><br></pre></td></tr></table></figure>
+<h2 id="4-注册功能前端后端"><a href="#4-注册功能前端后端" class="headerlink" title="4.注册功能前端后端"></a>4.注册功能前端后端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">前端：</span><br><span class="line">（<span class="number">1</span>）bootstrap.js、jquery、bootstrap.css文件引入</span><br><span class="line">（<span class="number">2</span>）用户头像实时展示</span><br><span class="line">		需要使用js自带的内置对象FileReader()文件阅读器</span><br><span class="line">（<span class="number">3</span>）批量获取用户输入的数据</span><br><span class="line">	serializeArray()</span><br><span class="line">（<span class="number">4</span>）<span class="built_in">input</span> focus removeClass</span><br><span class="line"></span><br><span class="line">form <span class="built_in">id</span>=<span class="string">&quot;myform&quot;</span></span><br><span class="line">	<span class="keyword">for</span> foo <span class="keyword">in</span> form_obj</span><br><span class="line">  	div form-group</span><br><span class="line">    	label</span><br><span class="line">      &#123;&#123; foo &#125;&#125;</span><br><span class="line">      span</span><br><span class="line">  div class=&quot;form-group&quot;</span><br><span class="line">  	label</span><br><span class="line">    	img</span><br><span class="line">    <span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;file&quot;</span> name=<span class="string">&quot;avatar&quot;</span></span><br><span class="line">    <span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;button&quot;</span></span><br><span class="line">后端：</span><br><span class="line">	<span class="number">1.</span>myforms判断POST过来的数据是否合法</span><br><span class="line">  <span class="number">2.</span>从clean_data中获取需要的数据，从request.FIlES中获取提交过来的头像</span><br><span class="line">  <span class="number">3.</span>更新数据库</span><br><span class="line">	返回back_dic、form_obj</span><br></pre></td></tr></table></figure>
+<h2 id="5-登录功能前端后端"><a href="#5-登录功能前端后端" class="headerlink" title="5.登录功能前端后端"></a>5.登录功能前端后端</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#前端：</span></span><br><span class="line">	<span class="number">1.</span>页面展示</span><br><span class="line">	<span class="number">2.</span>验证码点击刷新（绑定click事件）</span><br><span class="line">	<span class="number">3.</span>submit按钮：ajax发送数据</span><br><span class="line">  </span><br><span class="line"><span class="comment">#后端：</span></span><br><span class="line">	<span class="number">1.</span>验证码接口</span><br><span class="line">	2.先判断验证码是否正确 ---&gt; auth.authenticate判断用户名密码 ---&gt; auth.login登录 ---&gt; 判断request.GET中是否有&#x27;NEXT&#x27;参数 ---&gt; 返回back_dic:msg、url</span><br></pre></td></tr></table></figure>
+<h2 id="6-admin后台添加数据"><a href="#6-admin后台添加数据" class="headerlink" title="6.admin后台添加数据"></a>6.admin后台添加数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>admin.py中注册模型表</span><br><span class="line">		admin.site.register(models.UserInfo)</span><br><span class="line"><span class="number">2.</span>admin后台录入文章信息</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="7-模板base-html创建"><a href="#7-模板base-html创建" class="headerlink" title="7.模板base.html创建"></a>7.模板base.html创建</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">html</span><br><span class="line">		head</span><br><span class="line">  			<span class="comment">#1.用户样式展示</span></span><br><span class="line">				&#123;% <span class="keyword">if</span> request.user.is_authenticated %&#125;</span><br><span class="line">        &lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;/media/css/&#123;&#123; blog.site_css &#125;&#125;&quot;</span>&gt;</span><br><span class="line">    		&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">    		<span class="comment">#2.css模板区域</span></span><br><span class="line">    		&#123;% block css %&#125;</span><br><span class="line"></span><br><span class="line">    		&#123;% endblock %&#125;</span><br><span class="line"></span><br><span class="line">body</span><br><span class="line">		<span class="comment">#3.导航条区域</span></span><br><span class="line">		&lt;nav&gt;...&lt;/nav&gt;</span><br><span class="line"></span><br><span class="line">		主体区域</span><br><span class="line">		div</span><br><span class="line">				div	col-md-<span class="number">2</span></span><br><span class="line">      			<span class="comment">#4.左侧面板区域</span></span><br><span class="line">						&#123;% block left %&#125;</span><br><span class="line">				div col-md-<span class="number">10</span></span><br><span class="line">        		<span class="comment">#5.内容区域</span></span><br><span class="line">						&#123;% block content %&#125;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		<span class="comment">#6.修改密码模态框</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#7.设置密码js</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#8.js模板区域</span></span><br><span class="line">    &#123;% block js %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endblock %&#125;</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="8-home主页前后端"><a href="#8-home主页前后端" class="headerlink" title="8.home主页前后端"></a>8.home主页前后端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">左侧端：</span><br><span class="line"></span><br><span class="line">		<span class="comment">#1.左侧面板区域</span></span><br><span class="line">  	&#123;% block left %&#125;</span><br><span class="line">    		class=panel panel-primary</span><br><span class="line">    &#123;% endblock %&#125;</span><br><span class="line">  	<span class="comment">#2.content部分</span></span><br><span class="line">    &#123;% block content %&#125;</span><br><span class="line">    		ul class=&#x27;media-list&#x27;</span><br><span class="line">      			<span class="comment">#注意，这里for循环的对象是article_page，而不是article_list</span></span><br><span class="line">						<span class="keyword">for</span> 循环 article_page</span><br><span class="line">							li class=&#x27;media&#x27;</span><br><span class="line">        				title、头像、文章desc</span><br><span class="line">							div </span><br><span class="line">        				span用户名、点赞点踩数、评论数</span><br><span class="line">       <span class="comment">#3.分页器</span></span><br><span class="line">      		&#123;&#123; page_obj.page_html|safe &#125;&#125;</span><br><span class="line">    &#123;% endblock %&#125;</span><br><span class="line">	</span><br><span class="line">          </span><br><span class="line">  </span><br><span class="line">				</span><br><span class="line">  后端：</span><br><span class="line">		返回文章列表、分页器page_obj</span><br></pre></td></tr></table></figure>
+<h2 id="9-个人站点前后端"><a href="#9-个人站点前后端" class="headerlink" title="9.个人站点前后端"></a>9.个人站点前后端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 前端#############################</span></span><br><span class="line">	<span class="number">1.</span>创建site.html继承base.html模板：</span><br><span class="line">  		&#123;% extends <span class="string">&#x27;base.html&#x27;</span> %&#125;</span><br><span class="line">  <span class="number">2.</span>左侧导航栏区域</span><br><span class="line">  		&#123;% block left %&#125;</span><br><span class="line">    		&#123;% load mytag %&#125;</span><br><span class="line">    		&#123;% left_menu username %&#125;</span><br><span class="line">  <span class="number">3.</span>内容区域block: &#123;% block content %&#125;</span><br><span class="line">  		ul class=&#x27;media-list&#x27;</span><br><span class="line">				<span class="keyword">for</span> article <span class="keyword">in</span> article_list</span><br><span class="line">					li class=&#x27;media&#x27;</span><br><span class="line">        		title、头像、文章desc</span><br><span class="line">					div </span><br><span class="line">        		span用户名、点赞点踩数、评论数</span><br><span class="line">  <span class="number">4.</span>创建left_menu.html(左侧导航代码)</span><br><span class="line">  				<span class="comment"># 分类导航代码</span></span><br><span class="line">  			 &lt;div class=&quot;panel panel-danger&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;panel-heading&quot;&gt;</span><br><span class="line">                    &lt;h3 class=&quot;panel-title&quot;&gt;文章分类&lt;/h3&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;panel-body&quot;&gt;</span><br><span class="line">                    &#123;% <span class="keyword">for</span> category <span class="keyword">in</span> category_list %&#125;</span><br><span class="line">                        &lt;p&gt;&lt;a href=&quot;/&#123;&#123; blog.userinfo.username &#125;&#125;/category/&#123;&#123; category.pk &#125;&#125;&quot;&gt;&#123;&#123; category.name &#125;&#125;(&#123;&#123; category.article_num &#125;&#125;)&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">                    &#123;% endfor %&#125;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 后端################################</span></span><br><span class="line">	<span class="number">1.</span>左侧导航：</span><br><span class="line">		app01 下创建 templatetags/mytag.py</span><br><span class="line">		统计当前用户所有的分类名称（category、tag、date）以及分类下得文章数</span><br><span class="line">    register = Library()</span><br><span class="line"></span><br><span class="line"><span class="meta">@register.inclusion_tag(<span class="params"><span class="string">&#x27;left_menu.html&#x27;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">left_menu</span>(<span class="params">username</span>):</span></span><br><span class="line">    <span class="comment"># 当前用户所有的分类名称以及分类下得文章数</span></span><br><span class="line">    user_obj = models.UserInfo.objects.<span class="built_in">filter</span>(username=username).first()</span><br><span class="line">    blog = user_obj.blog</span><br><span class="line">    category_list = models.Category.objects.<span class="built_in">filter</span>(blog=blog).annotate(article_num=Count(<span class="string">&#x27;article&#x27;</span>)).values(<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;article_num&#x27;</span>,<span class="string">&#x27;pk&#x27;</span>)</span><br><span class="line">    tag_list = models.Tag.objects.<span class="built_in">filter</span>(blog=blog).annotate(article_num=Count(<span class="string">&#x27;article&#x27;</span>)).values(<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;article_num&#x27;</span>,<span class="string">&#x27;pk&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    date_list = models.Article.objects.<span class="built_in">filter</span>(blog=blog).annotate(month=TruncMonth(<span class="string">&#x27;create_time&#x27;</span>)).values(<span class="string">&#x27;month&#x27;</span>).annotate(article_num=Count(<span class="string">&#x27;pk&#x27;</span>)).values(<span class="string">&#x27;month&#x27;</span>,<span class="string">&#x27;article_num&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">locals</span>()</span><br><span class="line">    </span><br><span class="line">  <span class="number">2.</span>site视图函数</span><br><span class="line">  	urls:</span><br><span class="line">    		url(<span class="string">r&#x27;^(?P&lt;username&gt;\w+)/$&#x27;</span>,views.site),</span><br><span class="line">    		url(<span class="string">r&#x27;^(?P&lt;username&gt;\w+)/(?P&lt;condition&gt;category|tag|archive)/(?P&lt;param&gt;.*)/&#x27;</span>,views.site,name=<span class="string">&#x27;filter_view&#x27;</span>),<span class="comment">#分类、标签、日期归档</span></span><br><span class="line">    后端逻辑：</span><br><span class="line">      先校验当前用户是否存在 如果不存在应该返回一个<span class="number">404</span>页面</span><br><span class="line">      针对article_list筛选操作</span><br><span class="line">      这里如何判断是否需要对article_list进行筛选 判断kwargs是否有值</span><br><span class="line">      		获取condition和param参数</span><br><span class="line">        			根据param参数筛选出article_list</span><br><span class="line">    </span><br><span class="line">	</span><br><span class="line">      </span><br><span class="line">      	</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="10文章详情页面前后端"><a href="#10文章详情页面前后端" class="headerlink" title="10文章详情页面前后端"></a>10文章详情页面前后端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#urls</span></span><br><span class="line"> 	url(<span class="string">r&#x27;^(?P&lt;username&gt;\w+)/article/(?P&lt;article_id&gt;\d+)/&#x27;</span>,views.article_detail,name=<span class="string">&#x27;detail_view&#x27;</span>),<span class="comment">#</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">#前端##########</span></span><br><span class="line"> <span class="number">1.</span>左侧导航</span><br><span class="line"> 	&#123;% block left %&#125;</span><br><span class="line">   	&#123;% load mytag %&#125;</span><br><span class="line">   	&#123;% left_menu username %&#125;</span><br><span class="line">	&#123;% endblock %&#125;</span><br><span class="line"> <span class="number">2.</span>css模板区域</span><br><span class="line"> 	点赞点踩csss	</span><br><span class="line"> <span class="number">3.</span>content区域展示</span><br><span class="line"> </span><br><span class="line">	div</span><br><span class="line">   		h2 标题</span><br><span class="line">     	p 文章内容</span><br><span class="line">       点赞点踩功能(copy博客园前端代码)</span><br><span class="line">       评论楼列表(参考博客园展示)</span><br><span class="line">       		ul <span class="built_in">list</span>-group</span><br><span class="line">         		<span class="keyword">for</span> 循环</span><br><span class="line">         			li <span class="built_in">list</span>-group-item(用span标签)</span><br><span class="line">             		<span class="comment">#1楼   2021-06-10 08:09   jason</span></span><br><span class="line">           		</span><br><span class="line">       评论功能</span><br><span class="line">       		先判断用户是否登录</span><br><span class="line">         		发表评论</span><br><span class="line">           	昵称：jason</span><br><span class="line">             评论内容</span><br><span class="line">             <span class="built_in">input</span>框</span><br><span class="line">             提交评论按钮</span><br><span class="line">  <span class="number">4.j</span>s模板区域</span><br><span class="line"> 	&#123;% block js %&#125;</span><br><span class="line">   	<span class="comment">#点赞点踩js</span></span><br><span class="line">     <span class="comment">#评论功能js</span></span><br><span class="line">     <span class="comment">#回复功能js</span></span><br><span class="line">   &#123;% endblock %&#125;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"><span class="comment">#后端##########</span></span><br><span class="line"> 传过来两个参数 username、article_id</span><br><span class="line"> <span class="number">1.</span>先判断用户是否存在，如果不存在，返回错误页面</span><br><span class="line"> <span class="number">2.</span>根据article_id删选出文章</span><br><span class="line"> <span class="number">3.</span>根据article筛选出comment_list</span><br></pre></td></tr></table></figure>
+<h2 id="11-点赞点踩前后端"><a href="#11-点赞点踩前后端" class="headerlink" title="11.点赞点踩前后端"></a>11.点赞点踩前后端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#urls</span></span><br><span class="line"> url(<span class="string">r&#x27;^up_down/&#x27;</span>, views.up_down, name=<span class="string">&#x27;up_down_view&#x27;</span>),</span><br><span class="line"><span class="comment">#前端</span></span><br><span class="line"> $(<span class="string">&#x27;.action&#x27;</span>).click(function () &#123;</span><br><span class="line">            var isUP = $(this).hasClass(<span class="string">&#x27;diggit&#x27;</span>);</span><br><span class="line">            var spanEle = $(this).children();</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                url: <span class="string">&#x27;/up_down/&#x27;</span>,</span><br><span class="line">                <span class="built_in">type</span>: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">                data: &#123;<span class="string">&#x27;article_id&#x27;</span>: <span class="string">&#x27;&#123;&#123; article_obj.pk&#125;&#125;&#x27;</span>, <span class="string">&#x27;is_up&#x27;</span>: isUP, <span class="string">&#x27;csrfmiddlewaretoken&#x27;</span>: <span class="string">&#x27;&#123;&#123; csrf_token &#125;&#125;&#x27;</span>&#125;,</span><br><span class="line">                success: function (data) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (data.code == <span class="number">100</span>) &#123;</span><br><span class="line">                        var oldNum = spanEle.text();</span><br><span class="line">                        spanEle.text(Number(oldNum) + <span class="number">1</span>);</span><br><span class="line">                        $(<span class="string">&#x27;#error&#x27;</span>).html(data.msg)</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        $(<span class="string">&#x27;#error&#x27;</span>).html(data.msg)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">#后端</span></span><br><span class="line">点赞点踩业务逻辑</span><br><span class="line">  <span class="number">1.</span>先校验用户是否登录</span><br><span class="line">  <span class="number">2.</span>判断用户是否已经点过了</span><br><span class="line">  <span class="number">3.</span>判断当前文章是否是当前用户自己写的</span><br><span class="line">  <span class="number">4.</span>操作数据库 更新数据</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-评论回复功能前后端"><a href="#12-评论回复功能前后端" class="headerlink" title="12.评论回复功能前后端"></a>12.评论回复功能前后端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#urls</span></span><br><span class="line">url(<span class="string">r&#x27;^comment/&#x27;</span>, views.comment, name=<span class="string">&#x27;comment_view&#x27;</span>),</span><br><span class="line"></span><br><span class="line"><span class="comment">#前端</span></span><br><span class="line">评论功能逻辑:</span><br><span class="line">  <span class="number">1.</span>设置parent_id = null;</span><br><span class="line">  <span class="number">2.</span>提交评论按钮绑定点击事件</span><br><span class="line">  <span class="number">3.</span>判断parent_id是否有值，如果有截取@username后面的作为评论内容</span><br><span class="line">  <span class="number">4.</span>发送ajax: article_id、content、csrf_token、parent_id</span><br><span class="line">  <span class="number">5.</span>判断返回的状态码，如果成功，将评论框内容置空，并将平内容实时展示到评论列表</span><br><span class="line">  	实时展示的内容格式为：</span><br><span class="line">    	用户名链接</span><br><span class="line">      评论内容</span><br><span class="line"> </span><br><span class="line">回复功能逻辑：</span><br><span class="line">	<span class="number">1.</span>回复按钮绑定点击事件</span><br><span class="line">  <span class="number">2.</span>获取当前回复评论的username属性、comment_id属性作为parent_id</span><br><span class="line">  <span class="number">3.</span>自动拼接评论框内的内容 :<span class="string">&#x27;@&#x27;</span> + targername + <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">  <span class="number">4.</span>将评论内容添加到评论框并把焦点移动到评论框</span><br><span class="line"><span class="comment">#后端</span></span><br><span class="line">	<span class="number">1.</span>request.POST中获取article_id、content、parent_id</span><br><span class="line">  <span class="number">2.</span>数据库更改数据：article中的评论数字段、comment表中添加一条评论记录</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="13-后台管理前后端"><a href="#13-后台管理前后端" class="headerlink" title="13.后台管理前后端"></a>13.后台管理前后端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#urls</span></span><br><span class="line">url(<span class="string">r&#x27;^backend/&#x27;</span>, views.backend),</span><br><span class="line"><span class="comment">#前端</span></span><br><span class="line">	<span class="number">1.</span>创建backend.html继承base.html</span><br><span class="line">	<span class="number">2.</span>左侧面板区域</span><br><span class="line">  	&#123;% block left %&#125;</span><br><span class="line">    	&lt;div class=&quot;panel-group&quot; id=&quot;accordion&quot; role=&quot;tablist&quot; aria-multiselectable=&quot;true&quot;&gt;</span><br><span class="line">      	...</span><br><span class="line">      &lt;/div/</span><br><span class="line">    &#123;% endblock %&#125;</span><br><span class="line">  <span class="number">3.</span>内容区域使用Nav tabs面板，参考bootstrap</span><br><span class="line">  	内容区域(使用table)</span><br><span class="line">  	&lt;table class=&quot;table table-hover table-striped&quot;&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">          &lt;th&gt;标题&lt;/th&gt;</span><br><span class="line">          &lt;th&gt;评论数&lt;/th&gt;</span><br><span class="line">          &lt;th&gt;点赞数&lt;/th&gt;</span><br><span class="line">          &lt;th&gt;时间&lt;/th&gt;</span><br><span class="line">          &lt;th&gt;操作&lt;/th&gt;</span><br><span class="line">          &lt;th&gt;操作&lt;/th&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">      &lt;/thead&gt;</span><br><span class="line"><span class="comment">#后端</span></span><br><span class="line">	<span class="number">1.</span>根据request.user.blog筛选出文章列表</span><br><span class="line">  <span class="number">2.</span>使用分页器，返回page_obj</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="14-修改密码前后端"><a href="#14-修改密码前后端" class="headerlink" title="14.修改密码前后端"></a>14.修改密码前后端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#urls</span></span><br><span class="line"> url(<span class="string">r&#x27;^set_pwd/&#x27;</span>, views.set_pwd, name=<span class="string">&#x27;set_pwd_view&#x27;</span>),</span><br><span class="line"><span class="comment">#前端</span></span><br><span class="line">base页面、模态框形式（参考bootstrap）</span><br><span class="line">	&lt;div class=&quot;modal-body&quot;&gt;</span><br><span class="line">       &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">					用户名、旧密码、新密码、确认密码</span><br><span class="line">      </span><br><span class="line"><span class="comment">#后端</span></span><br><span class="line">	<span class="number">1.</span>先判断原密码是否一致</span><br><span class="line">  	is_right = request.user.check_password(old_password)</span><br><span class="line">  <span class="number">2.</span>再判断两次输入的密码是否一致</span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="15-修改头像前后端"><a href="#15-修改头像前后端" class="headerlink" title="15.修改头像前后端"></a>15.修改头像前后端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#urls</span></span><br><span class="line">  url(<span class="string">r&#x27;^set/avatar/&#x27;</span>,views.set_avatar),</span><br><span class="line"><span class="comment">#前端</span></span><br><span class="line"><span class="number">1.</span>创建set_avatar.html继承base.html</span><br><span class="line"><span class="number">2.</span>左侧面板</span><br><span class="line">	&#123;% block left %&#125;</span><br><span class="line">    &lt;div class=&quot;panel panel-danger&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;panel-heading&quot;&gt;在线直播&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;panel-body&quot;&gt;</span><br><span class="line">            点击就送</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">		...</span><br><span class="line">&#123;% endblock %&#125;</span><br><span class="line"><span class="number">3.</span>content区域</span><br><span class="line">	<span class="comment">#form表单形式提交，enctype=&quot;multipart/form-data</span></span><br><span class="line">	&#123;% block content %&#125;</span><br><span class="line">    &lt;h3&gt;修改头像&lt;/h3&gt;</span><br><span class="line">    &lt;form action=<span class="string">&quot;&quot;</span> method=<span class="string">&quot;post&quot;</span> enctype=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span><br><span class="line">        &#123;% csrf_token %&#125;</span><br><span class="line">        &lt;p&gt;原头像:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            &lt;img src=<span class="string">&quot;/media/&#123;&#123; request.user.avatar &#125;&#125;&quot;</span> alt=<span class="string">&quot;&quot;</span> height=<span class="string">&quot;80px&quot;</span>&gt;</span><br><span class="line">        &lt;/p&gt;</span><br><span class="line">        &lt;p&gt;新头像:</span><br><span class="line">            &lt;label <span class="keyword">for</span>=<span class="string">&quot;myfile&quot;</span>&gt;</span><br><span class="line">                &lt;img src=<span class="string">&quot;/bootstrap&amp;jquery/img/default.jpg&quot;</span> alt=<span class="string">&quot;&quot;</span> height=<span class="string">&quot;80px&quot;</span> style=<span class="string">&quot;margin-left: 20px&quot;</span> <span class="built_in">id</span>=<span class="string">&quot;id_img&quot;</span>&gt;</span><br><span class="line">            &lt;/label&gt;</span><br><span class="line">            &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;file&quot;</span> name=<span class="string">&quot;avatar&quot;</span> <span class="built_in">id</span>=<span class="string">&quot;myfile&quot;</span> style=<span class="string">&quot;display: none&quot;</span>&gt;</span><br><span class="line">        &lt;/p&gt;</span><br><span class="line">        &lt;input type=&quot;submit&quot; class=&quot;btn btn-info&quot;&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br><span class="line"></span><br><span class="line">上传图片的实时展示</span><br><span class="line">	  $(<span class="string">&#x27;#myfile&#x27;</span>).change(function () &#123;</span><br><span class="line">            var fileReader = new FileReader();</span><br><span class="line">            var myFile = $(this)[<span class="number">0</span>].files[<span class="number">0</span>];</span><br><span class="line">            fileReader.readAsDataURL(myFile);</span><br><span class="line">            fileReader.onload = function () &#123;</span><br><span class="line">                $(<span class="string">&#x27;#id_img&#x27;</span>).attr(<span class="string">&#x27;src&#x27;</span>, fileReader.result)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">  <span class="comment">#后端</span></span><br><span class="line">  	获取上传的头像</span><br><span class="line">  		request.FILES.get(<span class="string">&#x27;avatar&#x27;</span>)</span><br><span class="line">    保存</span><br><span class="line">    	user_obj.save()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="16-添加文章前后端"><a href="#16-添加文章前后端" class="headerlink" title="16.添加文章前后端"></a>16.添加文章前后端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#urls</span></span><br><span class="line">url(<span class="string">r&#x27;^add_article/&#x27;</span>,views.add_article,name=<span class="string">&#x27;add_article_view&#x27;</span>),</span><br><span class="line">url(<span class="string">r&#x27;^upload_image/&#x27;</span>,views.upload_image),</span><br><span class="line"><span class="comment">#前端</span></span><br><span class="line">	<span class="number">1.</span>创建add_article.html</span><br><span class="line">  	&#123;% extends <span class="string">&#x27;base.html&#x27;</span> %&#125;</span><br><span class="line">  <span class="number">2.</span>使用form表单提交数据</span><br><span class="line">  <span class="number">3.</span>编辑器</span><br><span class="line">  	&lt;textarea name=&quot;content&quot; id=&quot;editor_id&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;</span><br><span class="line">  <span class="number">4.</span>kindeditor编辑器js</span><br><span class="line">    &#123;% block js %&#125;</span><br><span class="line">    &lt;script charset=&quot;utf-8&quot; src=&quot;/bootstrap&amp;jquery/kindeditor/kindeditor-all-min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        KindEditor.ready(function (K) &#123;</span><br><span class="line">            window.editor = K.create(<span class="string">&#x27;#editor_id&#x27;</span>,&#123;</span><br><span class="line">                width : <span class="string">&#x27;100%&#x27;</span>,</span><br><span class="line">                height: <span class="string">&#x27;450px&#x27;</span>,</span><br><span class="line">                resizeType: <span class="number">1</span>,</span><br><span class="line">                uploadJson : <span class="string">&#x27;/upload_image/&#x27;</span>, // 上传图片的后端提交路径</span><br><span class="line">                extraFileUploadParams : &#123;</span><br><span class="line">                    <span class="string">&#x27;csrfmiddlewaretoken&#x27;</span>: <span class="string">&#x27;&#123;&#123; csrf_token &#125;&#125;&#x27;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">		&#123;% endblock %&#125;</span><br><span class="line">  	</span><br><span class="line"><span class="comment">#后端</span></span><br><span class="line">	get</span><br><span class="line">  	获取当前用户对应的分类列表、标签列表</span><br><span class="line"></span><br><span class="line">  post</span><br><span class="line">    <span class="number">1.</span> 获取 post提交的数据title 、content、category_id、tag_id_list</span><br><span class="line">    <span class="number">2.</span> 使用	BeautifulSoup(content, <span class="string">&#x27;html.parser&#x27;</span>)过滤content中script标签并删除</span><br><span class="line">    <span class="number">3.</span> 截取content的前<span class="number">150</span>个字符作为文章desc</span><br><span class="line">    <span class="number">4.</span> models.Article  create文章</span><br><span class="line">    <span class="number">5.</span> Article2Tag记录增加（使用bulk_create）</span><br><span class="line">    </span><br><span class="line"><span class="comment">#上传图片逻辑(/upload_image/)</span></span><br><span class="line">	<span class="number">1.</span>request.FILES.get 文件对象</span><br><span class="line">  <span class="number">2.</span>手动拼接存储文件的路径</span><br><span class="line">  file_dir = os.path.join(settings.BASE_DIR, <span class="string">&#x27;media&#x27;</span>, <span class="string">&#x27;article_img&#x27;</span>)</span><br><span class="line">  <span class="number">3.</span>优化操作 先判断当前文件夹是否存在 不存在 自动创建</span><br><span class="line">  <span class="number">4.</span>拼接图片的完整路径</span><br><span class="line">    file_path = os.path.join(file_dir, file_obj.name)</span><br><span class="line">  <span class="number">5.</span>返回url路径</span><br><span class="line">  	back_dic[<span class="string">&#x27;url&#x27;</span>] = <span class="string">&#x27;/media/article_img/%s&#x27;</span> % file_obj.name</span><br><span class="line"> 	</span><br><span class="line">		</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="17-编辑文章前后端"><a href="#17-编辑文章前后端" class="headerlink" title="17.编辑文章前后端"></a>17.编辑文章前后端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#urls</span></span><br><span class="line">url(<span class="string">r&#x27;^edit_article/&#x27;</span>, views.edit_article, name=<span class="string">&#x27;edit_article&#x27;</span>),</span><br><span class="line"><span class="comment">#前端</span></span><br><span class="line">	参考add_article页面</span><br><span class="line"><span class="comment">#后端</span></span><br><span class="line">	get</span><br><span class="line">  	获取当前编辑文章的内容：</span><br><span class="line">       当前所编辑的文章对象</span><br><span class="line">       当前用户对应的所有分类列表</span><br><span class="line">       当前用户对应的所有标签列表</span><br><span class="line">       当前编辑文章对应的Article2Tag对象列表</span><br><span class="line">       当前编辑文章已选中的tag</span><br><span class="line">	参考add_article后端逻辑</span><br><span class="line">  post</span><br><span class="line">    <span class="number">1.</span> 获取 post提交的数据title 、content、category_id、tag_id_list</span><br><span class="line">    <span class="number">2.</span> 使用	BeautifulSoup(content, <span class="string">&#x27;html.parser&#x27;</span>)过滤content中script标签并删除</span><br><span class="line">    <span class="number">3.</span> 截取content的前<span class="number">150</span>个字符作为文章desc</span><br><span class="line">    <span class="number">4.</span> 利用transaction更新数据库</span><br><span class="line">    	 先update article表</span><br><span class="line">       先删除文章与标签关系表中的记录，再用bulk_create(因为无法用批量更新)</span><br><span class="line">  	</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="18-删除文章前后端"><a href="#18-删除文章前后端" class="headerlink" title="18.删除文章前后端"></a>18.删除文章前后端</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># urls</span></span><br><span class="line">url(<span class="string">r&#x27;^delete/&#x27;</span>,views.article_delete),</span><br><span class="line"><span class="comment">#前端</span></span><br><span class="line">&lt;td&gt;&lt;a href=&quot;/delete/?id=&#123;&#123; article.pk &#125;&#125;&quot;&gt;删除&lt;/a&gt;&lt;/td&gt;</span><br><span class="line"><span class="comment">#后端</span></span><br><span class="line"><span class="meta">@login_required</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">article_delete</span>(<span class="params">request</span>):</span></span><br><span class="line">    article_id = request.GET.get(<span class="string">&quot;id&quot;</span>)</span><br><span class="line">    models.Article.objects.<span class="built_in">filter</span>(pk=article_id).delete()</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&#x27;/backend/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpeg" alt="Michaeldong 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpeg" alt="Michaeldong 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%AF%BC%E8%88%AA/" rel="tag"># 导航</a>
+              <a href="/tags/%E5%88%86%E4%BA%AB/" rel="tag"># 分享</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/06/09/41.BBS%E7%AC%AC%E4%BA%94%E5%A4%A9/" rel="prev" title="41 BBS第五天">
+                  <i class="fa fa-chevron-left"></i> 41 BBS第五天
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/06/18/43.docker%E9%83%A8%E7%BD%B2nginx+uwsgi+django/" rel="next" title="43 使用docker-compose+nginx+django部署项目">
+                  43 使用docker-compose+nginx+django部署项目 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Michaeldong</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
