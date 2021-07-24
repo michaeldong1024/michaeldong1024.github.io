@@ -20,23 +20,38 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;michaeldong1024.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="TsukiBlog">
-<meta property="og:url" content="https://michaeldong1024.github.io/index.html">
+<meta name="description" content="[TOC] 版本控制器12345678910&quot;&quot;&quot;完成 协同开发 项目，帮助程序员整合代码	i）帮助开发者合并开发的代码	ii）如果出现冲突代码的合并，会提示后提交合并代码的开发者，让其解决冲突软件：SVN 、 GIT（都是同一个人的个人项目）	github、gitee（两个采用git版本控制器管理代码的公共平台）git：集群化、多分支&quot;&quot;&amp;quo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="67 git笔记">
+<meta property="og:url" content="https://michaeldong1024.github.io/2021/07/25/67.git%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="TsukiBlog">
+<meta property="og:description" content="[TOC] 版本控制器12345678910&quot;&quot;&quot;完成 协同开发 项目，帮助程序员整合代码	i）帮助开发者合并开发的代码	ii）如果出现冲突代码的合并，会提示后提交合并代码的开发者，让其解决冲突软件：SVN 、 GIT（都是同一个人的个人项目）	github、gitee（两个采用git版本控制器管理代码的公共平台）git：集群化、多分支&quot;&quot;&amp;quo">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvsye2khj30kj0a6mx3.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvt8t61hj30m10da3yk.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvthch46j30wv0ejmy1.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvtl4jlnj30wc08naad.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvtp3d2zj310v0bmq3h.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvvjqhlmj30lq0fu764.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggqvv9ms1qj30ui0e10tr.jpg">
+<meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvuzs6vtj30xc0e5q4o.jpg">
+<meta property="article:published_time" content="2021-07-25T05:05:00.000Z">
+<meta property="article:modified_time" content="2021-07-22T09:00:20.636Z">
 <meta property="article:author" content="Michaeldong">
+<meta property="article:tag" content="导航">
+<meta property="article:tag" content="分享">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvsye2khj30kj0a6mx3.jpg">
 
 
-<link rel="canonical" href="https://michaeldong1024.github.io/">
+<link rel="canonical" href="https://michaeldong1024.github.io/2021/07/25/67.git%E7%AC%94%E8%AE%B0/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:true,&quot;isPost&quot;:false,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:&quot;&quot;,&quot;permalink&quot;:&quot;&quot;,&quot;path&quot;:&quot;index.html&quot;,&quot;title&quot;:&quot;&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;michaeldong1024.github.io&#x2F;2021&#x2F;07&#x2F;25&#x2F;67.git%E7%AC%94%E8%AE%B0&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;07&#x2F;25&#x2F;67.git笔记&#x2F;&quot;,&quot;title&quot;:&quot;67 git笔记&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
-<title>TsukiBlog</title><script src="/js/config.js"></script>
+<title>67 git笔记 | TsukiBlog</title><script src="/js/config.js"></script>
   
 
 
@@ -127,7 +142,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -140,6 +155,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-text">版本控制器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git"><span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git%E4%B8%8Esvn%E6%AF%94%E8%BE%83"><span class="nav-text">git与svn比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-text">git的工作流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E5%BA%93%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-text">版本库间的通信</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="nav-text">git分支管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E4%BD%BF%E7%94%A8"><span class="nav-text">git使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%EF%BC%88%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93%EF%BC%89"><span class="nav-text">流程（核心总结）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="nav-text">基础命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%86%E5%B7%B2%E6%9C%89%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9-%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%BAgit%E4%BB%93%E5%BA%93"><span class="nav-text">将已有的文件夹 - 初始化为git仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95%E4%B8%8B-%E5%88%9D%E5%A7%8B%E5%8C%96git%E4%BB%93%E5%BA%93"><span class="nav-text">在指定目录下 - 初始化git仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8%E4%BB%93%E5%BA%93%E7%9B%AE%E5%BD%95%E7%BB%88%E7%AB%AF%E4%B8%8B-%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80%E7%94%A8%E6%88%B7"><span class="nav-text">在仓库目录终端下 - 设置全局用户</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8%E4%BB%93%E5%BA%93%E7%9B%AE%E5%BD%95%E7%BB%88%E7%AB%AF%E4%B8%8B-%E8%AE%BE%E7%BD%AE%E5%B1%80%E9%83%A8%E7%94%A8%E6%88%B7"><span class="nav-text">在仓库目录终端下 - 设置局部用户</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E4%BB%93%E5%BA%93%E7%8A%B6%E6%80%81"><span class="nav-text">查看仓库状态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA%E6%93%8D%E4%BD%9C"><span class="nav-text">工作区操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E5%B7%A5%E4%BD%9C%E5%8C%BA%E6%93%8D%E4%BD%9C%EF%BC%9A%E6%94%B9%E3%80%81%E5%88%A0%EF%BC%88%E4%BA%86%E8%A7%A3%EF%BC%89"><span class="nav-text">撤销工作区操作：改、删（了解）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%86%85%E5%AE%B9%E6%8F%90%E4%BA%A4%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="nav-text">工作区内容提交到暂存区</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E6%9A%82%E5%AD%98%E5%8C%BA%E6%8F%90%E4%BA%A4%EF%BC%9Aadd%E7%9A%84%E9%80%86%E8%BF%90%E7%AE%97%EF%BC%88%E5%BE%88%E5%B0%91%E4%BD%BF%E7%94%A8%EF%BC%89"><span class="nav-text">撤销暂存区提交：add的逆运算（很少使用）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E6%9A%82%E5%AD%98%E5%8C%BA%E5%86%85%E5%AE%B9%E5%88%B0%E7%89%88%E6%9C%AC%E5%BA%93"><span class="nav-text">提交暂存区内容到版本库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E7%89%88%E6%9C%AC%E5%BA%93%E6%8F%90%E4%BA%A4%EF%BC%9Acommit%E7%9A%84%E9%80%86%E8%BF%90%E7%AE%97"><span class="nav-text">撤销版本库提交：commit的逆运算</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%BB%A4%E6%96%87%E4%BB%B6"><span class="nav-text">过滤文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91"><span class="nav-text">多分支开发</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="nav-text">分支操作</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8Bgit%E5%BC%80%E5%8F%91"><span class="nav-text">远程git开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%9C%AC%E5%9C%B0%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%90%8C%E6%AD%A5"><span class="nav-text">两种本地与远程仓库同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remote%E6%BA%90%E6%93%8D%E4%BD%9C"><span class="nav-text">remote源操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%87%E7%94%A8ssh%E5%8D%8F%E8%AE%AE%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%BA%90"><span class="nav-text">采用ssh协议连接远程源</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%94%B5%E8%84%91%E7%9A%84%E5%85%AC%E9%92%A5%E7%A7%81%E9%92%A5"><span class="nav-text">创建电脑的公钥私钥</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-text">提交本地代码到远程仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E5%85%B6%E4%BB%96%E7%A0%81%E4%BA%91%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85"><span class="nav-text">如何成为其他码云项目的开发者</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E5%85%AC%E5%8F%B8%E8%87%AA%E5%BB%BAgit%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%BC%80%E5%8F%91%E8%80%85"><span class="nav-text">如何成为公司自建git服务器的开发者</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%8F%E5%90%8C%E5%BC%80%E5%8F%91"><span class="nav-text">协同开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3"><span class="nav-text">冲突解决</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E4%B8%8A%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6"><span class="nav-text">线上分支合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%9B%9E%E6%BB%9A"><span class="nav-text">远程仓库回滚</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -201,16 +217,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/25/67.git%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -223,9 +240,9 @@
       <meta itemprop="name" content="TsukiBlog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/25/67.git%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">67 git笔记</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          67 git笔记
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -268,7 +285,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
+        <p>[TOC]</p>
 <h2 id="版本控制器"><a href="#版本控制器" class="headerlink" title="版本控制器"></a>版本控制器</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">完成 协同开发 项目，帮助程序员整合代码</span></span><br><span class="line"><span class="string">	i）帮助开发者合并开发的代码</span></span><br><span class="line"><span class="string">	ii）如果出现冲突代码的合并，会提示后提交合并代码的开发者，让其解决冲突</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">软件：SVN 、 GIT（都是同一个人的个人项目）</span></span><br><span class="line"><span class="string">	github、gitee（两个采用git版本控制器管理代码的公共平台）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">git：集群化、多分支</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">什么是git：版本控制器 - 控制的对象是开发的项目代码</span></span><br><span class="line"><span class="string">代码开发时间轴：需求1 =&gt; 版本库1 ==&gt; 需求2 =&gt; 版本库2 =&gt; 版本库3(版本库1) =&gt; 版本库4(版本库2) </span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
@@ -328,7 +345,6 @@
 
 <h3 id="线上分支合并"><a href="#线上分支合并" class="headerlink" title="线上分支合并"></a>线上分支合并</h3><p><img src="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvuzs6vtj30xc0e5q4o.jpg" alt="img"></p>
 <h3 id="远程仓库回滚"><a href="#远程仓库回滚" class="headerlink" title="远程仓库回滚"></a>远程仓库回滚</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">用dev分支举例</span></span><br><span class="line"><span class="string">1）本地切换到远程要回滚的分支对应的本地分支</span></span><br><span class="line"><span class="string">git checkout dev</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2）回滚本地分支</span></span><br><span class="line"><span class="string">git reset --hard 版本号</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3）本地版本强行提交给服务器</span></span><br><span class="line"><span class="string">git push origin dev -f</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
@@ -336,284 +352,40 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpeg" alt="Michaeldong 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpeg" alt="Michaeldong 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
 </div>
 
+          <div class="post-tags">
+              <a href="/tags/%E5%AF%BC%E8%88%AA/" rel="tag"># 导航</a>
+              <a href="/tags/%E5%88%86%E4%BA%AB/" rel="tag"># 分享</a>
+          </div>
 
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/24/66.vue+drf%E9%A1%B9%E7%9B%AE-%E5%90%8E%E5%8F%B0%E4%B8%BB%E9%A1%B5%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/24/66.vue+drf%E9%A1%B9%E7%9B%AE-%E5%90%8E%E5%8F%B0%E4%B8%BB%E9%A1%B5%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">66 vue+drf项目-后台主页设计</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-24 13:05:00" itemprop="dateCreated datePublished" datetime="2021-07-24T13:05:00+08:00">2021-07-24</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-20 15:05:22" itemprop="dateModified" datetime="2021-07-20T15:05:22+08:00">2021-07-20</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">项目实战</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h1 id="9-后台主页模块设计"><a href="#9-后台主页模块设计" class="headerlink" title="9.后台主页模块设计"></a>9.后台主页模块设计</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/24/66.vue+drf%E9%A1%B9%E7%9B%AE-%E5%90%8E%E5%8F%B0%E4%B8%BB%E9%A1%B5%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/23/65.vue+drf%E9%A1%B9%E7%9B%AE-%E5%89%8D%E5%8F%B0%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/23/65.vue+drf%E9%A1%B9%E7%9B%AE-%E5%89%8D%E5%8F%B0%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">65 vue+drf项目-前台配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-23 13:05:00" itemprop="dateCreated datePublished" datetime="2021-07-23T13:05:00+08:00">2021-07-23</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-20 15:53:08" itemprop="dateModified" datetime="2021-07-20T15:53:08+08:00">2021-07-20</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">项目实战</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h1 id="6-前台"><a href="#6-前台" class="headerlink" title="6.前台"></a>6.前台</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/23/65.vue+drf%E9%A1%B9%E7%9B%AE-%E5%89%8D%E5%8F%B0%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/24/66.vue+drf%E9%A1%B9%E7%9B%AE-%E5%90%8E%E5%8F%B0%E4%B8%BB%E9%A1%B5%E9%85%8D%E7%BD%AE/" rel="prev" title="66 vue+drf项目-后台主页设计">
+                  <i class="fa fa-chevron-left"></i> 66 vue+drf项目-后台主页设计
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/22/64.vue+drf%E9%A1%B9%E7%9B%AE-%E5%90%8E%E5%8F%B0%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/22/64.vue+drf%E9%A1%B9%E7%9B%AE-%E5%90%8E%E5%8F%B0%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">64 vue+drf项目-后台配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-22 13:05:00" itemprop="dateCreated datePublished" datetime="2021-07-22T13:05:00+08:00">2021-07-22</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-20 15:04:30" itemprop="dateModified" datetime="2021-07-20T15:04:30+08:00">2021-07-20</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">项目实战</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h1 id="3-后台：Django项目创建"><a href="#3-后台：Django项目创建" class="headerlink" title="3.后台：Django项目创建"></a>3.后台：Django项目创建</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/22/64.vue+drf%E9%A1%B9%E7%9B%AE-%E5%90%8E%E5%8F%B0%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+            <div class="post-nav-item">
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          </div>
     </footer>
   </article>
 </div>
@@ -621,553 +393,7 @@
 
 
 
-    
 
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/21/63.vue+drf%E9%A1%B9%E7%9B%AE-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/21/63.vue+drf%E9%A1%B9%E7%9B%AE-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">63 vue+drf项目-基础环境配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-21 13:05:00" itemprop="dateCreated datePublished" datetime="2021-07-21T13:05:00+08:00">2021-07-21</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-20 15:04:08" itemprop="dateModified" datetime="2021-07-20T15:04:08+08:00">2021-07-20</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">项目实战</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h1 id="1-基础环境配置"><a href="#1-基础环境配置" class="headerlink" title="1.基础环境配置"></a>1.基础环境配置</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/21/63.vue+drf%E9%A1%B9%E7%9B%AE-%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/20/62.Vue%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A1%86%E6%9E%B6%E4%B9%8BElementUI/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/20/62.Vue%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A1%86%E6%9E%B6%E4%B9%8BElementUI/" class="post-title-link" itemprop="url">62 Vue第三方框架之ElementUI</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-07-20 13:05:00 / 修改时间：08:54:56" itemprop="dateCreated datePublished" datetime="2021-07-20T13:05:00+08:00">2021-07-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="热门组件库"><a href="#热门组件库" class="headerlink" title="热门组件库"></a>热门组件库</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/20/62.Vue%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A1%86%E6%9E%B6%E4%B9%8BElementUI/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/19/61.Vue%E6%8F%92%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/19/61.Vue%E6%8F%92%E4%BB%B6/" class="post-title-link" itemprop="url">61 Vue插件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-19 13:05:00" itemprop="dateCreated datePublished" datetime="2021-07-19T13:05:00+08:00">2021-07-19</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-14 15:06:42" itemprop="dateModified" datetime="2021-07-14T15:06:42+08:00">2021-07-14</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="项目功能插件"><a href="#项目功能插件" class="headerlink" title="项目功能插件"></a>项目功能插件</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/19/61.Vue%E6%8F%92%E4%BB%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/18/60.Vue-cli/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/18/60.Vue-cli/" class="post-title-link" itemprop="url">60 Vue-cli</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-18 13:05:00" itemprop="dateCreated datePublished" datetime="2021-07-18T13:05:00+08:00">2021-07-18</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-14 15:03:34" itemprop="dateModified" datetime="2021-07-14T15:03:34+08:00">2021-07-14</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h1 id="Vue-CLI-项目搭建"><a href="#Vue-CLI-项目搭建" class="headerlink" title="Vue-CLI 项目搭建"></a>Vue-CLI 项目搭建</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/18/60.Vue-cli/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/17/59.Vue%E8%BF%9B%E9%98%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/17/59.Vue%E8%BF%9B%E9%98%B6/" class="post-title-link" itemprop="url">59 Vue进阶</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-17 13:05:00" itemprop="dateCreated datePublished" datetime="2021-07-17T13:05:00+08:00">2021-07-17</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-14 15:03:06" itemprop="dateModified" datetime="2021-07-14T15:03:06+08:00">2021-07-14</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h2 id="1-slot插槽-内容分发"><a href="#1-slot插槽-内容分发" class="headerlink" title="1 slot插槽 (内容分发)"></a>1 slot插槽 (内容分发)</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/17/59.Vue%E8%BF%9B%E9%98%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/07/16/58.Vue%E7%BB%84%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Michaeldong">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="TsukiBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/07/16/58.Vue%E7%BB%84%E4%BB%B6/" class="post-title-link" itemprop="url">58 Vue组件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-07-16 13:05:00" itemprop="dateCreated datePublished" datetime="2021-07-16T13:05:00+08:00">2021-07-16</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-15 15:31:45" itemprop="dateModified" datetime="2021-07-15T15:31:45+08:00">2021-07-15</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">Python之路</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E4%B9%8B%E8%B7%AF/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>[TOC]</p>
-<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/07/16/58.Vue%E7%BB%84%E4%BB%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 <script src="/js/comments.js"></script>
 </div>
   </main>
