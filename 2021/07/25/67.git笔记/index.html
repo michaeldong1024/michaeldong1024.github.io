@@ -20,12 +20,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;michaeldong1024.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.3.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:true,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;},&quot;path&quot;:&quot;&#x2F;search.xml&quot;,&quot;localsearch&quot;:{&quot;enable&quot;:true,&quot;trigger&quot;:&quot;auto&quot;,&quot;top_n_per_article&quot;:1,&quot;unescape&quot;:false,&quot;preload&quot;:false}}</script>
-<meta name="description" content="[TOC] 版本控制器12345678910&quot;&quot;&quot;完成 协同开发 项目，帮助程序员整合代码	i）帮助开发者合并开发的代码	ii）如果出现冲突代码的合并，会提示后提交合并代码的开发者，让其解决冲突软件：SVN 、 GIT（都是同一个人的个人项目）	github、gitee（两个采用git版本控制器管理代码的公共平台）git：集群化、多分支&quot;&quot;&amp;quo">
+<meta name="description" content="[TOC] 版本控制器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="67 git笔记">
 <meta property="og:url" content="https://michaeldong1024.github.io/2021/07/25/67.git%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="TsukiBlog">
-<meta property="og:description" content="[TOC] 版本控制器12345678910&quot;&quot;&quot;完成 协同开发 项目，帮助程序员整合代码	i）帮助开发者合并开发的代码	ii）如果出现冲突代码的合并，会提示后提交合并代码的开发者，让其解决冲突软件：SVN 、 GIT（都是同一个人的个人项目）	github、gitee（两个采用git版本控制器管理代码的公共平台）git：集群化、多分支&quot;&quot;&amp;quo">
+<meta property="og:description" content="[TOC] 版本控制器">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvsye2khj30kj0a6mx3.jpg">
 <meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvt8t61hj30m10da3yk.jpg">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggqvv9ms1qj30ui0e10tr.jpg">
 <meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1ggqvuzs6vtj30xc0e5q4o.jpg">
 <meta property="article:published_time" content="2021-07-25T05:05:00.000Z">
-<meta property="article:modified_time" content="2021-07-22T09:00:20.636Z">
+<meta property="article:modified_time" content="2021-08-01T06:58:45.936Z">
 <meta property="article:author" content="Michaeldong">
 <meta property="article:tag" content="导航">
 <meta property="article:tag" content="分享">
@@ -171,7 +171,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -259,7 +259,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-07-22 17:00:20" itemprop="dateModified" datetime="2021-07-22T17:00:20+08:00">2021-07-22</time>
+        <time title="修改时间：2021-08-01 14:58:45" itemprop="dateModified" datetime="2021-08-01T14:58:45+08:00">2021-08-01</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -286,7 +286,9 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>[TOC]</p>
-<h2 id="版本控制器"><a href="#版本控制器" class="headerlink" title="版本控制器"></a>版本控制器</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">完成 协同开发 项目，帮助程序员整合代码</span></span><br><span class="line"><span class="string">	i）帮助开发者合并开发的代码</span></span><br><span class="line"><span class="string">	ii）如果出现冲突代码的合并，会提示后提交合并代码的开发者，让其解决冲突</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">软件：SVN 、 GIT（都是同一个人的个人项目）</span></span><br><span class="line"><span class="string">	github、gitee（两个采用git版本控制器管理代码的公共平台）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">git：集群化、多分支</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="版本控制器"><a href="#版本控制器" class="headerlink" title="版本控制器"></a>版本控制器</h2><span id="more"></span>
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">完成 协同开发 项目，帮助程序员整合代码</span></span><br><span class="line"><span class="string">	i）帮助开发者合并开发的代码</span></span><br><span class="line"><span class="string">	ii）如果出现冲突代码的合并，会提示后提交合并代码的开发者，让其解决冲突</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">软件：SVN 、 GIT（都是同一个人的个人项目）</span></span><br><span class="line"><span class="string">	github、gitee（两个采用git版本控制器管理代码的公共平台）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">git：集群化、多分支</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">什么是git：版本控制器 - 控制的对象是开发的项目代码</span></span><br><span class="line"><span class="string">代码开发时间轴：需求1 =&gt; 版本库1 ==&gt; 需求2 =&gt; 版本库2 =&gt; 版本库3(版本库1) =&gt; 版本库4(版本库2) </span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -384,6 +386,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/07/26/68.redis%E7%AC%94%E8%AE%B0/" rel="next" title="68 redis笔记">
+                  68 redis笔记 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
