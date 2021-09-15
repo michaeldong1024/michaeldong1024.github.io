@@ -23,7 +23,7 @@
 <meta name="description" content="[TOC] 1-Web应用一 Web应用程序是什么Web应用程序是一种可以通过Web访问的应用程序，程序的最大好处是用户很容易访问应用程序，用户只需要有浏览器即可，不需要再安装其他软件 应用程序有两种模式C&#x2F;S、B&#x2F;S。C&#x2F;S是客户端&#x2F;服务器端程序，也就是说这类程序一般独立运行。而B&#x2F;S就是浏览器端&#x2F;服务器端应用程序，这类应用程序一般借助IE等浏览器来运行。WEB应用程序一般是B&#x2F;S模式。Web应">
 <meta property="og:type" content="article">
 <meta property="og:title" content="24 Django入门">
-<meta property="og:url" content="https://michaeldong1024.github.io/2021/05/17/24.Django%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:url" content="https://michaeldong1024.github.io/2021/05/17/1.Django%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="TsukiBlog">
 <meta property="og:description" content="[TOC] 1-Web应用一 Web应用程序是什么Web应用程序是一种可以通过Web访问的应用程序，程序的最大好处是用户很容易访问应用程序，用户只需要有浏览器即可，不需要再安装其他软件 应用程序有两种模式C&#x2F;S、B&#x2F;S。C&#x2F;S是客户端&#x2F;服务器端程序，也就是说这类程序一般独立运行。而B&#x2F;S就是浏览器端&#x2F;服务器端应用程序，这类应用程序一般借助IE等浏览器来运行。WEB应用程序一般是B&#x2F;S模式。Web应">
 <meta property="og:locale" content="zh_CN">
@@ -43,7 +43,7 @@
 <meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1gj1w38w557j30ru04m0ue.jpg">
 <meta property="og:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1gj1w4rqes4j31jm0owgsg-20210824164644207.jpg">
 <meta property="article:published_time" content="2021-05-17T05:05:00.000Z">
-<meta property="article:modified_time" content="2021-08-24T08:51:38.359Z">
+<meta property="article:modified_time" content="2021-08-29T12:00:02.187Z">
 <meta property="article:author" content="Michaeldong">
 <meta property="article:tag" content="导航">
 <meta property="article:tag" content="分享">
@@ -51,11 +51,11 @@
 <meta name="twitter:image" content="https://gitee.com/gtdong/images/raw/master/blog/007S8ZIlgy1gj1v3zrxr6j30t008gn1y.jpg">
 
 
-<link rel="canonical" href="https://michaeldong1024.github.io/2021/05/17/24.Django%E5%85%A5%E9%97%A8/">
+<link rel="canonical" href="https://michaeldong1024.github.io/2021/05/17/1.Django%E5%85%A5%E9%97%A8/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;michaeldong1024.github.io&#x2F;2021&#x2F;05&#x2F;17&#x2F;24.Django%E5%85%A5%E9%97%A8&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;17&#x2F;24.Django入门&#x2F;&quot;,&quot;title&quot;:&quot;24 Django入门&quot;}</script>
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;michaeldong1024.github.io&#x2F;2021&#x2F;05&#x2F;17&#x2F;1.Django%E5%85%A5%E9%97%A8&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;17&#x2F;1.Django入门&#x2F;&quot;,&quot;title&quot;:&quot;24 Django入门&quot;}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
 <title>24 Django入门 | TsukiBlog</title><script src="/js/config.js"></script>
@@ -178,7 +178,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -235,7 +235,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/17/24.Django%E5%85%A5%E9%97%A8/">
+    <link itemprop="mainEntityOfPage" href="https://michaeldong1024.github.io/2021/05/17/1.Django%E5%85%A5%E9%97%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -266,7 +266,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-24 16:51:38" itemprop="dateModified" datetime="2021-08-24T16:51:38+08:00">2021-08-24</time>
+        <time title="修改时间：2021-08-29 20:00:02" itemprop="dateModified" datetime="2021-08-29T20:00:02+08:00">2021-08-29</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -476,7 +476,7 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/05/18/25.Django%E8%BF%9B%E9%98%B6-%E8%B7%AF%E7%94%B1%E8%A7%86%E5%9B%BE%E6%A8%A1%E6%9D%BF%E5%B1%82/" rel="next" title="25 Django路由视图模板层">
+                <a href="/2021/05/18/2.Django%E8%BF%9B%E9%98%B6-%E8%B7%AF%E7%94%B1%E8%A7%86%E5%9B%BE%E6%A8%A1%E6%9D%BF%E5%B1%82/" rel="next" title="25 Django路由视图模板层">
                   25 Django路由视图模板层 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
